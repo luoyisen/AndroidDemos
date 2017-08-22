@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     private Button button_to;
@@ -25,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.button_to).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Toast.makeText(MainActivity.this, "MainActivity发送通知了", Toast.LENGTH_SHORT).show();
                 MyObserverable.getObserverable().setMessage(edit_query.getText().toString());//用来发送通知
             }
         });
