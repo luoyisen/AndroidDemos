@@ -1,6 +1,5 @@
 package com.example.i.observerpatterndemo.callbackdemo;
 
-import android.content.Context;
 import android.util.Log;
 
 import java.util.Timer;
@@ -11,7 +10,6 @@ import java.util.TimerTask;
  */
 
 public class Customer implements CallBackPhoneNumber {
-    private Context context;
     private boolean soldout = true;//假定iPhone已经卖光了
     private SalesMan salesMan;
     private Timer timer;
