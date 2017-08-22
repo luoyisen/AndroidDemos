@@ -1,5 +1,4 @@
-package com.example.i.observerpatterndemo;
-
+package com.example.i.observerpatterndemo.observerpatterndemo;
 
 
 /**
