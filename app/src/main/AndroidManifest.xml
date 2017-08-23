@@ -17,6 +17,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".callbackdemo.CallBackActivity" />
+        <activity android:name=".eventdispatchdemo.EventDispatchActivity" />
+        <activity android:name=".Interreactcomponent.ComponentIntereactActivity" />
     </application>
 
 </manifest>

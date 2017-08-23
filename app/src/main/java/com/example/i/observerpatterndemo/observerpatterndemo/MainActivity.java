@@ -13,8 +13,10 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.example.i.observerpatterndemo.Interreactcomponent.ComponentIntereactActivity;
 import com.example.i.observerpatterndemo.R;
 import com.example.i.observerpatterndemo.callbackdemo.CallBackActivity;
+import com.example.i.observerpatterndemo.eventdispatchdemo.EventDispatchActivity;
 
 public class MainActivity extends Activity {
     private Button button_to;
@@ -47,6 +49,12 @@ public class MainActivity extends Activity {
                 switch (item.getItemId()) {
                     case R.id.huidiao:
                         startActivity(new Intent(MainActivity.this, CallBackActivity.class));
+                        break;
+                    case R.id.eventdiapatch:
+                        startActivity(new Intent(MainActivity.this, EventDispatchActivity.class));
+                        break;
+                    case R.id.componentinterreact:
+                        startActivity(new Intent(MainActivity.this, ComponentIntereactActivity.class));
                         break;
                 }
                 return false;

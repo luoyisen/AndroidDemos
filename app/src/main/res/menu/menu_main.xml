@@ -2,12 +2,12 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/huidiao"
-        android:title="回调activity" />
+        android:title="回调" />
 
     <item
-        android:id="@+id/create_new"
-        android:title="ss" />
+        android:id="@+id/eventdiapatch"
+        android:title="事件分发" />
     <item
-        android:id="@+id/open"
-        android:title="pen" />
+        android:id="@+id/componentinterreact"
+        android:title="组件交互" />
 </menu>

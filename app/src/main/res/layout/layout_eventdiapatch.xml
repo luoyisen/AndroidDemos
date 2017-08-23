@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.example.i.observerpatterndemo.eventdispatchdemo.MyViewGroup
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorAccent">
+
+            <Button
+                android:id="@+id/btn_clickme"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="点我啊"
+                android:textColor="@color/colorPrimary"
+                android:background="@android:color/white" />
+        </com.example.i.observerpatterndemo.eventdispatchdemo.MyViewGroup>
+    </RelativeLayout>
+</LinearLayout>
