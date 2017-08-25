@@ -1,14 +1,17 @@
 package com.example.i.observerpatterndemo.Interreactcomponent;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.i.observerpatterndemo.Interreactcomponent.FragmentToActivity.FragmentLogin;
 import com.example.i.observerpatterndemo.R;
+import com.example.i.observerpatterndemo.adapter.BaseRVAdapter;
+import com.example.i.observerpatterndemo.base.BaseActivityWithRV;
+
+import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
 
@@ -16,47 +19,99 @@ import java.util.ArrayList;
  * Created by I on 2017/8/23.
  */
 
-public class ComponentIntereactActivity extends AppCompatActivity {
+/**
+ * show()，hide()最终是让Fragment的View setVisibility(true还是false)，不会调用生命周期；
+ * replace()的话会销毁视图，即调用onDestoryView、onCreateView等一系列生命周期；
+ * add()和 replace()不要在同一个阶级的FragmentManager里混搭使用。
+ * 如果你有一个很高的概率会再次使用当前的Fragment，建议使用show()，hide()，可以提高性能。
+ * 在我使用Fragment过程中，大部分情况下都是用show()，hide()，而不是replace()。
+ * 注意：如果你的app有大量图片，这时更好的方式可能是replace，配合你的图片框架在Fragment视图销毁时，回收其图片所占的内存。
+ */
+public class ComponentIntereactActivity extends BaseActivityWithRV implements FragmentLogin.MyListener {
     private ArrayList arrayList;
-    private RecyclerView recyclerview_interreact;
-    private InterreactAdapter adapter;
-    private RecyclerView.LayoutManager mLayoutManager;
+    private RelativeLayout container;
+    private boolean isfirstclickback = true;
+    FragmentLogin fragmentLogin;
+    private TextView text_showmessage;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.layout_componentintereactactivity);
-        recyclerview_interreact = (RecyclerView) findViewById(R.id.recyclerview_interreact);
+        //因为baseActivityWithRecyclerView已经设置了布局文件，不用再次setcontentview
+        container = (RelativeLayout) findViewById(R.id.container);
+        text_showmessage = (TextView) findViewById(R.id.text_showmessage);
+        text_showmessage.setVisibility(View.VISIBLE);
         arrayList = new ArrayList();
-        mLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
-        arrayList.add("接口实现Fragment和Activity通信");
-        arrayList.add("B");
-        arrayList.add("C");
-        arrayList.add("C");
-        arrayList.add("C");
-        arrayList.add("C");
-        arrayList.add("C");
-        arrayList.add("C");
-        arrayList.add("C");
-        arrayList.add("C");
-        arrayList.add("C");
-        arrayList.add("C");
-        adapter = new InterreactAdapter(arrayList);
-        recyclerview_interreact.setLayoutManager(mLayoutManager);//必须设置
-        recyclerview_interreact.setAdapter(adapter);
-        recyclerview_interreact.addItemDecoration(new InterreactDecoration(this, LinearLayoutManager.VERTICAL));
-        adapter.setOnItemClickListener(new InterreactAdapter.OnItemClickListener() {
+        arrayList.add("接口实现Fragment和包含该Fragment的Activity通信 \n" +
+                "(仅限于该Fragment和包含它的Activity之间)");
+        arrayList.add("Activity之间通过startActivityForResult()方法通信");
+        arrayList.add("Csfasfsfasdf");
+        adapter = new BaseRVAdapter(arrayList, getClass().getSimpleName());
+        rv_base.setAdapter(adapter);
+        adapter.setOnItemClickListener(new BaseRVAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
+                isfirstclickback = true;
+                switch (position) {
+                    case 0:
+                        if (fragmentLogin == null) {
+                            rv_base.setVisibility(View.GONE);//rv_base是来自BaseActivityWithRV的
+                            container.setVisibility(View.VISIBLE);
+                            fragmentLogin = new FragmentLogin();
+                            getFragmentManager().beginTransaction().add(R.id.container, fragmentLogin).commit();// TODO: 2017/8/24  为什么transaction不能共用
+
+                        } else {
+                            rv_base.setVisibility(View.GONE);
+                            container.setVisibility(View.VISIBLE);
+                            getFragmentManager().beginTransaction().show(fragmentLogin).commit();
+                        }
+                        break;
+                    case 1:
+                        break;
+                }
             }
 
             @Override
             public void onItemLongClick(View view, int pisition) {
-                Toast.makeText(ComponentIntereactActivity.this, "lll", Toast.LENGTH_SHORT).show();
+                Toast.makeText(ComponentIntereactActivity.this, "触发长按", Toast.LENGTH_SHORT).show();
             }
         });
-
     }
 
+    @Override
+    public void onBackPressed() {
+        if (isfirstclickback) {
+            rv_base.setVisibility(View.VISIBLE);
+            container.setVisibility(View.GONE);
+            getFragmentManager().beginTransaction().hide(fragmentLogin).commit();
+        } else {
+            finish();
+        }
+        isfirstclickback = false;
+    }
 
+    /**
+     * String s=null;
+     * s.trim()就会抛出为空的exception
+     * String s="";
+     * s.trim()就不会抛,为什么?
+     * NULL代表声明了一个空对象，根本就不是一个字符串。
+     * ""代表声明了一个对象实例，这个对象实例的值是一个长度为0的空字符串。
+     * NULL代表声明了一个空对象,对空对象做任何操作都不行的,除了=和==;""是一个字符串了,只是这个字符串里面没有内容了。
+     * String s=null;只是定义了一个句柄，也就是说你有了个引用，但是这个引用未指向任何内存空间（只分配了栈内存，而没有分配堆内存）。
+     * String s="";这个引用已经指向了一块是空字符串的内存空间，是一个实际的东东了，所以你可以对它操作，而不用担心什么了。
+     * String.Trim()方法会去除字符串两端，不仅仅是空格字符，它总共能去除25种字符:
+     * ('/t', '/n', '/v', '/f', '/r', ' ', '/x0085', '/x00a0', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '
+     * ', ' ', ' ', ' ', ' ', '?', '/u2028', '/u2029', ' ', '?')
+     * 如果你想保留其中的一个或多个(例如/t制表符，/n换行符，/r回车符等)，请慎用Trim方法。
+     * 请注意，Trim删除的过程为从外到内，直到碰到一个非空白的字符为止，所以不管前后有多少个连续的空白字符都会被删除掉。
+     */
+    @Override
+    public void sendContent(String info) {
+        if (info != null && !("".equals(info))) {
+            text_showmessage.setText(info);
+        } else {
+            Toast.makeText(this, "内容为空", Toast.LENGTH_SHORT).show();
+        }
+    }
 }

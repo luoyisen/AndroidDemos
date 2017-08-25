@@ -20,7 +20,7 @@ public class CallBackActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.layout_callbackactivity);
+        setContentView(R.layout.activity_callback);
         buttonCallback = (Button) findViewById(R.id.button_callback);
         buttonCallback.setOnClickListener(new View.OnClickListener() {
             @Override

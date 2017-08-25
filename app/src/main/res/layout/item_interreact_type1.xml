@@ -7,15 +7,17 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center_horizontal">
+        android:gravity="center_horizontal"
+        android:background="@drawable/item_interreact"
+        >
 
-        <Button
-            android:id="@+id/button_show"
+        <TextView
+            android:id="@+id/text_show"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/item_interreact"
             android:gravity="center"
             android:clickable="false"
+            android:background="@color/colorTransparent"
             android:textColor="@android:color/white" />
     </RelativeLayout>
 </LinearLayout>

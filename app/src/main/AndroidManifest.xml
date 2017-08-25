@@ -19,6 +19,8 @@
         <activity android:name=".callbackdemo.CallBackActivity" />
         <activity android:name=".eventdispatchdemo.EventDispatchActivity" />
         <activity android:name=".Interreactcomponent.ComponentIntereactActivity" />
+        <activity android:name=".Interreactcomponent.FragmentToActivity.UserInfoActivity" />
+        <activity android:name=".network.NetWorkActivity" />
     </application>
 
 </manifest>

@@ -10,4 +10,28 @@
     <item
         android:id="@+id/componentinterreact"
         android:title="组件交互" />
+    <item
+        android:id="@+id/network"
+        android:title="网络相关" />
+    <item
+        android:id="@+id/df"
+        android:title="fragment操作" />
+    <item
+        android:id="@+id/sdfasfaf"
+        android:title="自定义view" />
+    <item
+        android:id="@+id/rferfar"
+        android:title="多线程" />
+    <item
+        android:id="@+id/sdfafwer"
+        android:title="oom" />
+    <item
+        android:id="@+id/sdfasf"
+        android:title="多线程" />
+    <item
+        android:id="@+id/asdfe"
+        android:title="组件交互" />
+    <item
+        android:id="@+id/componentfinterreact"
+        android:title="观察者模式" />
 </menu>

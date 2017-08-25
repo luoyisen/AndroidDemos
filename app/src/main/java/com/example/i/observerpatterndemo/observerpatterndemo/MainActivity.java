@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Toast;
@@ -17,9 +16,9 @@ import com.example.i.observerpatterndemo.Interreactcomponent.ComponentIntereactA
 import com.example.i.observerpatterndemo.R;
 import com.example.i.observerpatterndemo.callbackdemo.CallBackActivity;
 import com.example.i.observerpatterndemo.eventdispatchdemo.EventDispatchActivity;
+import com.example.i.observerpatterndemo.network.NetWorkActivity;
 
 public class MainActivity extends Activity {
-    private Button button_to;
     private EditText edit_query;
     private LinearLayout fragmentcontainer;
     private Toolbar toolbar;
@@ -55,6 +54,9 @@ public class MainActivity extends Activity {
                         break;
                     case R.id.componentinterreact:
                         startActivity(new Intent(MainActivity.this, ComponentIntereactActivity.class));
+                        break;
+                    case R.id.network:
+                        startActivity(new Intent(MainActivity.this, NetWorkActivity.class));
                         break;
                 }
                 return false;

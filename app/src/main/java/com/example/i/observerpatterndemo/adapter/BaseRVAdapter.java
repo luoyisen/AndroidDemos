@@ -1,10 +1,9 @@
-package com.example.i.observerpatterndemo.Interreactcomponent;
+package com.example.i.observerpatterndemo.adapter;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -16,18 +15,21 @@ import java.util.ArrayList;
  * Created by I on 2017/8/23.
  */
 
-public class InterreactAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-
+public class BaseRVAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+    /**
+     * 根据activityname为不同的activity设置不同的
+     */
     public OnItemClickListener onItemClickListener;
     public ArrayList<String> mData;
+    public String activityname;
 
     public enum ITEM_TYPE {
         ITEM1,
         ITEM2
     }
 
-    public InterreactAdapter(ArrayList<String> mData) {
-
+    public BaseRVAdapter(ArrayList<String> mData, String activityname) {
+        this.activityname = activityname;
         this.mData = mData;
     }
 
@@ -38,12 +40,24 @@ public class InterreactAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
          *  in its enum declaration, where the initial constant is assigned
          *  an ordinal of zero).
          */
-        if (viewType == ITEM_TYPE.ITEM1.ordinal()) {
-            return new interreactViewHolder1(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_interreact_type1, parent, false));
+        ArrayList<String> activityList;
+        activityList = new ArrayList<>();
+        activityList.add("ComponentIntereactActivity");
+        activityList.add("NetWorkActivity");
+        if (activityname.equals(activityList.get(0))) {
+            if (viewType == ITEM_TYPE.ITEM1.ordinal()) {
+                return new interreactViewHolder1(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_interreact_type1, parent, false));
+            } else {
+                return new interreactViewHolder2(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_interreact_type2, parent, false));
+            }
         } else {
-            return new interreactViewHolder2(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_interreact_type2, parent, false));
-
+            if (viewType == ITEM_TYPE.ITEM1.ordinal()) {
+                return new interreactViewHolder2(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_interreact_type2, parent, false));
+            } else {
+                return new interreactViewHolder1(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_interreact_type1, parent, false));
+            }
         }
+
     }
 
     @Override
@@ -77,6 +91,7 @@ public class InterreactAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
                 }
             });
         } else if (holder instanceof interreactViewHolder2) {
+            // TODO: 2017/8/23 当textview要显示的文字太多，而在xml里面指定的textsize因为过大而显示不完，怎样动态调节字体大小以适应item，既不感觉字体小，也不会由文字显示不完全的现象
             ((interreactViewHolder2) holder).textview.setText(mData.get(position));
 
         }
@@ -100,11 +115,11 @@ public class InterreactAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
 
     public static class interreactViewHolder1 extends RecyclerView.ViewHolder {
 
-        Button button;
+        TextView button;
 
         public interreactViewHolder1(View itemView) {
             super(itemView);
-            button = (Button) itemView.findViewById(R.id.button_show);
+            button = (TextView) itemView.findViewById(R.id.text_show);
         }
     }
 

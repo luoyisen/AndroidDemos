@@ -19,7 +19,7 @@ public class EventDispatchActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.layout_eventdiapatch);
+        setContentView(R.layout.activity_eventdiapatch);
         findViewById(R.id.btn_clickme).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
