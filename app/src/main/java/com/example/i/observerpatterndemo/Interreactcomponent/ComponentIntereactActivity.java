@@ -1,6 +1,7 @@
 package com.example.i.observerpatterndemo.Interreactcomponent;
 
 import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -28,13 +29,16 @@ public class ComponentIntereactActivity extends BaseActivityWithLL implements My
     private RelativeLayout container;
     private boolean isfirstclickback = true;
     private TextView text_showmessage;
+    FragmentInterreact fragmentInterreact;
+    FragmentManager fragmentManager;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //因为baseActivityWithRecyclerView已经设置了布局文件，不用再次setcontentview
-        FragmentInterreact fragmentInterreact = new FragmentInterreact();
-        getSupportFragmentManager().beginTransaction().add(R.id.container_ll, fragmentInterreact).commit();
+        fragmentInterreact = new FragmentInterreact();
+        fragmentManager = getSupportFragmentManager();
+        fragmentManager.beginTransaction().add(R.id.container_ll, fragmentInterreact, "fragment_root").commit();//// TODO: 2017/8/26 通过tag来识别是哪个fragment
     }
 
     /**
@@ -56,9 +60,19 @@ public class ComponentIntereactActivity extends BaseActivityWithLL implements My
     @Override
     public void sendContent(String info) {
         if (info != null && !("".equals(info))) {
-            text_showmessage.setText(info);//// TODO: 2017/8/26 用log查看sendContent是怎样调用的
+            Toast.makeText(this, info, Toast.LENGTH_SHORT).show();//TODO: 2017/8/26 用log查看sendContent是怎样调用的
         } else {
             Toast.makeText(this, "内容为空", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (getSupportFragmentManager().findFragmentByTag("fragment_root").getUserVisibleHint() == true) {
+            finish();
+        } else {
+            fragmentManager.beginTransaction().hide(getSupportFragmentManager().findFragmentByTag("fragment0")).show(fragmentInterreact).commit();
+            fragmentManager.findFragmentByTag("fragment_root").setUserVisibleHint(true);//因为show()和hide()方法不走Fragment的生命周期，所以需要手动设置
         }
     }
 }
