@@ -3,27 +3,18 @@ package com.example.i.observerpatterndemo.network;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
-import com.example.i.observerpatterndemo.adapter.BaseRVAdapter;
-import com.example.i.observerpatterndemo.base.BaseActivityWithRV;
-
-import java.util.ArrayList;
+import com.example.i.observerpatterndemo.R;
+import com.example.i.observerpatterndemo.base.BaseActivityWithLL;
 
 /**
  * Created by I on 2017/8/25.
  */
 
-public class NetWorkActivity extends BaseActivityWithRV {
-    ArrayList arrayList;
-
+public class NetWorkActivity extends BaseActivityWithLL {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        arrayList = new ArrayList<>();
-        arrayList.add("a");
-        arrayList.add("a");
-        arrayList.add("a");
-        adapter = new BaseRVAdapter(arrayList, getClass().getSimpleName());
-        rv_base.setAdapter(adapter);
+        NetFragment netFragment = new NetFragment();
+        getSupportFragmentManager().beginTransaction().add(R.id.container_ll, netFragment).commit();
     }
-
 }

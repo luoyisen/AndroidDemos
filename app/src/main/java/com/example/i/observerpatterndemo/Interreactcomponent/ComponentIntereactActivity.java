@@ -1,19 +1,16 @@
 package com.example.i.observerpatterndemo.Interreactcomponent;
 
 import android.os.Bundle;
-import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.i.observerpatterndemo.Interreactcomponent.FragmentToActivity.FragmentLogin;
+import com.example.i.observerpatterndemo.Interreactcomponent.FragmentToActivity.FragmentInterreact;
+import com.example.i.observerpatterndemo.Interreactcomponent.FragmentToActivity.MyListener;
 import com.example.i.observerpatterndemo.R;
-import com.example.i.observerpatterndemo.adapter.BaseRVAdapter;
-import com.example.i.observerpatterndemo.base.BaseActivityWithRV;
+import com.example.i.observerpatterndemo.base.BaseActivityWithLL;
 
 import org.jetbrains.annotations.Nullable;
-
-import java.util.ArrayList;
 
 /**
  * Created by I on 2017/8/23.
@@ -27,67 +24,17 @@ import java.util.ArrayList;
  * 在我使用Fragment过程中，大部分情况下都是用show()，hide()，而不是replace()。
  * 注意：如果你的app有大量图片，这时更好的方式可能是replace，配合你的图片框架在Fragment视图销毁时，回收其图片所占的内存。
  */
-public class ComponentIntereactActivity extends BaseActivityWithRV implements FragmentLogin.MyListener {
-    private ArrayList arrayList;
+public class ComponentIntereactActivity extends BaseActivityWithLL implements MyListener {
     private RelativeLayout container;
     private boolean isfirstclickback = true;
-    FragmentLogin fragmentLogin;
     private TextView text_showmessage;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //因为baseActivityWithRecyclerView已经设置了布局文件，不用再次setcontentview
-        container = (RelativeLayout) findViewById(R.id.container);
-        text_showmessage = (TextView) findViewById(R.id.text_showmessage);
-        text_showmessage.setVisibility(View.VISIBLE);
-        arrayList = new ArrayList();
-        arrayList.add("接口实现Fragment和包含该Fragment的Activity通信 \n" +
-                "(仅限于该Fragment和包含它的Activity之间)");
-        arrayList.add("Activity之间通过startActivityForResult()方法通信");
-        arrayList.add("Csfasfsfasdf");
-        adapter = new BaseRVAdapter(arrayList, getClass().getSimpleName());
-        rv_base.setAdapter(adapter);
-        adapter.setOnItemClickListener(new BaseRVAdapter.OnItemClickListener() {
-            @Override
-            public void onItemClick(View view, int position) {
-                isfirstclickback = true;
-                switch (position) {
-                    case 0:
-                        if (fragmentLogin == null) {
-                            rv_base.setVisibility(View.GONE);//rv_base是来自BaseActivityWithRV的
-                            container.setVisibility(View.VISIBLE);
-                            fragmentLogin = new FragmentLogin();
-                            getFragmentManager().beginTransaction().add(R.id.container, fragmentLogin).commit();// TODO: 2017/8/24  为什么transaction不能共用
-
-                        } else {
-                            rv_base.setVisibility(View.GONE);
-                            container.setVisibility(View.VISIBLE);
-                            getFragmentManager().beginTransaction().show(fragmentLogin).commit();
-                        }
-                        break;
-                    case 1:
-                        break;
-                }
-            }
-
-            @Override
-            public void onItemLongClick(View view, int pisition) {
-                Toast.makeText(ComponentIntereactActivity.this, "触发长按", Toast.LENGTH_SHORT).show();
-            }
-        });
-    }
-
-    @Override
-    public void onBackPressed() {
-        if (isfirstclickback) {
-            rv_base.setVisibility(View.VISIBLE);
-            container.setVisibility(View.GONE);
-            getFragmentManager().beginTransaction().hide(fragmentLogin).commit();
-        } else {
-            finish();
-        }
-        isfirstclickback = false;
+        FragmentInterreact fragmentInterreact = new FragmentInterreact();
+        getSupportFragmentManager().beginTransaction().add(R.id.container_ll, fragmentInterreact).commit();
     }
 
     /**
@@ -109,7 +56,7 @@ public class ComponentIntereactActivity extends BaseActivityWithRV implements Fr
     @Override
     public void sendContent(String info) {
         if (info != null && !("".equals(info))) {
-            text_showmessage.setText(info);
+            text_showmessage.setText(info);//// TODO: 2017/8/26 用log查看sendContent是怎样调用的
         } else {
             Toast.makeText(this, "内容为空", Toast.LENGTH_SHORT).show();
         }

@@ -1,10 +1,10 @@
 package com.example.i.observerpatterndemo.Interreactcomponent.FragmentToActivity;
 
-import android.app.Fragment;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,12 +23,11 @@ public class FragmentLogin extends Fragment {
     EditText studentId;
     EditText password;
     RelativeLayout layout_parent;
-    int heightDifference;
     LinearLayout sub_container;
     public static final String USER_NAME = "username";
     public static final String STUDENT_ID = "studentid";
     public static final String PASSWORD = "password";
-    private MyListener mylistener;
+    public MyListener mylistener;
 
     @Nullable
     @Override
@@ -50,55 +49,38 @@ public class FragmentLogin extends Fragment {
                 doLogin();
             }
         });
-//        password.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
-//
-//            @Override
-//            public void onGlobalLayout() {
-//                Rect r = new Rect();
-//                layout_parent.getWindowVisibleDisplayFrame(r);
-//                int screenHeight = layout_parent.getRootView().getHeight();
-//                heightDifference = screenHeight - (r.bottom - r.top);
-//
-//                //boolean visible = heightDiff > screenHeight / 3;
-//            }
-//        });
-//
-//        sub_container.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 400));
     }
 
     private void doLogin() {
         if ((userName.getText().toString().trim().equals("11"))
                 && (studentId.getText().toString().trim().equals("22"))
                 && (password.getText().toString().trim().equals("33"))) {
-            mylistener.sendContent("有用户正在登陆！！！");
+
+            if (mylistener != null) {
+                mylistener.sendContent("有用户正在登陆!!!");
+            }
             Intent intent = new Intent(getActivity(), UserInfoActivity.class);
             intent.putExtra(USER_NAME, userName.getText().toString().trim());
             intent.putExtra(STUDENT_ID, studentId.getText().toString().trim());
             intent.putExtra(PASSWORD, password.getText().toString().trim());
-//            startActivityForResult(intent, 110);
-            startActivity(intent);
+            startActivityForResult(intent, 110);
         }
     }
 
-//    @Override
-//    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-//        super.onActivityResult(requestCode, resultCode, data);
-//    }
-
-    public interface MyListener {
-         void sendContent(String info);
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
     }
 
+
     @Override
-    public void onAttach(Context context) {
+    public void onAttach(Context context) {//onAttach方法有两个重载，一个传递的参数是Activity，一个是Context，传递参数为context的在一些Android版本上面由bug，(如果是使用的Fragment包，而不是v4.support.fragment包就会有);
         super.onAttach(context);
-        /**
-         * This makes sure that the container activity has implemented
-         * the callback interface. If not, it throws an exception
-         */
+        //This makes sure that the container activity has implemented the callback interface. If not, it throws an exception
+
         //加入判断:
         if (context instanceof MyListener) {//如果该Fragment Attach的Activity实现了MyListener接口
-            mylistener = (MyListener) context;
+            mylistener = (MyListener) context;//实例化该接口
         }
         //或者捕获异常
 //        try {
@@ -108,4 +90,16 @@ public class FragmentLogin extends Fragment {
 //        }
     }
 
+    /**
+     *
+     * 如果使用的是 android.app.Fragment;而不是android.support.v4.app.Fragment;
+     * 则需要传递参数为Activity
+     * @Override
+     * public void onAttach(Activity activity) {
+     *    super.onAttach(activity);
+     *    if (activity instanceof MyListener) {
+     *       mylistener = (MyListener) activity;
+     *    }
+     * }
+     */
 }

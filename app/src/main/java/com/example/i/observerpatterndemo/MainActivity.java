@@ -1,4 +1,4 @@
-package com.example.i.observerpatterndemo.observerpatterndemo;
+package com.example.i.observerpatterndemo;
 
 import android.app.Activity;
 import android.app.FragmentTransaction;
@@ -13,10 +13,11 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.example.i.observerpatterndemo.Interreactcomponent.ComponentIntereactActivity;
-import com.example.i.observerpatterndemo.R;
 import com.example.i.observerpatterndemo.callbackdemo.CallBackActivity;
 import com.example.i.observerpatterndemo.eventdispatchdemo.EventDispatchActivity;
 import com.example.i.observerpatterndemo.network.NetWorkActivity;
+import com.example.i.observerpatterndemo.observerpatterndemo.Fragment01;
+import com.example.i.observerpatterndemo.observerpatterndemo.MyObserverable;
 
 public class MainActivity extends Activity {
     private EditText edit_query;
