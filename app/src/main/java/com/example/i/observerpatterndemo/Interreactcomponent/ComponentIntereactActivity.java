@@ -3,7 +3,6 @@ package com.example.i.observerpatterndemo.Interreactcomponent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.i.observerpatterndemo.Interreactcomponent.FragmentToActivity.FragmentInterreact;
@@ -27,8 +26,6 @@ import org.jetbrains.annotations.Nullable;
  */
 public class ComponentIntereactActivity extends BaseActivityWithLL implements MyListener {
     private RelativeLayout container;
-    private boolean isfirstclickback = true;
-    private TextView text_showmessage;
     FragmentInterreact fragmentInterreact;
     FragmentManager fragmentManager;
 

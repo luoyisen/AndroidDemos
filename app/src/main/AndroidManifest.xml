@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.i.observerpatterndemo">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -21,6 +24,13 @@
         <activity android:name=".Interreactcomponent.ComponentIntereactActivity" />
         <activity android:name=".Interreactcomponent.FragmentToActivity.UserInfoActivity" />
         <activity android:name=".network.NetWorkActivity" />
+
+        ----------------------------------笔记------------------------------------
+        <activity android:name=".note.NoteActivity" />
+
+        ---------------------------------网络相关----------------------------------
+        <activity android:name=".network.socketdemo.SocketDemoActivity" />
+        <service android:name=".network.socketdemo.ServerService" />
     </application>
 
 </manifest>

@@ -53,7 +53,6 @@ public class FragmentInterreact extends BaseFragmentWithRV {
                         break;
                 }
             }
-
             @Override
             public void onItemLongClick(View view, int pisition) {
             }

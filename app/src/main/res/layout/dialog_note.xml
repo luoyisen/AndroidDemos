@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/dialog_background"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/btn_cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:src="@drawable/ic_note_red_a700_48dp" />
+
+    <Button
+        android:id="@+id/btn_confirm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:src="@drawable/ic_note_red_a700_48dp" />
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <TextView
+            android:id="@+id/text_shownote"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="fasldjojgfoiearjjoieariregoijearijerawoijeroierij\n
+dff\n
+dff\n
+dff\n
+dff\n
+dff\n
+dff\n
+dff\n
+dff\n
+dff\n
+dff\n
+dff\n
+dff\n
+dff\n
+dff\n
+dff\n
+dff\n
+dff\n
+dff\n
+dff\n
+dff\n
+dff\n
+dff\n
+dff\n
+dff\n
+dff\n
+dff\n
+dff\n
+dff\n
+dff\n
+dff\n
+dff\n
+dff\n
+dff\n
+dff\n
+" />
+
+
+    </android.support.v4.widget.NestedScrollView>
+
+</LinearLayout>

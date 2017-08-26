@@ -16,6 +16,7 @@ import com.example.i.observerpatterndemo.Interreactcomponent.ComponentIntereactA
 import com.example.i.observerpatterndemo.callbackdemo.CallBackActivity;
 import com.example.i.observerpatterndemo.eventdispatchdemo.EventDispatchActivity;
 import com.example.i.observerpatterndemo.network.NetWorkActivity;
+import com.example.i.observerpatterndemo.note.NoteActivity;
 import com.example.i.observerpatterndemo.observerpatterndemo.Fragment01;
 import com.example.i.observerpatterndemo.observerpatterndemo.MyObserverable;
 
@@ -47,6 +48,9 @@ public class MainActivity extends Activity {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
                 switch (item.getItemId()) {
+                    case R.id.note:
+                        startActivity(new Intent(MainActivity.this, NoteActivity.class));
+                        break;
                     case R.id.huidiao:
                         startActivity(new Intent(MainActivity.this, CallBackActivity.class));
                         break;

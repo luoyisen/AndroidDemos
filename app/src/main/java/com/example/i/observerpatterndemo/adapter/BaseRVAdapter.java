@@ -70,31 +70,50 @@ public class BaseRVAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
              * 2.自定义button，重写ontouchevent()方法，使得其返回值为false，表示button不处理事件，由button的上级viewgroup来处理，或者：
              * 3.自定义relativelayout，重写dispatchtouchevent()方法，时期返回值为false，表示不再分发事件
              */
-            holder.itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if (onItemClickListener != null) {
-                        int pos = holder.getLayoutPosition();
-                        onItemClickListener.onItemClick(holder.itemView, pos);
-                    }
-                }
-            });
-
-            holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
-                @Override
-                public boolean onLongClick(View v) {
-                    if (onItemClickListener != null) {
-                        int pos = holder.getLayoutPosition();
-                        onItemClickListener.onItemLongClick(holder.itemView, pos);
-                    }
-                    return true;//返回true表示事件被消费了
-                }
-            });
+//            holder.itemView.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    if (onItemClickListener != null) {
+//                        int pos = holder.getLayoutPosition();
+//                        onItemClickListener.onItemClick(holder.itemView, pos);
+//                    }
+//                }
+//            });
+//
+//            holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
+//                @Override
+//                public boolean onLongClick(View v) {
+//                    if (onItemClickListener != null) {
+//                        int pos = holder.getLayoutPosition();
+//                        onItemClickListener.onItemLongClick(holder.itemView, pos);
+//                    }
+//                    return true;//返回true表示事件被消费了
+//                }
+//            });
         } else if (holder instanceof interreactViewHolder2) {
             // TODO: 2017/8/23 当textview要显示的文字太多，而在xml里面指定的textsize因为过大而显示不完，怎样动态调节字体大小以适应item，既不感觉字体小，也不会由文字显示不完全的现象
             ((interreactViewHolder2) holder).textview.setText(mData.get(position));
-
         }
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (onItemClickListener != null) {
+                    int pos = holder.getLayoutPosition();
+                    onItemClickListener.onItemClick(holder.itemView, pos);
+                }
+            }
+        });
+
+        holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                if (onItemClickListener != null) {
+                    int pos = holder.getLayoutPosition();
+                    onItemClickListener.onItemLongClick(holder.itemView, pos);
+                }
+                return true;//返回true表示事件被消费了
+            }
+        });
     }
 
     @Override
