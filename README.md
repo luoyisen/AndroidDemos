@@ -1,2 +1,2 @@
-# ObserverPatternDemo
-一个Android下的观察者模式的简单demo
+# AndroidDemos
+Android下常见的Demo集合
