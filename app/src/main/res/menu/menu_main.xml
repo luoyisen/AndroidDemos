@@ -2,7 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/note"
-        android:title="笔记"/>
+        android:title="笔记和工具"/>
     <item
         android:id="@+id/huidiao"
         android:title="回调" />

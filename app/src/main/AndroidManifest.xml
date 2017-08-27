@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.i.observerpatterndemo">
+    package="com.example.i.AndroidDemos">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -12,27 +12,27 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name="com.example.i.AndroidDemos.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".callbackdemo.CallBackActivity" />
-        <activity android:name=".eventdispatchdemo.EventDispatchActivity" />
-        <activity android:name=".Interreactcomponent.ComponentIntereactActivity" />
-        <activity android:name=".Interreactcomponent.FragmentToActivity.UserInfoActivity" />
+        <activity android:name="com.example.i.AndroidDemos.callbackdemo.CallBackActivity" />
+        <activity android:name="com.example.i.AndroidDemos.eventdispatchdemo.EventDispatchActivity" />
+        <activity android:name="com.example.i.AndroidDemos.Interreactcomponent.ComponentIntereactActivity" />
+        <activity android:name="com.example.i.AndroidDemos.Interreactcomponent.FragmentToActivity.UserInfoActivity" />
 
         ----------------------------------笔记------------------------------------
-        <activity android:name=".note.NoteActivity" />
+        <activity android:name="com.example.i.AndroidDemos.noteandtools.ActivityNoteAndTools" />
 
         ---------------------------------网络----------------------------------
-        <activity android:name=".network.ActivityNet" />
+        <activity android:name="com.example.i.AndroidDemos.network.ActivityNet" />
 
-        <service android:name=".network.socketdemo.ServerService" />
+        <service android:name="com.example.i.AndroidDemos.network.socketdemo.ServerService" />
         ---------------------------------工具----------------------------------
-        <activity android:name=".tools.ActivityTools" />
+        <activity android:name=".noteandtools.tools.ActivityTools" />
     </application>
 
 </manifest>
