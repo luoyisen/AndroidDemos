@@ -57,7 +57,7 @@ public class FragmentLogin extends Fragment {
                 && (password.getText().toString().trim().equals("33"))) {
 
             if (mylistener != null) {
-                mylistener.sendContent("有用户正在登陆!!!");
+                mylistener.sendContent("这是发送给Activity的消息");
             }
             Intent intent = new Intent(getActivity(), UserInfoActivity.class);
             intent.putExtra(USER_NAME, userName.getText().toString().trim());

@@ -5,5 +5,5 @@ package com.example.i.observerpatterndemo.Interreactcomponent.FragmentToActivity
  */
 
 public interface MyListener {
-    void sendContent(String info);
+    void sendContent(String currentItemTag);
 }

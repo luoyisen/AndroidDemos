@@ -30,7 +30,7 @@ public class Customer implements CallBackPhoneNumber {
             timer.schedule(new TimerTask() {
                 @Override
                 public void run() {
-                    salesMan.callToTell(Customer.this,"新iPhone到了，赶紧来买！！！");//
+                    salesMan.callToTell(Customer.this, "新iPhone到了，赶紧来买！！！");//
                 }
             }, 5000);
         }

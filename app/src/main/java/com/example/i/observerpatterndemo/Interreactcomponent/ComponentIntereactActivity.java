@@ -1,8 +1,6 @@
 package com.example.i.observerpatterndemo.Interreactcomponent;
 
 import android.os.Bundle;
-import android.support.v4.app.FragmentManager;
-import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.example.i.observerpatterndemo.Interreactcomponent.FragmentToActivity.FragmentInterreact;
@@ -25,9 +23,7 @@ import org.jetbrains.annotations.Nullable;
  * 注意：如果你的app有大量图片，这时更好的方式可能是replace，配合你的图片框架在Fragment视图销毁时，回收其图片所占的内存。
  */
 public class ComponentIntereactActivity extends BaseActivityWithLL implements MyListener {
-    private RelativeLayout container;
     FragmentInterreact fragmentInterreact;
-    FragmentManager fragmentManager;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -57,19 +53,10 @@ public class ComponentIntereactActivity extends BaseActivityWithLL implements My
     @Override
     public void sendContent(String info) {
         if (info != null && !("".equals(info))) {
-            Toast.makeText(this, info, Toast.LENGTH_SHORT).show();//TODO: 2017/8/26 用log查看sendContent是怎样调用的
+            currentItemTag = info;//// TODO: 2017/8/27  所有的共同维护这个String值
+            Toast.makeText(this, info , Toast.LENGTH_SHORT).show();//TODO: 2017/8/26 用log查看sendContent是怎样调用的
         } else {
             Toast.makeText(this, "内容为空", Toast.LENGTH_SHORT).show();
-        }
-    }
-
-    @Override
-    public void onBackPressed() {
-        if (getSupportFragmentManager().findFragmentByTag("fragment_root").getUserVisibleHint() == true) {
-            finish();
-        } else {
-            fragmentManager.beginTransaction().hide(getSupportFragmentManager().findFragmentByTag("fragment0")).show(fragmentInterreact).commit();
-            fragmentManager.findFragmentByTag("fragment_root").setUserVisibleHint(true);//因为show()和hide()方法不走Fragment的生命周期，所以需要手动设置
         }
     }
 }

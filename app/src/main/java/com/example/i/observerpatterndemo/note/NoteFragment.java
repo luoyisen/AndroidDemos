@@ -33,11 +33,11 @@ public class NoteFragment extends BaseFragmentWithRV {
             public void onItemClick(View view, int position) {
                 switch (position) {
                     case 0:
-                        NoteDialogConfig.Builder customBuilder = new
-                                NoteDialogConfig.Builder(getActivity());
+                        NoteDialogWithConfig.Builder customBuilder = new
+                                NoteDialogWithConfig.Builder(getActivity());
                         customBuilder.setTitle("Android Studio KeyMap")
                                 .setMessage("查看类的层级关系:CTRL + H\n" +
-                                        "adf查看类的层级关系:\n" + "adf\n" + "adf\n" + "adf\n" + "adf\n" + "adf\n" + "adf")
+                                        "adf\n" + "adf\n" + "adf\n" + "adf\n" + "adf\n" + "adf\n"+ "adf\n"+ "adf\n"+ "adf\n"+ "adf\n"+ "adf\n"+ "adf\n"+ "adf\n"+ "adf\n"+ "adf\n"+ "adf\n"+ "adf\n" + "adf\n"+ "adf\n"+ "adf\n"+ "adf\n"+ "adf\n"+ "adf\n" + "adf")
                                 .setNegativeButton("Cancel",
                                         new DialogInterface.OnClickListener() {
                                             public void onClick(DialogInterface dialog, int which) {

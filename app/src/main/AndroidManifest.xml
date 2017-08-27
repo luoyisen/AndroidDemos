@@ -23,14 +23,16 @@
         <activity android:name=".eventdispatchdemo.EventDispatchActivity" />
         <activity android:name=".Interreactcomponent.ComponentIntereactActivity" />
         <activity android:name=".Interreactcomponent.FragmentToActivity.UserInfoActivity" />
-        <activity android:name=".network.NetWorkActivity" />
 
         ----------------------------------笔记------------------------------------
         <activity android:name=".note.NoteActivity" />
 
-        ---------------------------------网络相关----------------------------------
-        <activity android:name=".network.socketdemo.SocketDemoActivity" />
+        ---------------------------------网络----------------------------------
+        <activity android:name=".network.ActivityNet" />
+
         <service android:name=".network.socketdemo.ServerService" />
+        ---------------------------------工具----------------------------------
+        <activity android:name=".tools.ActivityTools" />
     </application>
 
 </manifest>

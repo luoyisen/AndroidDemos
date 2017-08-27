@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.os.SystemClock;
+import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -15,7 +16,7 @@ import android.widget.TextView;
 
 import com.example.i.observerpatterndemo.MainActivity;
 import com.example.i.observerpatterndemo.R;
-import com.example.i.observerpatterndemo.base.BaseActivity;
+import com.example.i.observerpatterndemo.base.BaseFragment;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -31,7 +32,7 @@ import java.util.Locale;
  * Created by I on 2017/8/26.
  */
 
-public class SocketDemoActivity extends BaseActivity {
+public class FragmentSocketChat extends BaseFragment {
     private static final String TAG = "DEBUG-WCL: " + MainActivity.class.getSimpleName();
 
     private TextView mTvContent; // 显示聊天内容
@@ -68,14 +69,12 @@ public class SocketDemoActivity extends BaseActivity {
     };
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mTvContent = (TextView) findViewById(R.id.main_tv_content);
-        mEtMessage = (EditText) findViewById(R.id.main_et_edit_text);
-        mBSend = (Button) findViewById(R.id.main_b_send);
 
-        Intent intent = new Intent(this, ServerService.class);
-        startService(intent);
+
+        Intent intent = new Intent(getActivity(), ServerService.class);
+        getActivity().startService(intent);
 
         new Thread(new Runnable() {
             @Override
@@ -85,9 +84,29 @@ public class SocketDemoActivity extends BaseActivity {
         }).start();
     }
 
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        mTvContent = (TextView) view.findViewById(R.id.main_tv_content);
+        mEtMessage = (EditText) view.findViewById(R.id.main_et_edit_text);
+        mBSend = (Button) view.findViewById(R.id.main_b_send);
+        mBSend.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String msg = mEtMessage.getText().toString();
+                if (!TextUtils.isEmpty(msg) && mPrintWriter != null) {
+                    mPrintWriter.println(msg);
+                    mEtMessage.setText("");
+                    String time = new SimpleDateFormat("HH:mm:ss", Locale.ENGLISH).format(System.currentTimeMillis());
+                    String showedMsg = "self " + time + ":" + msg + "\n";
+                    mTvContent.setText(String.valueOf(mTvContent.getText() + showedMsg));
+                }
+            }
+        });
+    }
 
     @Override
-    protected void onDestroy() {
+    public void onDestroy() {
         if (mClientSocket != null) {
             try {
                 mClientSocket.shutdownInput();
@@ -120,7 +139,7 @@ public class SocketDemoActivity extends BaseActivity {
         try {
             BufferedReader br = new BufferedReader(
                     new InputStreamReader(socket.getInputStream()));
-            while (!SocketDemoActivity.this.isFinishing()) {
+            while (!FragmentSocketChat.this.getActivity().isFinishing()) {
                 String msg = br.readLine();
                 Log.e(TAG, "收到信息: " + msg);
                 if (msg != null) {
@@ -136,17 +155,6 @@ public class SocketDemoActivity extends BaseActivity {
             socket.close();
         } catch (IOException e) {
             e.printStackTrace();
-        }
-    }
-
-    public void sendMessage(View view) {
-        String msg = mEtMessage.getText().toString();
-        if (!TextUtils.isEmpty(msg) && mPrintWriter != null) {
-            mPrintWriter.println(msg);
-            mEtMessage.setText("");
-            String time = new SimpleDateFormat("HH:mm:ss", Locale.ENGLISH).format(System.currentTimeMillis());
-            String showedMsg = "self " + time + ":" + msg + "\n";
-            mTvContent.setText(String.valueOf(mTvContent.getText() + showedMsg));
         }
     }
 }

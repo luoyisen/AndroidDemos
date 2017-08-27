@@ -15,7 +15,7 @@ import android.widget.Toast;
 import com.example.i.observerpatterndemo.Interreactcomponent.ComponentIntereactActivity;
 import com.example.i.observerpatterndemo.callbackdemo.CallBackActivity;
 import com.example.i.observerpatterndemo.eventdispatchdemo.EventDispatchActivity;
-import com.example.i.observerpatterndemo.network.NetWorkActivity;
+import com.example.i.observerpatterndemo.network.ActivityNet;
 import com.example.i.observerpatterndemo.note.NoteActivity;
 import com.example.i.observerpatterndemo.observerpatterndemo.Fragment01;
 import com.example.i.observerpatterndemo.observerpatterndemo.MyObserverable;
@@ -61,7 +61,7 @@ public class MainActivity extends Activity {
                         startActivity(new Intent(MainActivity.this, ComponentIntereactActivity.class));
                         break;
                     case R.id.network:
-                        startActivity(new Intent(MainActivity.this, NetWorkActivity.class));
+                        startActivity(new Intent(MainActivity.this, ActivityNet.class));
                         break;
                 }
                 return false;

@@ -15,6 +15,6 @@ public class NoteActivity extends BaseActivityWithLL {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         NoteFragment noteFragment = new NoteFragment();
-        getSupportFragmentManager().beginTransaction().add(R.id.container_ll, noteFragment).commit();
+        getSupportFragmentManager().beginTransaction().add(R.id.container_ll, noteFragment,"fragment_root").commit();
     }
 }

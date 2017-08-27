@@ -18,13 +18,13 @@ import com.example.i.observerpatterndemo.R;
  * Created by I on 2017/8/26.
  */
 
-public final class NoteDialogConfig extends Dialog {
+public final class NoteDialogWithConfig extends Dialog {
 
-    public NoteDialogConfig(Context context, int theme) {
+    public NoteDialogWithConfig(Context context, int theme) {
         super(context, theme);
     }
 
-    public NoteDialogConfig(Context context) {
+    public NoteDialogWithConfig(Context context) {
         super(context);
     }
 
@@ -98,10 +98,10 @@ public final class NoteDialogConfig extends Dialog {
             return this;
         }
 
-        public NoteDialogConfig create() {
+        public NoteDialogWithConfig create() {
             LayoutInflater inflater = (LayoutInflater) context
                     .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            final NoteDialogConfig dialog = new NoteDialogConfig(context,
+            final NoteDialogWithConfig dialog = new NoteDialogWithConfig(context,
                     R.style.dialog);
             View layout = inflater.inflate(R.layout.notedialogafdsfsdfa, null);
             dialog.addContentView(layout, new LinearLayout.LayoutParams(

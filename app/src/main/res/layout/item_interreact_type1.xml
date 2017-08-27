@@ -7,17 +7,25 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center_horizontal"
         android:background="@drawable/item_interreact"
-        >
+        android:gravity="center_horizontal">
 
         <TextView
             android:id="@+id/text_show"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="center"
-            android:clickable="false"
             android:background="@color/colorTransparent"
+            android:clickable="false"
+            android:gravity="center"
             android:textColor="@android:color/white" />
+
+        <com.example.i.observerpatterndemo.Interreactcomponent.IImageView
+            android:id="@+id/show_keytech"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/icon_expand"
+            android:clickable="true"/>
     </RelativeLayout>
 </LinearLayout>
