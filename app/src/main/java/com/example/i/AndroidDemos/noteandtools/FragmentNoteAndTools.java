@@ -3,6 +3,7 @@ package com.example.i.AndroidDemos.noteandtools;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.View;
 
 import com.example.i.AndroidDemos.adapter.BaseRVAdapter;
@@ -18,7 +19,6 @@ import java.util.ArrayList;
 
 public class FragmentNoteAndTools extends BaseFragmentWithRV {
     ArrayList arrayList;
-    public BaseRVAdapter adapter;
     FragmentApps fragmentApps;
 
     @Override
@@ -58,14 +58,15 @@ public class FragmentNoteAndTools extends BaseFragmentWithRV {
                                             }
                                         })
                                 .setCancelAble(true);
-
                         customBuilder.create().show();
                         break;
                     case 1:
-                        displayFragment(fragmentApps, this.toString());
+                        displayFragment(fragmentApps, "FragmentNoteAndTools1");
                         if (myListener != null) {
-                            myListener.sendContent(this.toString());
+                            myListener.sendContent("FragmentNoteAndTools1");
                         }
+                        Log.e("-----", "FragmentNoteAndTools1");
+
                         break;
                 }
             }

@@ -44,28 +44,30 @@ public class BaseRVAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
          */
         ArrayList<String> activityList;
         activityList = new ArrayList<>();
-        activityList.add("ComponentIntereactActivity");
+        activityList.add("ActivityComponentIntereact");
         activityList.add("ActivityNet");
         if (activityname.equals(activityList.get(0))) {
             if (viewType == ITEM_TYPE.ITEM1.ordinal()) {
-                return new interreactViewHolder1(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_interreact_type1, parent, false));
+                return new viewHolder1(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_base_type1, parent, false));
             } else {
-                return new interreactViewHolder2(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_interreact_type2, parent, false));
+                return new viewHolder2(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_base_type2, parent, false));
+            }
+        } else if (activityname.equals(activityList.get(1))) {
+            if (viewType == ITEM_TYPE.ITEM1.ordinal()) {
+                return new viewHolder2(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_base_type2, parent, false));
+            } else {
+                return new viewHolder1(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_base_type1, parent, false));
             }
         } else {
-            if (viewType == ITEM_TYPE.ITEM1.ordinal()) {
-                return new interreactViewHolder2(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_interreact_type2, parent, false));
-            } else {
-                return new interreactViewHolder1(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_interreact_type1, parent, false));
-            }
+            return new viewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_base, parent, false));
         }
 
     }
 
     @Override
     public void onBindViewHolder(final RecyclerView.ViewHolder holder, int position) {
-        if (holder instanceof interreactViewHolder1) {
-            ((interreactViewHolder1) holder).textView.setText(mData.get(position));
+        if (holder instanceof viewHolder1) {
+            ((viewHolder1) holder).textView.setText(mData.get(position));
 
             /**
              * 这里的item里面如果有button，如果要为整个itemView设置点击事件，就要：
@@ -75,10 +77,12 @@ public class BaseRVAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
              *
              * 如果要同时为button和item设置点击事件，就不用
              */
-        } else if (holder instanceof interreactViewHolder2) {
+        } else if (holder instanceof viewHolder2) {
             // TODO: 2017/8/23 当textview要显示的文字太多，而在xml里面指定的textsize因为过大而显示不完，怎样动态调节字体大小以适应item，既不感觉字体小，也不会由文字显示不完全的现象
-            ((interreactViewHolder2) holder).textview.setText(mData.get(position));
+            ((viewHolder2) holder).textview.setText(mData.get(position));
 
+        } else {
+            ((viewHolder) holder).textview.setText(mData.get(position));
         }
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -118,28 +122,38 @@ public class BaseRVAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
         return mData == null ? 0 : mData.size();
     }
 
-    public static class interreactViewHolder1 extends RecyclerView.ViewHolder {
+    public static class viewHolder extends RecyclerView.ViewHolder {
+        TextView textview;
+
+        public viewHolder(View itemView) {
+            super(itemView);
+            textview = (TextView) itemView.findViewById(R.id.text_info);
+        }
+    }
+
+    public static class viewHolder1 extends RecyclerView.ViewHolder {
         TextView textView;
         ImageView show_keytech;
 
-        public interreactViewHolder1(View itemView) {
+        public viewHolder1(View itemView) {
             super(itemView);
             textView = (TextView) itemView.findViewById(R.id.text_show);
             show_keytech = (ImageView) itemView.findViewById(R.id.faceimage);
         }
     }
 
-    public static class interreactViewHolder2 extends RecyclerView.ViewHolder {
+    public static class viewHolder2 extends RecyclerView.ViewHolder {
         ImageView imageview, show_keytech;
         TextView textview;
 
-        public interreactViewHolder2(View itemView) {
+        public viewHolder2(View itemView) {
             super(itemView);
             imageview = (ImageView) itemView.findViewById(R.id.faceimage);
             show_keytech = (ImageView) itemView.findViewById(R.id.show_keytech);
             textview = (TextView) itemView.findViewById(R.id.phonenumber);
         }
     }
+
 
     public interface OnItemClickListener {
         void onItemClick(View view, int position);

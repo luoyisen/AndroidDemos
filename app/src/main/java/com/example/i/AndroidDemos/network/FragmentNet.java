@@ -41,18 +41,18 @@ public class FragmentNet extends BaseFragmentWithRV {
             public void onItemClick(View view, int position) {
                 switch (position) {
                     case 0:
-                        displayFragment(chat, this.toString());
+                        displayFragment(chat, "FragmentNet0");
                         if (myListener != null) {
-                            myListener.sendContent(this.toString());
+                            myListener.sendContent("FragmentNet0");
                         }
-                        Log.e("hahahah", this.toString());
+                        Log.e("-----", "FragmentNet0");
                         break;
                     case 1:
-                        displayFragment(doubanTop250, this.toString());
+                        displayFragment(doubanTop250, "FragmentNet1");
                         if (myListener != null) {
-                            myListener.sendContent(this.toString());
+                            myListener.sendContent("FragmentNet1");
                         }
-                        Log.e("hahahah", this.toString());
+                        Log.e("-----", "FragmentNet1");
                         break;
                 }
             }

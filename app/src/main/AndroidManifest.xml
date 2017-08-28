@@ -21,7 +21,7 @@
         </activity>
         <activity android:name="com.example.i.AndroidDemos.callbackdemo.CallBackActivity" />
         <activity android:name="com.example.i.AndroidDemos.eventdispatchdemo.EventDispatchActivity" />
-        <activity android:name="com.example.i.AndroidDemos.Interreactcomponent.ComponentIntereactActivity" />
+        <activity android:name="com.example.i.AndroidDemos.Interreactcomponent.ActivityComponentIntereact" />
         <activity android:name="com.example.i.AndroidDemos.Interreactcomponent.FragmentToActivity.UserInfoActivity" />
 
         ----------------------------------笔记------------------------------------
@@ -32,7 +32,7 @@
 
         <service android:name="com.example.i.AndroidDemos.network.socketdemo.ServerService" />
         ---------------------------------工具----------------------------------
-        <activity android:name=".noteandtools.tools.ActivityTools" />
+        <activity android:name=".noteandtools.ActivityNoteAndTools" />
     </application>
 
 </manifest>

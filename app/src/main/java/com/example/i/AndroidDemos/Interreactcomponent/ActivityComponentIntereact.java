@@ -1,9 +1,7 @@
 package com.example.i.AndroidDemos.Interreactcomponent;
 
 import android.os.Bundle;
-import android.widget.Toast;
 
-import com.example.i.AndroidDemos.Interreactcomponent.FragmentToActivity.MyListener;
 import com.example.i.AndroidDemos.R;
 import com.example.i.AndroidDemos.base.BaseActivityWithLL;
 
@@ -21,7 +19,7 @@ import org.jetbrains.annotations.Nullable;
  * 在我使用Fragment过程中，大部分情况下都是用show()，hide()，而不是replace()。
  * 注意：如果你的app有大量图片，这时更好的方式可能是replace，配合你的图片框架在Fragment视图销毁时，回收其图片所占的内存。
  */
-public class ComponentIntereactActivity extends BaseActivityWithLL implements MyListener {
+public class ActivityComponentIntereact extends BaseActivityWithLL {
     FragmentInterreact fragmentInterreact;
 
     @Override
@@ -49,13 +47,4 @@ public class ComponentIntereactActivity extends BaseActivityWithLL implements My
      * 如果你想保留其中的一个或多个(例如/t制表符，/n换行符，/r回车符等)，请慎用Trim方法。
      * 请注意，Trim删除的过程为从外到内，直到碰到一个非空白的字符为止，所以不管前后有多少个连续的空白字符都会被删除掉。
      */
-    @Override
-    public void sendContent(String info) {
-        if (info != null && !("".equals(info))) {
-            currentItemTag = info;//// TODO: 2017/8/27  所有的共同维护这个String值
-            Toast.makeText(this, info , Toast.LENGTH_SHORT).show();//TODO: 2017/8/26 用log查看sendContent是怎样调用的
-        } else {
-            Toast.makeText(this, "内容为空", Toast.LENGTH_SHORT).show();
-        }
-    }
 }

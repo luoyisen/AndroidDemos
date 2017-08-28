@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="magrin_all">20dp</dimen>
+    <dimen name="magrin_all">15dp</dimen>
 </resources>

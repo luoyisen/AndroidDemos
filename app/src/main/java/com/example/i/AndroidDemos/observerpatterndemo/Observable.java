@@ -15,15 +15,13 @@ public class Observable {
         observers = new ArrayList<>();
     }
 
-
-    public synchronized void addObserver(Observer o) {
+    public synchronized void addObserver(Observer o) {// TODO: 2017/8/28 synchronized 具体
         if (o == null)
             throw new NullPointerException();
         if (!observers.contains(o)) {
             observers.add(o);
         }
     }
-
 
     public synchronized void deleteObserver(Observer o) {
         observers.remove(o);
@@ -35,17 +33,13 @@ public class Observable {
     }
 
     public void notifyObservers(Object arg) {
-
         Observer[] arrLocal;
-
         synchronized (this) {
             if (!hasChanged())
                 return;
-
             arrLocal = observers.toArray(new Observer[observers.size()]);
             clearChanged();
         }
-
         for (int i = arrLocal.length - 1; i >= 0; i--)
             arrLocal[i].update(this, arg);//通知observer就是调用接口observer中的具体方法
     }

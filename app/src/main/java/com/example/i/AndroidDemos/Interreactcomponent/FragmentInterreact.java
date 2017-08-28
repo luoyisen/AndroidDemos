@@ -2,6 +2,7 @@ package com.example.i.AndroidDemos.Interreactcomponent;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.View;
 
 import com.example.i.AndroidDemos.Interreactcomponent.FragmentToActivity.FragmentLogin;
@@ -46,16 +47,20 @@ public class FragmentInterreact extends BaseFragmentWithRV {
             public void onItemClick(View view, int position) {
                 switch (position) {
                     case 0:
-                        displayFragment(loginFragment, this.toString());
+                        displayFragment(loginFragment, "FragmentInterreact0");
                         if (myListener != null) {
-                            myListener.sendContent(this.toString());
+                            myListener.sendContent("FragmentInterreact0");
                         }
+                        Log.e("-----","FragmentInterreact0");
+
                         break;
                     case 1:
-                        displayFragment(fragmentDoubanTop250, this.toString());
+                        displayFragment(fragmentDoubanTop250, "FragmentInterreact1");
                         if (myListener != null) {
-                            myListener.sendContent(this.toString());
+                            myListener.sendContent("FragmentInterreact1");
                         }
+                        Log.e("-----","FragmentInterreact1");
+
                         break;
                 }
             }

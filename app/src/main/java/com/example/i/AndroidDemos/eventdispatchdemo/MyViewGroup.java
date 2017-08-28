@@ -2,13 +2,13 @@ package com.example.i.AndroidDemos.eventdispatchdemo;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 
 /**
  * Created by I on 2017/8/22.
  */
 
-public class MyViewGroup extends ViewGroup {
+public class MyViewGroup extends RelativeLayout {
     public MyViewGroup(Context context) {
         super(context);
     }

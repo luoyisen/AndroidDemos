@@ -29,6 +29,7 @@ public class BaseFragmentWithRV extends BaseFragment {
     public int setLayoutResourceId() {
         return R.layout.fragment_base_withrv;
     }
+
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -55,6 +56,7 @@ public class BaseFragmentWithRV extends BaseFragment {
         fragmentManager.beginTransaction().show(fragment).commit();
         fragment.setUserVisibleHint(true);
     }
+
     @Override
     public void onAttach(Context context) {//onAttach方法有两个重载，一个传递的参数是Activity，一个是Context，传递参数为context的在一些Android版本上面由bug，(如果是使用的Fragment包，而不是v4.support.fragment包就会有);
         super.onAttach(context);
@@ -71,6 +73,7 @@ public class BaseFragmentWithRV extends BaseFragment {
 //            throw new ClassCastException(context.toString() + "包含该Fragment的Activity必须实现MyListener接口");
 //        }
     }
+
     public void displayFragment(Fragment fragment, String tag) {
         if (fragment.isAdded() == false) {
             addFragment(fragment, tag);

@@ -49,7 +49,7 @@ public class InterreactDecoration extends RecyclerView.ItemDecoration {
     @Override
     public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
         if (mOrientation == VERTICAL_LIST) {
-            outRect.set(40, 20, 40, 20);//设置要画的方形的坐标
+            outRect.set(40, 20, 40, 20);//设置要画的方形的四个边的坐标
         } else {
             outRect.set(0, 0, mDivider.getIntrinsicWidth(), 0);
         }
