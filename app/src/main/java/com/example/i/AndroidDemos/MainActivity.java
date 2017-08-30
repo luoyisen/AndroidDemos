@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.example.i.AndroidDemos.Interreactcomponent.ActivityComponentIntereact;
 import com.example.i.AndroidDemos.callbackdemo.CallBackActivity;
+import com.example.i.AndroidDemos.customizedview.ActivityCustomizedView;
 import com.example.i.AndroidDemos.eventdispatchdemo.EventDispatchActivity;
 import com.example.i.AndroidDemos.network.ActivityNet;
 import com.example.i.AndroidDemos.noteandtools.ActivityNoteAndTools;
@@ -26,7 +27,7 @@ import java.util.TimerTask;
 
 public class MainActivity extends AppCompatActivity {
     private EditText edit_query;
-    private LinearLayout fragmentcontainer1, fragmentcontainer2;
+    private LinearLayout fragmentcontainer1, fragmentcontainer2,drawer;
     private Timer timer;
     private TimerTask timerTask;
     private int getMessageCount;
@@ -39,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         fragmentcontainer1 = (LinearLayout) findViewById(R.id.fragmentmain1container);
         fragmentcontainer2 = (LinearLayout) findViewById(R.id.fragmentmain2container);
+        drawer = (LinearLayout) findViewById(R.id.ll_container);
         FragmentTransaction transaction1 = getFragmentManager().beginTransaction();
         transaction1.add(R.id.fragmentmain1container, new FragmentMain1(), null);
         transaction1.commit();
@@ -147,7 +149,11 @@ public class MainActivity extends AppCompatActivity {
             case R.id.network:
                 startActivity(new Intent(MainActivity.this, ActivityNet.class));
                 break;
+            case R.id.customizedview:
+                startActivity(new Intent(MainActivity.this, ActivityCustomizedView.class));
+                break;
         }
         return true;
     }
+
 }

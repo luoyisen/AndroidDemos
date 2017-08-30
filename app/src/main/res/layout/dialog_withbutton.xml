@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:background="@drawable/dialog_background"
+    android:background="@drawable/shape_roundedcorner_white"
     android:minWidth="280dip"
     android:orientation="vertical">
 
@@ -20,6 +20,7 @@
             android:hint="sdafsdf" />
 
     </LinearLayout>
+
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -43,7 +44,7 @@
                 android:layout_height="wrap_content"
                 android:hint="adfdsfd"
                 android:padding="5dip"
-                android:textSize="15dp"/>
+                android:textSize="15dp" />
 
         </LinearLayout>
     </android.support.v4.widget.NestedScrollView>
@@ -53,21 +54,27 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
+        android:layout_marginLeft="@dimen/magrin_all"
+        android:layout_marginRight="@dimen/magrin_all"
+        android:layout_marginBottom="@dimen/margin_5dp"
         android:orientation="horizontal">
 
         <Button
             android:id="@+id/positiveButton"
             android:layout_width="0dip"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin_5dp"
             android:layout_marginTop="3dip"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:background="@drawable/shape_roundedcorner_darkblue" />
 
         <Button
             android:id="@+id/negativeButton"
             android:layout_width="0dip"
             android:layout_height="wrap_content"
             android:layout_marginTop="3dip"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:background="@drawable/shape_roundedcorner_darkblue" />
 
     </LinearLayout>
 

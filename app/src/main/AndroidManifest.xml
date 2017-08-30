@@ -24,15 +24,15 @@
         <activity android:name="com.example.i.AndroidDemos.Interreactcomponent.ActivityComponentIntereact" />
         <activity android:name="com.example.i.AndroidDemos.Interreactcomponent.FragmentToActivity.UserInfoActivity" />
 
-        ----------------------------------笔记------------------------------------
-        <activity android:name="com.example.i.AndroidDemos.noteandtools.ActivityNoteAndTools" />
-
         ---------------------------------网络----------------------------------
         <activity android:name="com.example.i.AndroidDemos.network.ActivityNet" />
 
         <service android:name="com.example.i.AndroidDemos.network.socketdemo.ServerService" />
-        ---------------------------------工具----------------------------------
+        ---------------------------------工具和笔记----------------------------------
         <activity android:name=".noteandtools.ActivityNoteAndTools" />
+        ---------------------------------自定义View----------------------------------
+        <activity android:name=".customizedview.ActivityCustomizedView" />
+
     </application>
 
 </manifest>

@@ -4,5 +4,6 @@
     <color name="colorPrimaryDark">#FF971B5D</color>
     <color name="colorread">#FF971B5D</color>
     <color name="colorAccent">#000</color>
+    <color name="colorwhite">#fff</color>
     <color name="colorTransparent">#0000</color>
 </resources>

@@ -37,7 +37,7 @@ public final class NoteDialogWithConfig extends Dialog {
         layoutParams.width = (int) dipToPx(300);
         layoutParams.alpha = 0.9f;
         window.setAttributes(layoutParams);
-        getWindow().addFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
+        window.addFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
     }
 
     private double dipToPx(int i) {
@@ -103,7 +103,7 @@ public final class NoteDialogWithConfig extends Dialog {
                     .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             final NoteDialogWithConfig dialog = new NoteDialogWithConfig(context,
                     R.style.dialog);
-            View layout = inflater.inflate(R.layout.notedialogafdsfsdfa, null);
+            View layout = inflater.inflate(R.layout.dialog_withbutton, null);
             dialog.addContentView(layout, new LinearLayout.LayoutParams(
                     LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
 
