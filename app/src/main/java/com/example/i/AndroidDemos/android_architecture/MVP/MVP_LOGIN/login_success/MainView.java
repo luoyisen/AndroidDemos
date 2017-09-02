@@ -15,4 +15,6 @@ public interface MainView {
     void setItems(List<String> items);
 
     void showMessage(String message);
+
+    void showSnackBar(String information);
 }

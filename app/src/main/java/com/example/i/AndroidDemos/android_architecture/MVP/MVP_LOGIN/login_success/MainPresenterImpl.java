@@ -16,7 +16,15 @@ public class MainPresenterImpl implements MainPresenter, FindItemsInteractor.OnF
         this.findItemsInteractor = findItemsInteractor;
     }
 
-    @Override public void onResume() {
+    @Override
+    public void onCreate() {
+        if (mainView != null) {
+            mainView.showSnackBar("已经登陆");
+        }
+    }
+
+    @Override
+    public void onResume() {
         if (mainView != null) {
             mainView.showProgress();
         }
@@ -24,17 +32,21 @@ public class MainPresenterImpl implements MainPresenter, FindItemsInteractor.OnF
         findItemsInteractor.findItems(this);
     }
 
-    @Override public void onItemClicked(int position) {
+    @Override
+    public void onItemClicked(int position) {
         if (mainView != null) {
             mainView.showMessage(String.format("Position %d clicked", position + 1));
         }
     }
 
-    @Override public void onDestroy() {
+    @Override
+    public void onDestroy() {
         mainView = null;
     }
 
-    @Override public void onFinished(List<String> items) {
+
+    @Override
+    public void onFinished(List<String> items) {
         if (mainView != null) {
             mainView.setItems(items);
             mainView.hideProgress();

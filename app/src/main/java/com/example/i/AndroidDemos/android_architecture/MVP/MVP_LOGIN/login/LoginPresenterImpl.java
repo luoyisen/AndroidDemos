@@ -18,7 +18,7 @@ public class LoginPresenterImpl implements LoginPresenter, LoginInteractor.onLog
         if (loginView != null) {
             loginView.showProgress();
         }
-        loginInteractor.login(username, password, this);//能将this作为参数传递，是因为该类实现了onLoginFinishedListener接口
+        loginInteractor.login(username, password, this);//能将this作为参数传递，是因为该类实现了onLoginFinishedListener接口//传递接口进来才能判断到底是用户名出错了还是密码出错了
 
     }
 
@@ -46,7 +46,7 @@ public class LoginPresenterImpl implements LoginPresenter, LoginInteractor.onLog
     @Override
     public void onSuccess() {
         if(loginView != null){
-            loginView.navigateToHome();
+            loginView.showLoginSuccessActivity();
         }
     }
 }

@@ -10,7 +10,8 @@ import java.util.List;
  */
 
 public class FindItemsInteractorImpl implements FindItemsInteractor {
-    @Override public void findItems(final OnFinishedListener listener) {
+    @Override
+    public void findItems(final OnFinishedListener listener) {
         new Handler().postDelayed(new Runnable() {
             @Override public void run() {
                 listener.onFinished(createArrayList());

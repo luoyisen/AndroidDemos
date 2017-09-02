@@ -1,7 +1,10 @@
 package com.example.i.AndroidDemos.android_architecture.MVP.MVP_LOGIN.login_success;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.Snackbar;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -18,7 +21,7 @@ import java.util.List;
  * Created by I on 2017/9/1.
  */
 
-public class Activity_LoginSuccess extends BaseActivity implements MainView, AdapterView.OnItemClickListener {
+public class Activity_LoginSuccess extends BaseActivity implements MainView, AdapterView.OnItemClickListener{
     private ListView listView;
     private ProgressBar progressBar;
     private MainPresenter presenter;
@@ -34,9 +37,10 @@ public class Activity_LoginSuccess extends BaseActivity implements MainView, Ada
         listView = (ListView) findViewById(R.id.list);
         listView.setOnItemClickListener(this);
         progressBar = (ProgressBar) findViewById(R.id.progress);
-        presenter = new MainPresenterImpl(this, new FindItemsInteractorImpl());
-    }
 
+        presenter = new MainPresenterImpl(this, new FindItemsInteractorImpl());
+        presenter.onCreate();
+    }
 
     @Override
     public void onResume() {
@@ -70,6 +74,42 @@ public class Activity_LoginSuccess extends BaseActivity implements MainView, Ada
     @Override
     public void showMessage(String message) {
         Toast.makeText(this, message, Toast.LENGTH_LONG).show();
+//        final Snackbar snackbar = Snackbar.
+//                make(listView, "已经登陆", Snackbar.LENGTH_LONG);
+//        snackbar.setActionTextColor(getResources().getColor(R.color.colorwhite));
+//        snackbar.getView().setBackgroundColor(getResources().getColor(R.color.colorread));
+//        snackbar.setAction("点击取消登陆", new View.OnClickListener() { // 设置点击事件
+//
+//            @Override
+//            public void onClick(View view) {
+//                SharedPreferences sharedPreferences = getSharedPreferences("loginstate", Context.MODE_PRIVATE);
+//                SharedPreferences.Editor editor = sharedPreferences.edit();
+//                editor.putString("isloginsuccess", "failed");
+//                editor.commit();
+//                finish();
+//                snackbar.dismiss();
+//
+//            }
+//        }).show();
+    }
+
+    @Override
+    public void showSnackBar(String information) {
+        final Snackbar snackbar = Snackbar.make(listView, information, Snackbar.LENGTH_LONG);
+        snackbar.setActionTextColor(getResources().getColor(R.color.colorwhite));
+        snackbar.getView().setBackgroundColor(getResources().getColor(R.color.colorread));
+        snackbar.setAction("点击取消登陆", new View.OnClickListener() { // 设置点击事件
+            @Override
+            public void onClick(View view) {
+                SharedPreferences sharedPreferences = getSharedPreferences("loginstate", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putString("isloginsuccess", "failed");
+                editor.commit();
+                finish();
+                snackbar.dismiss();
+
+            }
+        }).show();
     }
 
     @Override

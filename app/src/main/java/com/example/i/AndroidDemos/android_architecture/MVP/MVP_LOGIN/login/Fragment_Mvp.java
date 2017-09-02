@@ -1,13 +1,15 @@
 package com.example.i.AndroidDemos.android_architecture.MVP.MVP_LOGIN.login;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ProgressBar;
-import android.widget.Toast;
 
+import com.example.i.AndroidDemos.MyApplication;
 import com.example.i.AndroidDemos.R;
 import com.example.i.AndroidDemos.android_architecture.MVP.MVP_LOGIN.login_success.Activity_LoginSuccess;
 import com.example.i.AndroidDemos.base.BaseFragment;
@@ -21,6 +23,7 @@ public class Fragment_Mvp extends BaseFragment implements LoginView, View.OnClic
     private EditText username;
     private EditText password;
     private LoginPresenter presenter;
+    private MyApplication myApplication;//用application记录登陆状态不持久，退出以后又要登陆
 
     @Override
     public int setLayoutResourceId() {
@@ -68,13 +71,17 @@ public class Fragment_Mvp extends BaseFragment implements LoginView, View.OnClic
     @Override
     public void setPasswordError() {
         password.setError(getString(R.string.password_error));
-
     }
 
     @Override
-    public void navigateToHome() {
-        Toast.makeText(getActivity(), "登陆成功", Toast.LENGTH_SHORT).show();
-        startActivity(new Intent(getActivity(),Activity_LoginSuccess.class));
+    public void showLoginSuccessActivity() {
+        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("loginstate", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("isloginsuccess", "success");
+        editor.commit();
+//        myApplication = (MyApplication) getActivity().getApplication();
+//        myApplication.setLoginSuccessful(true);
+        startActivity(new Intent(getActivity(), Activity_LoginSuccess.class));
         progressBar.setVisibility(View.GONE);
     }
 }

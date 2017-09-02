@@ -17,7 +17,7 @@ import com.example.i.AndroidDemos.R;
 public class ViewProgressBarAutoSwitch extends View {
     private int width;
     private Paint paint;
-    private int strokeWidth = 50;
+    private int strokeWidth = 0;
     private boolean inProgress = true;
     private int progress = 0;
     private int speed = 15;
@@ -72,6 +72,7 @@ public class ViewProgressBarAutoSwitch extends View {
         paint = new Paint();
         paint.setAntiAlias(true);
         paint.setStyle(Paint.Style.STROKE);
+        strokeWidth = center ;
         paint.setStrokeWidth(strokeWidth);
         paint.setColor(getResources().getColor(R.color.colorPrimary));
         canvas.drawCircle(center, center,radius , paint);
