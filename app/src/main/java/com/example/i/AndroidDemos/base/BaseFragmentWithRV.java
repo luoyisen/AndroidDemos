@@ -23,7 +23,6 @@ public class BaseFragmentWithRV extends BaseFragment {
     public RecyclerView.LayoutManager mLayoutManager;
     public BaseRVAdapter adapter;
     public FragmentManager fragmentManager;
-    public static MyListener myListener;
 
     @Override
     public int setLayoutResourceId() {

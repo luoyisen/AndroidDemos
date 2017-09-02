@@ -32,8 +32,8 @@
         android:id="@+id/sdfasf"
         android:title="多线程" />
     <item
-        android:id="@+id/asdfe"
-        android:title="组件交互" />
+        android:id="@+id/architecture"
+        android:title="Android Architecture" />
     <item
         android:id="@+id/componentfinterreact"
         android:title="观察者模式" />

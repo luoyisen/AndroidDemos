@@ -8,11 +8,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.i.AndroidDemos.Interreactcomponent.FragmentToActivity.MyListener;
+
 /**
  * Created by I on 2017/8/24.
  */
 
 public abstract class BaseFragment extends Fragment {
+    public static MyListener myListener;
+
     private static final String STATE_SAVE_IS_HIDDEN = "STATE_SAVE_IS_HIDDEN";
 
     public abstract int setLayoutResourceId();

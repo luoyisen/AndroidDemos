@@ -18,7 +18,6 @@ import java.util.ArrayList;
 
 public class FragmentInterreact extends BaseFragmentWithRV {
     ArrayList arrayList;
-    public BaseRVAdapter adapter;
     FragmentLogin loginFragment;
     FragmentDoubanTop250 fragmentDoubanTop250;
 

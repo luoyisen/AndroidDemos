@@ -26,7 +26,7 @@ public class ServerService extends Service {
 
     private boolean mIsServiceDestroyed = false;
     private String[] mDefinedMessages = new String[]{
-            "我是Spike, 哈哈, 你们的好朋友!",
+            "断剑重铸之日，骑士归来之时，我是个锐雯迷，哈哈",
             "请问你叫什么名字?",
             "塞班是个好地方, 非常适合度假.",
             "要记得关注我哦, 共同学习共同进步.",
@@ -60,7 +60,6 @@ public class ServerService extends Service {
             try {
                 serverSocket = new ServerSocket(PORT);
             } catch (IOException e) {
-                Log.e(TAG, "建立链接失败, 端口:" + PORT);
                 e.printStackTrace();
                 return; // 链接建立失败直接返回
             }
@@ -93,10 +92,9 @@ public class ServerService extends Service {
         PrintWriter out = new PrintWriter(new BufferedWriter(
                 new OutputStreamWriter(client.getOutputStream())), true);
 
-        out.println("欢迎欢迎, 我是Spike!");
+        out.println("欢迎来到德莱联盟");
         while (!mIsServiceDestroyed) {
             String str = in.readLine();
-            Log.e(TAG, "信息来自: " + str);
             if (str == null) {
                 break;
             }
@@ -104,11 +102,7 @@ public class ServerService extends Service {
             int i = new Random().nextInt(mDefinedMessages.length);
             String msg = mDefinedMessages[i];
             out.println(msg);
-            Log.e(TAG, "发送信息: " + msg);
         }
-
-        System.out.println("客户端退出");
-
         close(out);
         close(in);
         client.close();

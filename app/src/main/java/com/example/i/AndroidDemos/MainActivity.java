@@ -13,6 +13,7 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.example.i.AndroidDemos.Interreactcomponent.ActivityComponentIntereact;
+import com.example.i.AndroidDemos.android_architecture.ActivityArchitecture;
 import com.example.i.AndroidDemos.callbackdemo.CallBackActivity;
 import com.example.i.AndroidDemos.customizedview.ActivityCustomizedView;
 import com.example.i.AndroidDemos.eventdispatchdemo.EventDispatchActivity;
@@ -27,7 +28,7 @@ import java.util.TimerTask;
 
 public class MainActivity extends AppCompatActivity {
     private EditText edit_query;
-    private LinearLayout fragmentcontainer1, fragmentcontainer2,drawer;
+    private LinearLayout fragmentcontainer1, fragmentcontainer2, drawer;
     private Timer timer;
     private TimerTask timerTask;
     private int getMessageCount;
@@ -151,6 +152,9 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.customizedview:
                 startActivity(new Intent(MainActivity.this, ActivityCustomizedView.class));
+                break;
+            case R.id.architecture:
+                startActivity(new Intent(MainActivity.this, ActivityArchitecture.class));
                 break;
         }
         return true;
