@@ -32,7 +32,7 @@ import java.util.Locale;
  * Created by I on 2017/8/26.
  */
 
-public  class FragmentSocketChat extends BaseFragment {
+public class FragmentSocketChat extends BaseFragment {
     private static final String TAG = "DEBUG-WCL: " + MainActivity.class.getSimpleName();
 
     private TextView mTvContent; // 显示聊天内容
@@ -120,7 +120,6 @@ public  class FragmentSocketChat extends BaseFragment {
 
     private void connectTCPServer() {
         Socket socket = null;
-        // 不停重试直到连接成功为止
         while (socket == null) {
             try {
                 socket = new Socket("localhost", ServerService.PORT);

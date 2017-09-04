@@ -8,19 +8,15 @@ import android.content.SharedPreferences;
  */
 
 public class MyApplication extends Application {
-    private boolean isloginSuccessful;
-
-    public boolean getLoginSuccessful() {
-        return isloginSuccessful;
-    }
-
-    public void setLoginSuccessful(boolean loginSuccessful) {
-        this.isloginSuccessful = loginSuccessful;
-    }
+    public static SharedPreferences sharedPreferences;
+    public static  final  String LOGIN_STATE = "LOGIN_STATE";
+    public static  final  String IS_LOGIN_SUCCESS = "IS_LOGIN_SUCCESS";
 
     @Override
     public void onCreate() {
         super.onCreate();
-        isloginSuccessful = false;
+        sharedPreferences = getSharedPreferences(LOGIN_STATE, MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putBoolean(IS_LOGIN_SUCCESS, false);
     }
 }

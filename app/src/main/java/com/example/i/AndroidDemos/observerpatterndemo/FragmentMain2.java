@@ -3,6 +3,8 @@ package com.example.i.AndroidDemos.observerpatterndemo;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Message;
+import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +18,7 @@ import com.example.i.AndroidDemos.R;
 
 public class FragmentMain2 extends Fragment implements Observer {
     TextView tv;
+    public Handler handler;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -27,16 +30,30 @@ public class FragmentMain2 extends Fragment implements Observer {
     }
 
     @Override
-    public void update(Observable observable, Object data) {//观察者收到通知以后来做具体的事情，所以fragment实现了Observer接口
-        final String s = data.toString();
-        Handler handler;
-        handler = new Handler();
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        handler = new Handler() {
+            @Override
+            public void handleMessage(Message msg) {
+                switch (msg.what) {
+                    case 0:
+                        tv.setText(msg.obj.toString());
+                        break;
+                }
+            }
+        };
+    }
+
+    @Override
+    public void update(Observable observable, final Object data) {//观察者收到通知以后来做具体的事情，所以fragment实现了Observer接口
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                tv.setText(s);//执行具体的方法
+                Message msg = new Message();
+                msg.what = 0;
+                msg.obj = data;
+                handler.sendMessage(msg);
             }
         }, 1000);
-
     }
 }

@@ -11,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.i.AndroidDemos.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -59,7 +60,10 @@ public class CategoryDataAdapter extends BaseAdapter {
             viewHolder = (ViewHolder) view.getTag();
         }
         model = mList.get(i);
-        GlideUtils.loadImageCrop(mContext, model.getSmall(), viewHolder.iv_main_grid_icon);
+        Picasso.with(mContext)
+                .load(model.getBig())
+                .into(viewHolder.iv_main_grid_icon);
+//        GlideUtils.loadImageCrop(mContext, model.getBig(), viewHolder.iv_main_grid_icon);
         viewHolder.tv_main_grid_number.setText(model.getDown() + "");
         viewHolder.ll_item_download.setOnClickListener(new View.OnClickListener() {
             @Override

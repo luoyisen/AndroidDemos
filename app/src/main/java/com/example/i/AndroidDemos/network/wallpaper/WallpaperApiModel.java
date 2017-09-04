@@ -73,7 +73,6 @@ public class WallpaperApiModel {
     }
 
     public static class CategoryBean {
-
         private String name;
         private String cover;
         private String url;

@@ -74,10 +74,10 @@ public class BaseFragmentWithRV extends BaseFragment {
     }
 
     public void displayFragment(Fragment fragment, String tag) {
-        if (fragment.isAdded() == false) {
-            addFragment(fragment, tag);
-        } else {
+        if (fragment.isAdded()) {
             showFragment(fragment);
+        } else {
+            addFragment(fragment, tag);
         }
     }
 }

@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.i.AndroidDemos.R;
 
@@ -49,6 +50,16 @@ public class FragmentCateroryWallpaper extends Fragment {
                 startActivity(intent);
             }
         });
+        /**
+         * retrofit使用步骤：
+         * 要点：1.describe the endpoints. 2.what they expect 3. what they respond
+         * (1).创建一个接口进行HTTP请求描述 (ApiImp)
+         * (2).创建
+         * (2).使用Retrofit.Builder构建模式构造出来一个Retrofit实例
+         * (3).因为要调用定义的接口中的具体方法，所以要创建一个实例(Create an implementation of the API endpoints defined by the {@code service} interface).
+         * (4).调用接口中的具体方法，返回值是call<call方法的类型>
+         * (5).
+         */
 
         Retrofit retrofit = new Retrofit.Builder().baseUrl("http://open.lovebizhi.com/")
                 .addConverterFactory(GsonConverterFactory.create()).build();
@@ -65,7 +76,7 @@ public class FragmentCateroryWallpaper extends Fragment {
 
             @Override
             public void onFailure(Call<WallpaperApiModel> call, Throwable t) {
-//                L.i(t.toString());
+                Toast.makeText(getActivity(), "数据获取失败", Toast.LENGTH_SHORT).show();
             }
         });
     }

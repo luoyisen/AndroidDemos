@@ -17,11 +17,15 @@ import com.example.i.AndroidDemos.base.BaseActivity;
 
 import java.util.List;
 
-/**
+import static com.example.i.AndroidDemos.MyApplication.IS_LOGIN_SUCCESS;
+import static com.example.i.AndroidDemos.MyApplication.LOGIN_STATE;
+
+/***
+ *
  * Created by I on 2017/9/1.
  */
 
-public class Activity_LoginSuccess extends BaseActivity implements MainView, AdapterView.OnItemClickListener{
+public class Activity_LoginSuccess extends BaseActivity implements MainView, AdapterView.OnItemClickListener, View.OnClickListener {
     private ListView listView;
     private ProgressBar progressBar;
     private MainPresenter presenter;
@@ -74,23 +78,6 @@ public class Activity_LoginSuccess extends BaseActivity implements MainView, Ada
     @Override
     public void showMessage(String message) {
         Toast.makeText(this, message, Toast.LENGTH_LONG).show();
-//        final Snackbar snackbar = Snackbar.
-//                make(listView, "已经登陆", Snackbar.LENGTH_LONG);
-//        snackbar.setActionTextColor(getResources().getColor(R.color.colorwhite));
-//        snackbar.getView().setBackgroundColor(getResources().getColor(R.color.colorread));
-//        snackbar.setAction("点击取消登陆", new View.OnClickListener() { // 设置点击事件
-//
-//            @Override
-//            public void onClick(View view) {
-//                SharedPreferences sharedPreferences = getSharedPreferences("loginstate", Context.MODE_PRIVATE);
-//                SharedPreferences.Editor editor = sharedPreferences.edit();
-//                editor.putString("isloginsuccess", "failed");
-//                editor.commit();
-//                finish();
-//                snackbar.dismiss();
-//
-//            }
-//        }).show();
     }
 
     @Override
@@ -101,13 +88,12 @@ public class Activity_LoginSuccess extends BaseActivity implements MainView, Ada
         snackbar.setAction("点击取消登陆", new View.OnClickListener() { // 设置点击事件
             @Override
             public void onClick(View view) {
-                SharedPreferences sharedPreferences = getSharedPreferences("loginstate", Context.MODE_PRIVATE);
+                SharedPreferences sharedPreferences = getSharedPreferences(LOGIN_STATE, Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor = sharedPreferences.edit();
-                editor.putString("isloginsuccess", "failed");
-                editor.commit();
+                editor.putBoolean(IS_LOGIN_SUCCESS, false);
+                editor.apply();
                 finish();
                 snackbar.dismiss();
-
             }
         }).show();
     }
@@ -115,5 +101,10 @@ public class Activity_LoginSuccess extends BaseActivity implements MainView, Ada
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         presenter.onItemClicked(position);
+    }
+
+    @Override
+    public void onClick(View v) {
+
     }
 }

@@ -14,6 +14,9 @@ import com.example.i.AndroidDemos.R;
 import com.example.i.AndroidDemos.android_architecture.MVP.MVP_LOGIN.login_success.Activity_LoginSuccess;
 import com.example.i.AndroidDemos.base.BaseFragment;
 
+import static com.example.i.AndroidDemos.MyApplication.IS_LOGIN_SUCCESS;
+import static com.example.i.AndroidDemos.MyApplication.LOGIN_STATE;
+
 /**
  * Created by I on 2017/9/1.
  */
@@ -75,12 +78,10 @@ public class Fragment_Mvp extends BaseFragment implements LoginView, View.OnClic
 
     @Override
     public void showLoginSuccessActivity() {
-        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("loginstate", Context.MODE_PRIVATE);
+        SharedPreferences sharedPreferences = getActivity().getSharedPreferences(LOGIN_STATE, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString("isloginsuccess", "success");
-        editor.commit();
-//        myApplication = (MyApplication) getActivity().getApplication();
-//        myApplication.setLoginSuccessful(true);
+        editor.putBoolean(IS_LOGIN_SUCCESS, true);
+        editor.apply();
         startActivity(new Intent(getActivity(), Activity_LoginSuccess.class));
         progressBar.setVisibility(View.GONE);
     }

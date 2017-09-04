@@ -14,6 +14,9 @@ import com.example.i.AndroidDemos.base.BaseFragmentWithRV;
 
 import java.util.ArrayList;
 
+import static com.example.i.AndroidDemos.MyApplication.IS_LOGIN_SUCCESS;
+import static com.example.i.AndroidDemos.MyApplication.LOGIN_STATE;
+
 /**
  * Created by I on 2017/9/1.
  */
@@ -21,11 +24,13 @@ import java.util.ArrayList;
 public class FragmentArchitecture extends BaseFragmentWithRV {
     ArrayList arrayList;
     Fragment_Mvp fragment_mvp;
+    private boolean isFirstLogin;
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         fragment_mvp = new Fragment_Mvp();
+        isFirstLogin = true;
         arrayList = new ArrayList();
         arrayList.add("MVP_LOGIN");
         arrayList.add("MVP_TODO");
@@ -37,23 +42,15 @@ public class FragmentArchitecture extends BaseFragmentWithRV {
             public void onItemClick(View view, int position) {
                 switch (position) {
                     case 0:
-                        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("loginstate", Context.MODE_PRIVATE);
-                        if ((sharedPreferences.getString("isloginsuccess", "failed")) == "failed") {
+                        SharedPreferences sharedPreferences = getActivity().getSharedPreferences(LOGIN_STATE, Context.MODE_PRIVATE);
+                        if (sharedPreferences.getBoolean(IS_LOGIN_SUCCESS, false)) {
+                            startActivity(new Intent(getActivity(), Activity_LoginSuccess.class));
+                        } else {
                             displayFragment(fragment_mvp, "FragmentArchitecture0");
                             if (myListener != null) {
                                 myListener.sendContent("FragmentArchitecture0");
                             }
-                        } else {
-                            startActivity(new Intent(getActivity(), Activity_LoginSuccess.class));
                         }
-//                        if (((MyApplication) getActivity().getApplication()).getLoginSuccessful()) {
-//                            startActivity(new Intent(getActivity(), Activity_LoginSuccess.class));
-//                        } else {
-//                            displayFragment(fragment_mvp, "FragmentArchitecture0");
-//                            if (myListener != null) {
-//                                myListener.sendContent("FragmentArchitecture0");
-//                            }
-//                        }
                         break;
                 }
 

@@ -11,6 +11,6 @@ public interface ApiImp {
 
     //获取爱壁纸接口
     @GET("baidu_rom.php")
-    Call<WallpaperApiModel> getWallpaperApi();
+    Call<WallpaperApiModel> getWallpaperApi();//call方法
 
 }

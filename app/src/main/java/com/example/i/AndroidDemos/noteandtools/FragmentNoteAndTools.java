@@ -30,7 +30,7 @@ public class FragmentNoteAndTools extends BaseFragmentWithRV {
         arrayList = new ArrayList<>();
         arrayList.add("As快捷键");
         arrayList.add("本机App");
-        arrayList.add("a");
+        arrayList.add("Handler");
         adapter = new BaseRVAdapter(arrayList, getActivity().getClass().getSimpleName());
         rv_base_fragment.setAdapter(adapter);
 
@@ -42,8 +42,8 @@ public class FragmentNoteAndTools extends BaseFragmentWithRV {
                         NoteDialogWithConfig.Builder customBuilder = new
                                 NoteDialogWithConfig.Builder(getActivity());
                         customBuilder.setTitle("Android Studio KeyMap")
-                                .setMessage("查看类的层级关系:CTRL + H\n" +
-                                        "adf\n" + "adf\n" + "adf\n" + "adf\n" + "adf\n" + "adf\n" + "adf\n" + "adf\n" + "adf\n" + "adf\n" + "adf\n" + "adf\n" + "adf\n" + "adf\n" + "adf\n" + "adf\n" + "adf\n" + "adf\n" + "adf\n" + "adf\n" + "adf\n" + "adf\n" + "adf\n" + "adf")
+                                .setMessage("类的层级关系:CTRL + H\n" +
+                                        "删除整行代码:CTRL + X\n" + "最近更改的代码:CTRL + E\n" + "查找文件:CTRL + SHIFT + F\n" + "查找文件:CTRL + SHIFT + N\n" + "a\n" + "adf\n" + "adf\n" + "adf\n" + "adf\n" + "adf\n" + "adf\n" + "adf\n" + "adf\n" + "adf\n" + "adf\n" + "adf\n" + "adf\n" + "adf")
                                 .setNegativeButton("Cancel",
                                         new DialogInterface.OnClickListener() {
                                             public void onClick(DialogInterface dialog, int which) {
@@ -67,6 +67,13 @@ public class FragmentNoteAndTools extends BaseFragmentWithRV {
                         }
                         Log.e("-----", "FragmentNoteAndTools1");
 
+                        break;
+                    case 2:
+                        NoteDialogWithConfig.Builder builder = new NoteDialogWithConfig.Builder(getContext());
+                        builder.setTitle("Handler使用注意事项")
+                                .setMessage("如果内部类的生命周期和Activity的生命周期不一致（比如:Activity finish()之后要等10分钟，内部类的实例才会执行），则在Activity中要避免使用非静态的内部类，这种情况，就使用一个静态内部类，同时持有一个对Activity的WeakReference。")
+                                .setCancelAble(true);
+                        builder.create().show();
                         break;
                 }
             }
