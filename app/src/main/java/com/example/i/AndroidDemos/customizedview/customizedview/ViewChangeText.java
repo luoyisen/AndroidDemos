@@ -1,4 +1,4 @@
-package com.example.i.AndroidDemos.customizedview;
+package com.example.i.AndroidDemos.customizedview.customizedview;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -34,7 +34,6 @@ public class ViewChangeText extends View {
 
     public ViewChangeText(Context context, @Nullable AttributeSet attrs) {
         this(context, attrs, 0);
-
     }
 
     public ViewChangeText(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
@@ -61,7 +60,6 @@ public class ViewChangeText extends View {
             }
         }
         typedArray.recycle();
-
         mPaint = new Paint();
         mPaint.setTextSize(textSize);
 //        mPaint.setColor(textColor);

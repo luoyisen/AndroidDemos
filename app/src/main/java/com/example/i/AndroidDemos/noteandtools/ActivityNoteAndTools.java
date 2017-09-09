@@ -11,10 +11,12 @@ import com.example.i.AndroidDemos.base.BaseActivityWithLL;
  */
 
 public class ActivityNoteAndTools extends BaseActivityWithLL {
+    FragmentNoteAndTools fragmentNoteAndTools;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        FragmentNoteAndTools fragmentNoteAndTools = new FragmentNoteAndTools();
+        fragmentNoteAndTools = new FragmentNoteAndTools();
         getSupportFragmentManager().beginTransaction().add(R.id.container_ll, fragmentNoteAndTools, "fragment_root").commit();
     }
 }

@@ -13,6 +13,50 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolabr_main"
+            style="@style/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorPrimary">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/image_list"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/margin_10dp"
+                    android:layout_marginTop="@dimen/margin_10dp"
+                    android:layout_marginBottom="@dimen/margin_10dp"
+                    android:src="@drawable/list"/>
+
+                <android.support.v7.widget.SearchView
+                    android:id="@+id/serchview_main"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_centerInParent="true"
+                    app:iconifiedByDefault="false"
+                    app:queryBackground="@null"
+                    app:searchIcon="@null"/>
+
+                <ImageView
+                    android:id="@+id/image_search"
+                    android:layout_width="27dp"
+                    android:layout_height="27dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/margin_10dp"
+                    android:layout_marginTop="@dimen/margin_10dp"
+                    android:layout_marginBottom="@dimen/margin_10dp"
+                    android:src="@drawable/search_databasep"
+                    android:layout_alignParentEnd="true"/>
+            </RelativeLayout>
+
+        </android.support.v7.widget.Toolbar>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -36,7 +80,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
-                    android:text="发送通知" />
+                    android:text="@string/sendinfomation"
+                    android:clickable="false"/>
             </RelativeLayout>
 
         </LinearLayout>
@@ -58,20 +103,50 @@
             android:orientation="horizontal" />
     </LinearLayout>
 
-    <android.support.design.widget.NavigationView
-        android:id="@+id/nav_view"
+    <RelativeLayout
         android:layout_width="250dp"
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:background="@color/colorPrimary"
-        android:orientation="vertical"
-        app:headerLayout="@layout/drawer_nav"
-        app:menu="@menu/menu_main">
+        android:orientation="vertical">
+
+        <android.support.design.widget.NavigationView
+            android:id="@+id/nav_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/margin_40dp"
+            android:background="@color/colorPrimary"
+            app:headerLayout="@layout/drawer_nav"
+            app:itemTextColor="@color/colorwhite"
+            app:menu="@menu/menu_main" />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:background="@color/colorwhite"
-            android:layout_gravity="bottom"/>
-    </android.support.design.widget.NavigationView>
+            android:layout_height="@dimen/margin_40dp"
+            android:layout_alignParentBottom="true">
+
+            <TextView
+                android:id="@+id/settings"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="@string/setting"
+                android:textColor="@color/colorwhite"
+                android:textSize="18sp"/>
+
+            <TextView
+                android:id="@+id/login"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="@string/login"
+                android:textColor="@color/colorwhite"
+                android:textSize="18sp"/>
+        </LinearLayout>
+
+    </RelativeLayout>
 </android.support.v4.widget.DrawerLayout>

@@ -17,5 +17,4 @@ public class ActivityNet extends BaseActivityWithLL {
         FragmentNet fragmentNet = new FragmentNet();
         getSupportFragmentManager().beginTransaction().add(R.id.container_ll, fragmentNet, "fragment_root").commit();
     }
-
 }

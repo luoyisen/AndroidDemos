@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.i.AndroidDemos">
 
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true" />
     <uses-permission android:name="android.permission.INTERNET" />
 
 
@@ -13,7 +16,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.example.i.AndroidDemos.MainActivity">
+        <activity
+            android:name="com.example.i.AndroidDemos.MainActivity"
+            android:windowSoftInputMode="adjustPan|stateAlwaysHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -21,9 +26,12 @@
             </intent-filter>
         </activity>
         <activity android:name="com.example.i.AndroidDemos.callbackdemo.CallBackActivity" />
-        <activity android:name="com.example.i.AndroidDemos.eventdispatchdemo.EventDispatchActivity" />
+        <activity android:name="com.example.i.AndroidDemos.noteandtools.note.ActivityEventDispatch" />
         <activity android:name="com.example.i.AndroidDemos.Interreactcomponent.ActivityComponentIntereact" />
         <activity android:name="com.example.i.AndroidDemos.Interreactcomponent.FragmentToActivity.UserInfoActivity" />
+        <activity android:name=".base.BaseActivityWithLL" />
+        ---------------------------------数据结构----------------------------------
+        <activity android:name=".datastructure.ActivityDataStructure" />
 
         ---------------------------------网络----------------------------------
         <activity android:name="com.example.i.AndroidDemos.network.ActivityNet" />
@@ -35,9 +43,14 @@
         <activity android:name=".noteandtools.ActivityNoteAndTools" />
         ---------------------------------自定义View----------------------------------
         <activity android:name=".customizedview.ActivityCustomizedView" />
-        ---------------------------------Android_architecture----------------------------------
+        ---------------------------------Android_architecture------------------------
         <activity android:name=".android_architecture.ActivityArchitecture" />
-        <activity android:name=".android_architecture.MVP.MVP_LOGIN.login_success.Activity_LoginSuccess"/>
+        <activity android:name=".android_architecture.MVP.MVP_LOGIN.login_success.Activity_LoginSuccess" />
+        ---------------------------------algorithm------------------------
+        <activity android:name=".algorithm.ActivityAlgorithm" />
+        <activity android:name=".base.ActivityWithWebView" />
+        ---------------------------------open gl----------------------------------
+        <activity android:name=".opengl.ActivityOpenGl" />
 
     </application>
 

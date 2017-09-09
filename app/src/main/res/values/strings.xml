@@ -5,4 +5,23 @@
     <string name="log_in">登陆</string>
     <string name="username_error">用户名为空或不存在</string>
     <string name="password_error">密码为空或错误</string>
+    <string name="algorithm">算法</string>
+    <string name="search">搜索</string>
+    <string name="mutilthread">多线程</string>
+    <string name="android_architecture">Android Architecture</string>
+    <string name="观察者模式">观察者模式</string>
+    <string name="oom">oom</string>
+    <string name="多线程">多线程</string>
+    <string name="view">自定义view</string>
+    <string name="fragment操作">fragment操作</string>
+    <string name="网络相关">网络相关</string>
+    <string name="回调">回调</string>
+    <string name="笔记和工具">笔记和工具</string>
+    <string name="事件分发">事件分发</string>
+    <string name="组件交互">组件交互</string>
+    <string name="setting">设置</string>
+    <string name="login">登陆</string>
+    <string name="sendinfomation">发送通知</string>
+    <string name="dataStructure">数据结构</string>
+    <string name="opengl">openGL</string>
 </resources>

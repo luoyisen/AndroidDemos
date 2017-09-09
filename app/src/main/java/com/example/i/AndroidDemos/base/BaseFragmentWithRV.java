@@ -23,7 +23,6 @@ public class BaseFragmentWithRV extends BaseFragment {
     public RecyclerView.LayoutManager mLayoutManager;
     public BaseRVAdapter adapter;
     public FragmentManager fragmentManager;
-
     @Override
     public int setLayoutResourceId() {
         return R.layout.fragment_base_withrv;
@@ -31,7 +30,6 @@ public class BaseFragmentWithRV extends BaseFragment {
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
         fragmentManager = getFragmentManager();
         rv_base_fragment = (RecyclerView) getActivity().findViewById(R.id.rv_basefragment);
         mLayoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
@@ -42,6 +40,7 @@ public class BaseFragmentWithRV extends BaseFragment {
     public void hideRootFragment() {
         fragmentManager.beginTransaction().hide(fragmentManager.findFragmentByTag("fragment_root")).commit();
         fragmentManager.findFragmentByTag("fragment_root").setUserVisibleHint(false);//因为show()和hide()方法不走Fragment的生命周期，所以需要手动设置
+
     }
 
     public void addFragment(Fragment fragment, String tag) {

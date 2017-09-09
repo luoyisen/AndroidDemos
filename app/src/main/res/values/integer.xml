@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="zero">0</integer>
+    <integer name="one">1</integer>
+    <integer name="two">2</integer>
+    <integer name="there">3</integer>
+    <integer name="four">4</integer>
+</resources>

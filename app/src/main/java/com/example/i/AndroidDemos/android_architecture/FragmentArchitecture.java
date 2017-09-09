@@ -17,12 +17,12 @@ import java.util.ArrayList;
 import static com.example.i.AndroidDemos.MyApplication.IS_LOGIN_SUCCESS;
 import static com.example.i.AndroidDemos.MyApplication.LOGIN_STATE;
 
-/**
+/***
  * Created by I on 2017/9/1.
  */
 
 public class FragmentArchitecture extends BaseFragmentWithRV {
-    ArrayList arrayList;
+    ArrayList<String> arrayList;
     Fragment_Mvp fragment_mvp;
     private boolean isFirstLogin;
 
@@ -31,7 +31,7 @@ public class FragmentArchitecture extends BaseFragmentWithRV {
         super.onViewCreated(view, savedInstanceState);
         fragment_mvp = new Fragment_Mvp();
         isFirstLogin = true;
-        arrayList = new ArrayList();
+        arrayList = new ArrayList<>();
         arrayList.add("MVP_LOGIN");
         arrayList.add("MVP_TODO");
         arrayList.add("ANDROID_MVVM");

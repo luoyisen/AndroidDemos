@@ -2,39 +2,48 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/note"
-        android:title="笔记和工具"/>
+        android:title="@string/笔记和工具" />
     <item
         android:id="@+id/huidiao"
-        android:title="回调" />
+        android:title="@string/回调" />
 
     <item
         android:id="@+id/eventdiapatch"
-        android:title="事件分发" />
+        android:title="@string/事件分发" />
     <item
         android:id="@+id/componentinterreact"
-        android:title="组件交互" />
+        android:title="@string/组件交互" />
     <item
         android:id="@+id/network"
-        android:title="网络相关" />
+        android:title="@string/网络相关" />
     <item
         android:id="@+id/df"
-        android:title="fragment操作" />
+        android:title="@string/fragment操作" />
     <item
         android:id="@+id/customizedview"
-        android:title="自定义view" />
+        android:title="@string/view" />
     <item
         android:id="@+id/rferfar"
-        android:title="多线程" />
+        android:title="@string/多线程" />
     <item
         android:id="@+id/sdfafwer"
-        android:title="oom" />
+        android:title="@string/oom" />
     <item
         android:id="@+id/sdfasf"
-        android:title="多线程" />
+        android:title="@string/mutilthread" />
     <item
         android:id="@+id/architecture"
-        android:title="Android Architecture" />
+        android:title="@string/android_architecture" />
     <item
         android:id="@+id/componentfinterreact"
-        android:title="观察者模式" />
+        android:title="@string/观察者模式" />
+    <item
+        android:id="@+id/algorithm"
+        android:title="@string/algorithm" />
+    <item
+        android:id="@+id/dataStructure"
+        android:title="@string/dataStructure" />
+    <item
+        android:id="@+id/opengl"
+        android:title="@string/opengl" />
 </menu>

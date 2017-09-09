@@ -1,22 +1,157 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-
-    <com.example.i.AndroidDemos.eventdispatchdemo.MyViewGroup
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@android:color/white">
+        android:orientation="vertical">
 
-        <Button
-            android:id="@+id/btn_clickme"
-            android:layout_width="wrap_content"
+        <ImageView
+            android:id="@+id/image_essential"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <com.example.i.AndroidDemos.noteandtools.note.MyViewGroup
+            android:id="@+id/myviewgroup"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/white">
+
+            <com.example.i.AndroidDemos.noteandtools.note.MyButton
+                android:id="@+id/mybutton"
+                android:layout_width="160dp"
+                android:layout_height="100dp"
+                android:text="点击最下方的两行radiogroup来改变button"/>
+        </com.example.i.AndroidDemos.noteandtools.note.MyViewGroup>
+
+        <RadioGroup
+            android:layout_marginTop="@dimen/margin_20dp"
+            android:id="@+id/radiogroup_0"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:background="@color/colorPrimary"
-            android:text="点我啊"
-            android:textColor="@android:color/white" />
-    </com.example.i.AndroidDemos.eventdispatchdemo.MyViewGroup>
-</LinearLayout>
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/viewgroup_dispatch_super"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="dispatch_super" />
+
+            <RadioButton
+                android:id="@+id/viewgroup_dispatch_false"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="dispatch_false" />
+
+            <RadioButton
+                android:id="@+id/viewgroup_dispatch_true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="dispatch_true" />
+        </RadioGroup>
+
+        <RadioGroup
+            android:id="@+id/radiogroup_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/viewgroup_intercept_super"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="intercept_super" />
+
+            <RadioButton
+                android:id="@+id/viewgroup_intercept_false"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="intercept_false" />
+
+            <RadioButton
+                android:id="@+id/viewgroup_intercept_true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="intercept_true" />
+        </RadioGroup>
+
+        <RadioGroup
+            android:id="@+id/radiogroup_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/viewgroup_touch_super"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="touch_super" />
+
+            <RadioButton                 android:id="@+id/viewgroup_touch_false"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="touch_false" />
+
+            <RadioButton                 android:id="@+id/viewgroup_touch_true"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="touch_true" />
+        </RadioGroup>
+
+        <RadioGroup
+            android:id="@+id/radiogroup_3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/child_dispatch_super"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="dispatch_super" />
+
+            <RadioButton
+                android:id="@+id/child_dispatch_false"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="dispatch_false" />
+
+            <RadioButton                 android:id="@+id/child_dispatch_true"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="dispatch_true" />
+        </RadioGroup>
+
+        <RadioGroup
+            android:id="@+id/radiogroup_4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/child_touch_super"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="touch_super" />
+
+            <RadioButton
+                android:id="@+id/child_touch_false"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="touch_false" />
+
+            <RadioButton
+                android:id="@+id/child_touch_true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="touch_true" />
+        </RadioGroup>
+    </LinearLayout>
+</ScrollView>

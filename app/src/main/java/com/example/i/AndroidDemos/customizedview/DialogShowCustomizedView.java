@@ -14,6 +14,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.i.AndroidDemos.R;
+import com.example.i.AndroidDemos.customizedview.customizedview.ViewChangeText;
+import com.example.i.AndroidDemos.customizedview.customizedview.ViewProgressBarAutoSwitch;
 
 /**
  * Created by I on 2017/8/30.
@@ -48,7 +50,7 @@ public class DialogShowCustomizedView extends Dialog {
         layoutParams.height = (int) dipToPx(400);
         layoutParams.width = (int) dipToPx(300);
         window.setAttributes(layoutParams);
-//        window.addFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
+        window.addFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
     }
 
     private double dipToPx(int i) {
@@ -94,9 +96,12 @@ public class DialogShowCustomizedView extends Dialog {
             ((TextView) layout.findViewById(R.id.title)).setText(title);
             switch (viewId) {
                 case 0:
-                    layout.findViewById(R.id.id1).setVisibility(View.VISIBLE);
+                    layout.findViewById(R.id.id0).setVisibility(View.VISIBLE);
                     break;
                 case 1:
+                    layout.findViewById(R.id.id1).setVisibility(View.VISIBLE);
+                    break;
+                case 2:
                     layout.findViewById(R.id.id2).setVisibility(View.VISIBLE);
                     break;
             }

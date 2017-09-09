@@ -12,7 +12,7 @@ import com.example.i.AndroidDemos.R;
 
 import java.util.ArrayList;
 
-/**
+/***
  * Created by I on 2017/8/23.
  */
 
@@ -21,9 +21,9 @@ public class BaseRVAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
     /**
      * 根据activityname为不同的activity设置不同的
      */
-    public OnItemClickListener onItemClickListener;
-    public ArrayList<String> mData;
-    public String activityname;
+    OnItemClickListener onItemClickListener;
+    ArrayList<String> mData;
+    private String activityname;
 
     public enum ITEM_TYPE {
         ITEM1,

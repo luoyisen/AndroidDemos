@@ -3,7 +3,10 @@
     <dimen name="magrin_all">15dp</dimen>
     <dimen name="margin_5dp">5dp</dimen>
     <dimen name="margin_10dp">10dp</dimen>
+    <dimen name="margin_20dp">20dp</dimen>
+    <dimen name="margin_40dp">40dp</dimen>
     <dimen name="width">200dp</dimen>
     <dimen name="textreponame">20sp</dimen>
     <dimen name="textrepocreatetime">10sp</dimen>
+
 </resources>
