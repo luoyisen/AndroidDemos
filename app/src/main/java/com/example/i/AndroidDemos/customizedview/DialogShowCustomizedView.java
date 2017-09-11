@@ -50,6 +50,7 @@ public class DialogShowCustomizedView extends Dialog {
         layoutParams.height = (int) dipToPx(400);
         layoutParams.width = (int) dipToPx(300);
         window.setAttributes(layoutParams);
+        //window.setDimAmount(0.7f);设置Dialog的透明度
         window.addFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
     }
 
@@ -103,6 +104,9 @@ public class DialogShowCustomizedView extends Dialog {
                     break;
                 case 2:
                     layout.findViewById(R.id.id2).setVisibility(View.VISIBLE);
+                    break;
+                case 3:
+                    layout.findViewById(R.id.id3).setVisibility(View.VISIBLE);
                     break;
             }
             if (cancelable == true) {

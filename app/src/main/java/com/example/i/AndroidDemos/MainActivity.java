@@ -11,6 +11,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.MotionEvent;
@@ -41,7 +42,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     public static DrawerLayout drawerLayout;
     public static SearchView searchview_main;
     private static EditText edit_query;
-    private static int getMessageCount;
+    private int getMessageCount;
     private LinearLayout fragmentcontainer1, fragmentcontainer2, ll_searchview, search_bar;
     private NavigationView navigationView;
     private Toolbar toolbar;
@@ -52,9 +53,10 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     private ImageView search_mag_icon;
     FragmentMain1 fragmentMain1;
     FragmentMain2 fragmentMain2;
-
     private int startX;
 
+    float x1 = 0;
+    float x2 = 0;
 //    private static class MyHandler extends Handler {
 //        private final WeakReference<MainActivity> mainActivityWeakReference;
 //
@@ -92,12 +94,6 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
-
-
-
-
         fragmentcontainer1 = (LinearLayout) findViewById(R.id.fragmentmain1container);
         fragmentcontainer2 = (LinearLayout) findViewById(R.id.fragmentmain2container);
         fragmentMain1 = new FragmentMain1();
@@ -174,6 +170,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         findViewById(R.id.button_to).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if (!TextUtils.isEmpty(edit_query.getText())) {
 
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxx((((((1)))))))xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 //                mHandler.postDelayed(sRunnable, 1000);
@@ -203,24 +200,25 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
 //                }, 4000);
 //vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
 //              每一秒执行一次//如果内部类的生命周期和Activity的生命周期不一致（比如上面那种，Activity finish()之后要等10分钟，内部类的实例才会执行），则在Activity中要避免使用非静态的内部类，这种情况，就使用一个静态内部类，同时持有一个对Activity的WeakReference。
-                handler = new Handler() {
-                    @Override
-                    public void handleMessage(Message msg) {
-                        switch (msg.what) {
-                            case 0:
-                                MyObserverable.getObserverable().setMessage("\"" + edit_query.getText().toString() + getMessageCount++ + "\"");//用来发送通知(模拟耗时操作)
-                                break;
+                    handler = new Handler() {
+                        @Override
+                        public void handleMessage(Message msg) {
+                            switch (msg.what) {
+                                case 0:
+                                    MyObserverable.getObserverable().setMessage("\"" + edit_query.getText().toString() + getMessageCount++ + "\"");//用来发送通知(模拟耗时操作)
+                                    break;
+                            }
                         }
-                    }
-                };
-                new Timer().schedule(new TimerTask() {
-                    @Override
-                    public void run() {
-                        Message message = new Message();
-                        message.what = 0;
-                        handler.sendMessage(message);
-                    }
-                }, 0, 1000);
+                    };
+                    new Timer().schedule(new TimerTask() {
+                        @Override
+                        public void run() {
+                            Message message = new Message();
+                            message.what = 0;
+                            handler.sendMessage(message);
+                        }
+                    }, 0, 1000);
+                }
 //----------------------------------------------------------------------------------------------------
 //                timerTask = new TimerTask() {
 //                    @Override
@@ -274,18 +272,16 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     }
 
     @Override
-    public boolean dispatchTouchEvent(MotionEvent ev) {
-        return super.dispatchTouchEvent(ev);
-    }
-
-
-    @Override
-    public boolean onTouchEvent(MotionEvent event) {
-        switch (event.getAction()) {
-            case MotionEvent.ACTION_DOWN:
-                Toast.makeText(this, "down了", Toast.LENGTH_SHORT).show();
-                break;
+    public boolean dispatchTouchEvent(MotionEvent event) {
+        if (event.getAction() == MotionEvent.ACTION_DOWN) {
+            x1 = event.getX();
         }
-        return true;
+        if (event.getAction() == MotionEvent.ACTION_UP) {
+            x2 = event.getX();
+            if (x2 - x1 > 50)
+                drawerLayout.openDrawer(Gravity.START);
+        }
+        return super.dispatchTouchEvent(event);
     }
+
 }

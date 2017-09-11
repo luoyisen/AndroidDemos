@@ -9,4 +9,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="callbackbutton" />
+
+    <com.example.i.AndroidDemos.callbackdemo.MyButton
+        android:background="@color/black"
+        android:id="@+id/mynewbutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 </LinearLayout>

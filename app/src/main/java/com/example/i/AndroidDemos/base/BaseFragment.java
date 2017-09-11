@@ -10,12 +10,12 @@ import android.view.ViewGroup;
 
 import com.example.i.AndroidDemos.Interreactcomponent.FragmentToActivity.MyListener;
 
-/**
+/***
  * Created by I on 2017/8/24.
  */
 
 public abstract class BaseFragment extends Fragment {
-    public static MyListener myListener;
+    public MyListener myListener;//用来和activity通信
 
     private static final String STATE_SAVE_IS_HIDDEN = "STATE_SAVE_IS_HIDDEN";
 
@@ -26,7 +26,6 @@ public abstract class BaseFragment extends Fragment {
         super.onCreate(savedInstanceState);
         if (savedInstanceState != null) {
             boolean isSupportHidden = savedInstanceState.getBoolean(STATE_SAVE_IS_HIDDEN);
-
             FragmentTransaction ft = getFragmentManager().beginTransaction();
             if (isSupportHidden) {
                 ft.hide(this);

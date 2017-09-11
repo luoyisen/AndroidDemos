@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.i.AndroidDemos">
+    ---------------------------------网络----------------------------------
 
     <uses-feature
         android:glEsVersion="0x00020000"
         android:required="true" />
     <uses-permission android:name="android.permission.INTERNET" />
-
+    ----------允许自定义的Dialog在依赖的Activity退出以后也能加载出来(算法部分里冒泡排序等弹出来的dialog如果在dialog没弹出来以前就按了返回键到主界面，在算法执行完以后也能显示dialog-----------------
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
     <application
         android:name=".MyApplication"

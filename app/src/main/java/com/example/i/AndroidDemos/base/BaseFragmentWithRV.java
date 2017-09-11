@@ -14,7 +14,7 @@ import com.example.i.AndroidDemos.Interreactcomponent.InterreactDecoration;
 import com.example.i.AndroidDemos.R;
 import com.example.i.AndroidDemos.adapter.BaseRVAdapter;
 
-/**
+/***
  * Created by I on 2017/8/26.
  */
 
@@ -40,7 +40,6 @@ public class BaseFragmentWithRV extends BaseFragment {
     public void hideRootFragment() {
         fragmentManager.beginTransaction().hide(fragmentManager.findFragmentByTag("fragment_root")).commit();
         fragmentManager.findFragmentByTag("fragment_root").setUserVisibleHint(false);//因为show()和hide()方法不走Fragment的生命周期，所以需要手动设置
-
     }
 
     public void addFragment(Fragment fragment, String tag) {

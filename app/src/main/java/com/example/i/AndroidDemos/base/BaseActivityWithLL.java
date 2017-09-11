@@ -11,7 +11,7 @@ import com.example.i.AndroidDemos.Interreactcomponent.FragmentToActivity.MyListe
 import com.example.i.AndroidDemos.MainActivity;
 import com.example.i.AndroidDemos.R;
 
-/**
+/***
  * Created by I on 2017/8/26.
  */
 
@@ -30,9 +30,10 @@ public class BaseActivityWithLL extends BaseActivity implements MyListener {
         super.onCreate(savedInstanceState);
         toolbar_base = (Toolbar) findViewById(R.id.toolbar_base);
         setSupportActionBar(toolbar_base);
-//        getSupportActionBar().setTitle(getClass().getSimpleName());
-//        getSupportActionBar().setElevation(50.5f);
-
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setTitle(getClass().getSimpleName());
+        }
+        getSupportActionBar().setElevation(50.5f);
     }
 
     @Override
@@ -49,7 +50,6 @@ public class BaseActivityWithLL extends BaseActivity implements MyListener {
     public void sendContent(String tag) {
         if (tag != null && !("".equals(tag))) {
             currentItemTag = tag;//// TODO: 2017/8/27  所有的共同维护这个String值
-//            Toast.makeText(this, tag, Toast.LENGTH_SHORT).show();//TODO: 2017/8/26 用log查看sendContent是怎样调用的
         } else {
             Toast.makeText(this, "内容为空", Toast.LENGTH_SHORT).show();
         }

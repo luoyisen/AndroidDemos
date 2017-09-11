@@ -15,7 +15,7 @@ import com.example.i.AndroidDemos.R;
 import java.text.DecimalFormat;
 import java.util.Calendar;
 
-/**
+/***
  * Created by I on 2017/9/5.
  */
 
@@ -63,7 +63,7 @@ public class ClockView extends View {
 
     public ClockView(Context context) {
         super(context);
-        init();
+        initPaint();
     }
 
     public ClockView(Context context, AttributeSet attrs) {
@@ -81,7 +81,7 @@ public class ClockView extends View {
         mMinuteMarkColor = a.getColor(R.styleable.ClockView_minute_mark_color, Color.parseColor("#EBEBEB"));
         isDrawCenterCircle = a.getBoolean(R.styleable.ClockView_draw_center_circle, false);
         a.recycle();
-        init();
+        initPaint();
     }
 
     @Override
@@ -94,6 +94,7 @@ public class ClockView extends View {
 //        centerY = height / 2 + getPaddingTop();
         int width = getMeasuredWidth();
         int height = getMeasuredHeight();
+
         centerX = width / 2;
         centerY = height / 2;
         radius = Math.min(width, height) / 2;
@@ -115,8 +116,9 @@ public class ClockView extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
+//        canvas.drawColor(Color.BLACK);默认颜色为透明的
         canvas.drawCircle(centerX, centerY, radius, circlePaint);
-        //画数字3，6，9，12
+//===========================画数字3，6，9，12==============================
         markPaint.setColor(mQuarterMarkColor);
         markPaint.setColor(Color.WHITE);
         markPaint.setAntiAlias(true);
@@ -125,16 +127,16 @@ public class ClockView extends View {
         //(-fontMetrics.ascent + fontMetrics.descent) / 2
         canvas.drawText("12", radius - markPaint.measureText("12") / 2, MARK_GAP - fontMetrics.ascent - fontMetrics.descent, markPaint);
         canvas.drawText("6", radius - markPaint.measureText("6") / 2, radius * 2 - MARK_GAP, markPaint);
-        canvas.drawText("3", radius * 2 - MARK_GAP - markPaint.measureText("3") , radius + (-fontMetrics.ascent - fontMetrics.descent) / 2, markPaint);
+        canvas.drawText("3", radius * 2 - MARK_GAP - markPaint.measureText("3"), radius + (-fontMetrics.ascent - fontMetrics.descent) / 2, markPaint);
         canvas.drawText("9", MARK_GAP, radius + (-fontMetrics.ascent - fontMetrics.descent) / 2, markPaint);
         canvas.save();
-
+//===========================分别使用三个新的画布来画时针、分针、秒针===============================
         Calendar calendar = Calendar.getInstance();
         int hour12 = calendar.get(Calendar.HOUR);
         int minute = calendar.get(Calendar.MINUTE);
         int second = calendar.get(Calendar.SECOND);
 
-        hourCanvas.save();
+        hourCanvas.save();//保存画布的状态，因为下面有了画布的旋转操作
         hourCanvas.drawColor(Color.TRANSPARENT, PorterDuff.Mode.CLEAR);
         hourCanvas.rotate(hour12 * 30 + minute * 0.5f, centerX, centerY);
         hourCanvas.drawLine(centerX, centerY,
@@ -151,8 +153,9 @@ public class ClockView extends View {
         if (isDrawCenterCircle)//根据指针的颜色绘制圆心
             minuteCanvas.drawCircle(centerX, centerY, 2 * MINUTE_LINE_WIDTH, minutePaint);
         minuteCanvas.restore();
+
         secondCanvas.save();
-        secondCanvas.drawColor(Color.TRANSPARENT, PorterDuff.Mode.CLEAR);
+        secondCanvas.drawColor(Color.TRANSPARENT, PorterDuff.Mode.CLEAR);//过一秒就清除之前画的秒针
         secondCanvas.rotate(second * 6, centerX, centerY);
         secondCanvas.drawLine(centerX, centerY,
                 centerX, centerY - secondLineLength, secondPaint);
@@ -164,7 +167,7 @@ public class ClockView extends View {
         canvas.drawBitmap(minuteBitmap, 0, 0, null);
         canvas.drawBitmap(secondBitmap, 0, 0, null);
 
-        postInvalidateDelayed(1000);
+        postInvalidateDelayed(100);
 
         if (onCurrentTimeListener != null) {
             int h = calendar.get(Calendar.HOUR_OF_DAY);
@@ -173,14 +176,7 @@ public class ClockView extends View {
         }
     }
 
-    public int getFontHeight(float fontSize) {
-        Paint paint = new Paint();
-        paint.setTextSize(fontSize);
-        Paint.FontMetrics fm = paint.getFontMetrics();
-        return (int) Math.ceil(fm.descent - fm.top) + 2;
-    }
-
-    private void init() {
+    private void initPaint() {
         circlePaint = new Paint();
         circlePaint.setAntiAlias(true);
         circlePaint.setStyle(Paint.Style.FILL);

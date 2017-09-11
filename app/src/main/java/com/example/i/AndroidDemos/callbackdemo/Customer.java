@@ -5,20 +5,20 @@ import android.util.Log;
 import java.util.Timer;
 import java.util.TimerTask;
 
-/**
+/***
  * Created by I on 2017/8/22.
  */
 
-public class Customer implements CallBackPhoneNumber {
+public class Customer implements SalesMan.CallBackPhoneNumber {
     private boolean soldout = true;//假定iPhone已经卖光了
     private SalesMan salesMan;
     private Timer timer;
 
-    public Customer(SalesMan salesMan) {
+    Customer(SalesMan salesMan) {
         this.salesMan = salesMan;
     }
 
-    public void askIfIphoneSoldOut(final String s) {
+    void askIfIphoneSoldOut(String s) {
         Log.e("TAG", "iPhone不会是已经被一抢而空了吧？");
 
         if (!soldout) {
@@ -30,14 +30,14 @@ public class Customer implements CallBackPhoneNumber {
             timer.schedule(new TimerTask() {
                 @Override
                 public void run() {
-                    salesMan.callToTell(Customer.this, "新iPhone到了，赶紧来买！！！");//
+                    salesMan.callToTell(Customer.this, "新iPhone到了，赶紧来买！！！");
                 }
             }, 5000);
         }
         play();
     }
 
-    public void play() {
+    private void play() {
         Log.e("TAG", "ok，那我就等你的好消息了");
     }
 

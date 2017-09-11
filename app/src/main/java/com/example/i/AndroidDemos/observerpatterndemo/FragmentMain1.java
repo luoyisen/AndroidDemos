@@ -18,7 +18,6 @@ import com.example.i.AndroidDemos.R;
 public class FragmentMain1 extends Fragment implements Observer {//观察者收到通知以后来做具体的事情，所以fragment实现了Observer接口
     TextView tv;
     Handler handler;
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -51,4 +50,5 @@ public class FragmentMain1 extends Fragment implements Observer {//观察者收�
 //            }
 //        }, 2000);
     }
+
 }

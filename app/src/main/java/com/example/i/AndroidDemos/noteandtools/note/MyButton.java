@@ -2,10 +2,13 @@ package com.example.i.AndroidDemos.noteandtools.note;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.widget.Toast;
 
-/**
+import com.example.i.AndroidDemos.MyApplication;
+
+/***
  * Created by I on 2017/9/6.
  */
 
@@ -37,9 +40,9 @@ public class MyButton extends android.support.v7.widget.AppCompatButton {
         super(context, attrs);
     }
 
-
     @Override
     public boolean dispatchTouchEvent(MotionEvent ev) {
+        Log.e("事件传递机制","button dispatchTouchEvent");
         int i = getDispatchMode();
         if (i == 0) {
             return super.dispatchTouchEvent(ev);
@@ -70,13 +73,18 @@ public class MyButton extends android.support.v7.widget.AppCompatButton {
     public void processEvent(MotionEvent event) {
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
-                Toast.makeText(getContext(), "BUTTON---ACTION_DOWN事件", Toast.LENGTH_SHORT).show();
+                Log.e("事件传递机制","button ACTION_DOWN");
+                Toast.makeText(MyApplication.getContext(), "BUTTON---ACTION_DOWN事件", Toast.LENGTH_SHORT).show();
                 break;
             case MotionEvent.ACTION_MOVE:
-                Toast.makeText(getContext(), "BUTTON---ACTION_MOVE事件", Toast.LENGTH_SHORT).show();
+                Log.e("事件传递机制","button ACTION_MOVE");
+
+                Toast.makeText(MyApplication.getContext(), "BUTTON---ACTION_MOVE事件", Toast.LENGTH_SHORT).show();
                 break;
             case MotionEvent.ACTION_UP:
-                Toast.makeText(getContext(), "BUTTON---ACTION_UP事件", Toast.LENGTH_SHORT).show();
+                Log.e("事件传递机制","button ACTION_UP");
+
+                Toast.makeText(MyApplication.getContext(), "BUTTON---ACTION_UP事件", Toast.LENGTH_SHORT).show();
                 break;
         }
     }

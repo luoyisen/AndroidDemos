@@ -16,7 +16,7 @@ import com.example.i.AndroidDemos.R;
 import java.util.HashSet;
 import java.util.Random;
 
-/**
+/***
  * Created by I on 2017/8/29.
  */
 
@@ -114,7 +114,7 @@ public class ViewChangeText extends View {
             case MeasureSpec.EXACTLY:
                 height = getPaddingTop() + getPaddingBottom() + specSize;
                 break;
-            case MeasureSpec.AT_MOST://一般问wrapcontent(没有break)
+            case MeasureSpec.AT_MOST://一般为wrapcontent
             case MeasureSpec.UNSPECIFIED:
                 Paint.FontMetrics fontMetrics = mPaint.getFontMetrics();
                 float textHeight = Math.abs(fontMetrics.bottom - fontMetrics.top);

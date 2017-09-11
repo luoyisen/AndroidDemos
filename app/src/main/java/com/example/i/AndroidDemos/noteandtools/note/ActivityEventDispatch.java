@@ -7,7 +7,7 @@ import android.widget.RadioGroup;
 
 import com.example.i.AndroidDemos.R;
 
-/**
+/***
  * Created by I on 2017/8/22.
  */
 
@@ -15,6 +15,8 @@ public class ActivityEventDispatch extends AppCompatActivity {
     RadioGroup radioGroup0, radioGroup1, radioGroup2, radioGroup3, radioGroup4;
     MyViewGroup myviewgroup;
     MyButton myButton;
+    NormalButton normalbutton;
+    NormalLinearLayout normallinearlayout;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -22,6 +24,8 @@ public class ActivityEventDispatch extends AppCompatActivity {
         setContentView(R.layout.activity_eventdiapatch);
         myviewgroup = (MyViewGroup) findViewById(R.id.myviewgroup);
         myButton = (MyButton) findViewById(R.id.mybutton);
+        normalbutton = (NormalButton) findViewById(R.id.normal_button);
+        normallinearlayout = (NormalLinearLayout) findViewById(R.id.normal_container);
         radioGroup0 = (RadioGroup) findViewById(R.id.radiogroup_0);
         radioGroup0.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override

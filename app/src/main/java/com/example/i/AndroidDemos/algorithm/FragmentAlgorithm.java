@@ -7,6 +7,7 @@ import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.Toast;
 
+import com.example.i.AndroidDemos.MyApplication;
 import com.example.i.AndroidDemos.adapter.BaseRVAdapter;
 import com.example.i.AndroidDemos.base.BaseFragmentWithRV;
 import com.example.i.AndroidDemos.noteandtools.note.NoteDialogWithConfig;
@@ -23,7 +24,7 @@ public class FragmentAlgorithm extends BaseFragmentWithRV {
     Random random;
     Handler handler;
     StringBuilder stringBuilder;
-
+    int randomnumber;
     boolean alreadyExpanded = false;
     ArrayList<String> arrayList;
     String[] stringList_SortAlgorithm = {
@@ -38,13 +39,14 @@ public class FragmentAlgorithm extends BaseFragmentWithRV {
             , "选择排序"
             , "冒泡排序"
     };
+
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        data = new int[10000];
+        data = new int[10];
         random = new Random();
-        for (int i = 0; i < 10000; i++) {
-            data[i] = random.nextInt(1000000);
+        for (int i = 0; i < 10; i++) {
+            data[i] = random.nextInt(10000000);
         }
 
         handler = new Handler() {
@@ -53,48 +55,50 @@ public class FragmentAlgorithm extends BaseFragmentWithRV {
                 switch (msg.what) {
                     case 0:
                         stringBuilder = new StringBuilder();
-                        for (int i = 0; i < 200; i++) {
+                        for (int i = 0; i < 10; i++) {
                             stringBuilder.append((((int[]) msg.obj)[i] + "><"));//单线程用stringbuilder
                         }
-                        NoteDialogWithConfig.Builder builder0 = new NoteDialogWithConfig.Builder(getContext());
-                        builder0.setTitle("一万个随机数排序用时:" + msg.getData().getInt("usedtime") + "ms")
+                        new NoteDialogWithConfig
+                                .Builder(MyApplication.getContext())
+                                .setTitle("一万个随机数排序用时:" + msg.getData().getInt("usedtime") + "ms")
                                 .setMessage(stringBuilder.toString())
-                                .create().show();
+                                .setCancelAble(true)
+                                .create()
+                                .show();
                         break;
                     case 1:
                         stringBuilder = new StringBuilder();
-                        for (int i = 0; i < 200; i++) {
+                        for (int i = 0; i < 10; i++) {
                             stringBuilder.append((((int[]) msg.obj)[i] + "><"));//单线程用stringbuilder
                         }
-                        NoteDialogWithConfig.Builder builder1 = new NoteDialogWithConfig.Builder(getContext());
-                        builder1.setTitle("一万个随机数排序用时:" + msg.getData().getInt("usedtime") + "ms")
+                        new NoteDialogWithConfig.Builder(MyApplication.getContext())
+                                .setTitle("一万个随机数排序用时:" + msg.getData().getInt("usedtime") + "ms")
                                 .setMessage(stringBuilder.toString())
-                                .create().show();
-
+                                .setCancelAble(true)
+                                .create()
+                                .show();
                         break;
                     case 2:
                         stringBuilder = new StringBuilder();
-                        for (int i = 0; i < 200; i++) {
+                        for (int i = 0; i < 10; i++) {
                             stringBuilder.append((((int[]) msg.obj)[i] + "><"));//单线程用stringbuilder
                         }
-                        NoteDialogWithConfig.Builder builder2 = new NoteDialogWithConfig.Builder(getContext());
-                        builder2.setTitle("一万个随机数排序用时:" + msg.getData().getInt("usedtime") + "ms")
+                        new NoteDialogWithConfig.Builder(MyApplication.getContext())
+                                .setTitle("一万个随机数排序用时:" + msg.getData().getInt("usedtime") + "ms")
                                 .setMessage(stringBuilder.toString())
-                                .create().show();
+                                .setCancelAble(true)
+                                .create()
+                                .show();
                         break;
-                    case 10:
-                        Toast.makeText(getActivity(), "数字" + 123456789 + "反转以后是:" + msg.getData().getInt("result"), Toast.LENGTH_LONG).show();
-                        break;
-
                 }
             }
         };
         arrayList = new ArrayList<>();
         arrayList.add("********** 排序算法 **********");
         arrayList.add("********** 反转数字 **********");
-        arrayList.add("********** 找出给定数组中和为0的三个数 **********");
-        arrayList.add("********** 排序算法 **********");
-        arrayList.add("********** 排序算法 **********");
+        arrayList.add("********** 二分查找 **********");
+        arrayList.add("********* 欧几里得算法 *********");
+        arrayList.add("********** 二分算法 **********");
         adapter = new BaseRVAdapter(arrayList, getActivity().getClass().getSimpleName());
         rv_base_fragment.setAdapter(adapter);
         adapter.setOnItemClickListener(new BaseRVAdapter.OnItemClickListener() {
@@ -114,7 +118,7 @@ public class FragmentAlgorithm extends BaseFragmentWithRV {
                                 @Override
                                 public void run() {
                                     long begintime = System.currentTimeMillis();
-                                    AlgorithmSort.bubbleSort(data);
+                                    AlgorithmSort.bubbleMySort(data);
                                     long usedtime = System.currentTimeMillis() - begintime;
                                     Message msg0 = new Message();
                                     Bundle bundle = new Bundle();
@@ -125,18 +129,10 @@ public class FragmentAlgorithm extends BaseFragmentWithRV {
                                     handler.sendMessage(msg0);
                                 }
                             }).start();
-                        else
-                            new Thread(new Runnable() {
-                                @Override
-                                public void run() {
-                                    Message msg10 = new Message();
-                                    Bundle bundle = new Bundle();
-                                    bundle.putInt("result", AlgorithmNumber.reverseNumber(123456789));
-                                    msg10.what = 10;
-                                    msg10.setData(bundle);
-                                    handler.sendMessage(msg10);
-                                }
-                            }).start();
+                        else {
+                            randomnumber = random.nextInt(100000000);
+                            Toast.makeText(getActivity(), "随机数:" + randomnumber + "反转以后是:" + AlgorithmNumber.reverseNumber(randomnumber), Toast.LENGTH_LONG).show();
+                        }
                         break;
                     case 2:
                         if (alreadyExpanded)
@@ -156,13 +152,12 @@ public class FragmentAlgorithm extends BaseFragmentWithRV {
                                 }
                             }).start();
                         else
-                            Toast.makeText(getActivity(), "do my own thing", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getActivity(), "5在数组中的下标是:" + AlgorithmNumber.binarySearch1(data, 0, data.length - 1, 5), Toast.LENGTH_LONG).show();
                         break;
                     case 3:
                         if (alreadyExpanded) {
                             new Thread(new Runnable() {
                                 @Override
-
                                 public void run() {
                                     long begintime = System.currentTimeMillis();
                                     AlgorithmSort.quickSort(data, 0, data.length - 1);
@@ -177,8 +172,7 @@ public class FragmentAlgorithm extends BaseFragmentWithRV {
                                 }
                             }).start();
                         } else
-                            Toast.makeText(getActivity(), "do my own thing", Toast.LENGTH_SHORT).show();
-
+                            Toast.makeText(getActivity(), "欧几里得算法:596和232的最大公约数是:" + AlgorithmNumber.gcd(596, 232) + "", Toast.LENGTH_SHORT).show();
                         break;
                     case 4:
                         if (alreadyExpanded) {
@@ -223,32 +217,34 @@ public class FragmentAlgorithm extends BaseFragmentWithRV {
                             Toast.makeText(getActivity(), "do my own thing", Toast.LENGTH_SHORT).show();
                         break;
                     case 11:
-                        if (alreadyExpanded)
-                            Toast.makeText(getActivity(), "do it", Toast.LENGTH_SHORT).show();
-                        else
+                        if (alreadyExpanded) {
+                            removeSortAlgorithItems();
+                            randomnumber = random.nextInt(100000000);
+                            Toast.makeText(getActivity(), "随机数:" + randomnumber + "反转以后是:" + AlgorithmNumber.reverseNumber(randomnumber), Toast.LENGTH_LONG).show();
+                        } else
                             Toast.makeText(getActivity(), "do my own thing", Toast.LENGTH_SHORT).show();
                         break;
                     case 12:
                         if (alreadyExpanded)
-                            Toast.makeText(getActivity(), "do it", Toast.LENGTH_SHORT).show();
+                            removeSortAlgorithItems();
                         else
                             Toast.makeText(getActivity(), "do my own thing", Toast.LENGTH_SHORT).show();
                         break;
                     case 13:
                         if (alreadyExpanded)
-                            Toast.makeText(getActivity(), "do it", Toast.LENGTH_SHORT).show();
+                            removeSortAlgorithItems();
                         else
                             Toast.makeText(getActivity(), "do my own thing", Toast.LENGTH_SHORT).show();
                         break;
                     case 14:
                         if (alreadyExpanded)
-                            Toast.makeText(getActivity(), "do it", Toast.LENGTH_SHORT).show();
+                            removeSortAlgorithItems();
                         else
                             Toast.makeText(getActivity(), "do my own thing", Toast.LENGTH_SHORT).show();
                         break;
                     case 15:
                         if (alreadyExpanded)
-                            Toast.makeText(getActivity(), "do it", Toast.LENGTH_SHORT).show();
+                            removeSortAlgorithItems();
                         else
                             Toast.makeText(getActivity(), "do my own thing", Toast.LENGTH_SHORT).show();
                         break;

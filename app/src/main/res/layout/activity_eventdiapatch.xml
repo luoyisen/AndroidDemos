@@ -9,11 +9,6 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <ImageView
-            android:id="@+id/image_essential"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
         <com.example.i.AndroidDemos.noteandtools.note.MyViewGroup
             android:id="@+id/myviewgroup"
             android:layout_width="match_parent"
@@ -24,14 +19,14 @@
                 android:id="@+id/mybutton"
                 android:layout_width="160dp"
                 android:layout_height="100dp"
-                android:text="点击最下方的两行radiogroup来改变button"/>
+                android:text="点击最下方的两行radiogroup来改变button" />
         </com.example.i.AndroidDemos.noteandtools.note.MyViewGroup>
 
         <RadioGroup
-            android:layout_marginTop="@dimen/margin_20dp"
             android:id="@+id/radiogroup_0"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_20dp"
             android:orientation="horizontal">
 
             <RadioButton
@@ -90,13 +85,15 @@
                 android:layout_height="wrap_content"
                 android:text="touch_super" />
 
-            <RadioButton                 android:id="@+id/viewgroup_touch_false"
+            <RadioButton
+                android:id="@+id/viewgroup_touch_false"
 
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="touch_false" />
 
-            <RadioButton                 android:id="@+id/viewgroup_touch_true"
+            <RadioButton
+                android:id="@+id/viewgroup_touch_true"
 
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -122,7 +119,8 @@
                 android:layout_height="wrap_content"
                 android:text="dispatch_false" />
 
-            <RadioButton                 android:id="@+id/child_dispatch_true"
+            <RadioButton
+                android:id="@+id/child_dispatch_true"
 
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -153,5 +151,18 @@
                 android:layout_height="wrap_content"
                 android:text="touch_true" />
         </RadioGroup>
+
+        <com.example.i.AndroidDemos.noteandtools.note.NormalLinearLayout
+            android:id="@+id/normal_container"
+            android:layout_width="170dp"
+            android:layout_height="110dp"
+            android:layout_marginTop="10dp">
+
+            <com.example.i.AndroidDemos.noteandtools.note.NormalButton
+                android:id="@+id/normal_button"
+                android:layout_width="160dp"
+                android:layout_height="100dp"
+                android:text="normal button" />
+        </com.example.i.AndroidDemos.noteandtools.note.NormalLinearLayout>
     </LinearLayout>
 </ScrollView>
