@@ -17,14 +17,14 @@ import com.example.i.AndroidDemos.R;
  */
 
 public class FragmentMain2 extends Fragment implements Observer {
-    TextView tv;
+    static TextView tv1;
     public Handler handler;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_layout, null);
-        tv = (TextView) v.findViewById(R.id.text_showresult);
+        tv1 = (TextView) v.findViewById(R.id.text_showresult);
         MyObserverable.getObserverable().addObserver(this);//
         return v;
     }
@@ -37,7 +37,7 @@ public class FragmentMain2 extends Fragment implements Observer {
             public void handleMessage(Message msg) {
                 switch (msg.what) {
                     case 0:
-                        tv.setText(msg.obj.toString());
+                        tv1.setText(msg.obj.toString());
                         break;
                 }
             }

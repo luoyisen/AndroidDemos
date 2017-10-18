@@ -6,7 +6,10 @@
     <uses-feature
         android:glEsVersion="0x00020000"
         android:required="true" />
+
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     ----------允许自定义的Dialog在依赖的Activity退出以后也能加载出来(算法部分里冒泡排序等弹出来的dialog如果在dialog没弹出来以前就按了返回键到主界面，在算法执行完以后也能显示dialog-----------------
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
@@ -19,7 +22,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name="com.example.i.AndroidDemos.MainActivity"
+            android:name="com.example.i.AndroidDemos.main.MainActivity"
             android:windowSoftInputMode="adjustPan|stateAlwaysHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -53,6 +56,9 @@
         <activity android:name=".base.ActivityWithWebView" />
         ---------------------------------open gl----------------------------------
         <activity android:name=".opengl.ActivityOpenGl" />
+        <activity android:name=".observerpatterndemo.ActivityObserverPattern" />
+        <activity android:name=".frame.ActivityFrame" />
+        <activity android:name=".JAVA_BASE.ActivityJavaBase" />
 
     </application>
 

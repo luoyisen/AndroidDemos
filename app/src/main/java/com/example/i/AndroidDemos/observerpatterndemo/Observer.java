@@ -1,6 +1,6 @@
 package com.example.i.AndroidDemos.observerpatterndemo;
 
-/**
+/***
  * Created by I on 2017/8/21.
  */
 

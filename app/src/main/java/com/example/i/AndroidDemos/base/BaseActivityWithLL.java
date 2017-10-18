@@ -8,7 +8,7 @@ import android.view.Gravity;
 import android.widget.Toast;
 
 import com.example.i.AndroidDemos.Interreactcomponent.FragmentToActivity.MyListener;
-import com.example.i.AndroidDemos.MainActivity;
+import com.example.i.AndroidDemos.main.MainActivity;
 import com.example.i.AndroidDemos.R;
 
 /***

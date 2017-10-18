@@ -3,7 +3,7 @@ package com.example.i.AndroidDemos.observerpatterndemo;
 import java.util.ArrayList;
 
 
-/**
+/***
  * Created by I on 2017/8/21.
  */
 

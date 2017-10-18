@@ -8,15 +8,15 @@
     </declare-styleable>
 
     <declare-styleable name="DialogShowCustomizedView">
-        <attr name="outerView" format="integer"/>
-        <attr name="innerView" format="integer"/>
+        <attr name="outerView" format="integer" />
+        <attr name="innerView" format="integer" />
     </declare-styleable>
 
     <declare-styleable name="ViewProgressBarAutoSwitch">
-        <attr name="firstColor" format="color"/>
-        <attr name="secondColor" format="color"/>
-        <attr name="circleWidth" format="dimension"/>
-        <attr name="speed" format="integer"/>
+        <attr name="firstColor" format="color" />
+        <attr name="secondColor" format="color" />
+        <attr name="circleWidth" format="dimension" />
+        <attr name="speed" format="integer" />
     </declare-styleable>
 
     <declare-styleable name="ClockView">
@@ -29,4 +29,31 @@
         <attr name="draw_center_circle" format="boolean" />
     </declare-styleable>
 
+    <declare-styleable name="DrawTextView">
+        <attr name="draw_text" format="string" />
+    </declare-styleable>
+    <declare-styleable name="ProgressBarWithNumber">
+        <attr name="progress_current" format="integer"/>
+        <attr name="progress_max" format="integer"/>
+
+        <attr name="progress_unreached_color" format="color"/>
+        <attr name="progress_reached_color" format="color"/>
+
+        <attr name="progress_reached_bar_height" format="dimension"/>
+        <attr name="progress_unreached_bar_height" format="dimension"/>
+
+        <attr name="progress_text_size" format="dimension"/>
+        <attr name="progress_text_color" format="color"/>
+
+        <attr name="progress_text_offset" format="dimension"/>
+
+        <attr name="progress_text_visibility" format="enum">
+            <enum name="visible" value="0"/>
+            <enum name="invisible" value="1"/>
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="Themes">
+        <attr name="numberProgressBarStyle" format="reference"/>
+    </declare-styleable>
 </resources>

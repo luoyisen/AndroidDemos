@@ -8,31 +8,31 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.example.i.AndroidDemos.R;
-import com.example.i.AndroidDemos.network.github_user_repository.GithubRepo;
+import com.example.i.AndroidDemos.network.github_user_repository.GithubRepository;
 
 import java.util.List;
 
-/**
+/***
  * Created by I on 2017/9/3.
  */
 
 public class BaseLVAdapter extends BaseAdapter {
     private Context context;
-    private List<GithubRepo> githubRepos;
+    private List<GithubRepository> githubRepositories;
 
-    public BaseLVAdapter(Context context, List<GithubRepo> githubRepos) {
+    public BaseLVAdapter(Context context, List<GithubRepository> githubRepositories) {
         this.context = context;
-        this.githubRepos = githubRepos;
+        this.githubRepositories = githubRepositories;
     }
 
     @Override
     public int getCount() {
-        return githubRepos.size();
+        return githubRepositories.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return githubRepos.get(position);
+        return githubRepositories.get(position);
     }
 
     @Override
@@ -55,10 +55,10 @@ public class BaseLVAdapter extends BaseAdapter {
         } else {
             viewHolder = (ViewHolder) view.getTag();// TODO: 2017/9/3 toun
         }
-        viewHolder.repoName.setText(githubRepos.get(position).getName());
-        viewHolder.repoCreateTime.setText(githubRepos.get(position).getCreated_at());
-        viewHolder.repoUpdateTime.setText(githubRepos.get(position).getPushed_at());
-        viewHolder.repoSize.setText((Integer.parseInt(githubRepos.get(position).getSize()) ) + "kb");
+        viewHolder.repoName.setText(githubRepositories.get(position).getName());
+        viewHolder.repoCreateTime.setText(githubRepositories.get(position).getCreated_at());
+        viewHolder.repoUpdateTime.setText(githubRepositories.get(position).getPushed_at());
+        viewHolder.repoSize.setText((Integer.parseInt(githubRepositories.get(position).getSize()) ) + "kb");
         return view;
 
     }

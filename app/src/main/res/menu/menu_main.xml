@@ -46,4 +46,7 @@
     <item
         android:id="@+id/opengl"
         android:title="@string/opengl" />
+    <item
+        android:id="@+id/frame"
+        android:title="@string/frame" />
 </menu>

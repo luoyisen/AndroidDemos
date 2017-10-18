@@ -1,6 +1,6 @@
 package com.example.i.AndroidDemos.android_architecture.MVP.MVP_LOGIN.login;
 
-/**
+/***
  * Created by I on 2017/9/1.
  */
 
@@ -8,7 +8,7 @@ public class LoginPresenterImpl implements LoginPresenter, LoginInteractor.onLog
     private LoginView loginView;
     private LoginInteractor loginInteractor;
 
-    public LoginPresenterImpl(LoginView loginView) {
+    LoginPresenterImpl(LoginView loginView) {
         this.loginView = loginView;
         this.loginInteractor = new LoginInteractorImpl();
     }

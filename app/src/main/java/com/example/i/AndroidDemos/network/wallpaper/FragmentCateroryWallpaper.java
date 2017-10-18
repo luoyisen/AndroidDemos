@@ -11,6 +11,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.i.AndroidDemos.R;
+import com.example.i.AndroidDemos.service.ApiLoveWallpaper;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,7 +28,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class FragmentCateroryWallpaper extends Fragment {
 
-    private ApiImp apiImp;
+    private ApiLoveWallpaper apiLoveWallpaper;
     private ListView mListView;
     private CategoryListAdapter mCategoryListAdapter;
     private List<CategoryModel> mList = new ArrayList<>();
@@ -53,7 +54,7 @@ public class FragmentCateroryWallpaper extends Fragment {
         /**
          * retrofit使用步骤：
          * 要点：1.describe the endpoints. 2.what they expect 3. what they respond
-         * (1).创建一个接口进行HTTP请求描述 (ApiImp)
+         * (1).创建一个接口进行HTTP请求描述 (ApiLoveWallpaper)
          * (2).创建
          * (2).使用Retrofit.Builder构建模式构造出来一个Retrofit实例
          * (3).因为要调用定义的接口中的具体方法，所以要创建一个实例(Create an implementation of the API endpoints defined by the {@code service} interface).
@@ -63,8 +64,8 @@ public class FragmentCateroryWallpaper extends Fragment {
 
         Retrofit retrofit = new Retrofit.Builder().baseUrl("http://open.lovebizhi.com/")
                 .addConverterFactory(GsonConverterFactory.create()).build();
-        apiImp = retrofit.create(ApiImp.class);
-        Call<WallpaperApiModel> call = apiImp.getWallpaperApi();
+        apiLoveWallpaper = retrofit.create(ApiLoveWallpaper.class);
+        Call<WallpaperApiModel> call = apiLoveWallpaper.getWallpaperApi();
         //请求数据
         call.enqueue(new Callback<WallpaperApiModel>() {
             @Override

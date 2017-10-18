@@ -17,7 +17,7 @@ import com.example.i.AndroidDemos.base.BaseFragment;
 import static com.example.i.AndroidDemos.MyApplication.IS_LOGIN_SUCCESS;
 import static com.example.i.AndroidDemos.MyApplication.LOGIN_STATE;
 
-/**
+/***
  * Created by I on 2017/9/1.
  */
 
@@ -56,19 +56,16 @@ public class Fragment_Mvp extends BaseFragment implements LoginView, View.OnClic
     @Override
     public void showProgress() {
         progressBar.setVisibility(View.VISIBLE);
-
     }
 
     @Override
     public void hideProgress() {
         progressBar.setVisibility(View.GONE);
-
     }
 
     @Override
     public void setUsernameError() {
         username.setError(getString(R.string.username_error));
-
     }
 
     @Override

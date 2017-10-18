@@ -238,4 +238,9 @@ public class ClockView extends View {
             return i + "";
         }
     }
+
+    @Override
+    public void setElevation(float elevation) {
+        super.setElevation(elevation);
+    }
 }

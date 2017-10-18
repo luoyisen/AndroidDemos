@@ -1,10 +1,10 @@
 package com.example.i.AndroidDemos.network.github_user_repository;
 
-/**
- * Created by I on 2017/9/3.
+/***
+ * Created by I on 2017/9/20.
  */
 
-public class GithubRepo {
+public class GithubRepository {
     private String name;
     private String created_at;
     private String pushed_at;

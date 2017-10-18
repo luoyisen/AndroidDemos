@@ -14,7 +14,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.example.i.AndroidDemos.MainActivity;
+import com.example.i.AndroidDemos.main.MainActivity;
 import com.example.i.AndroidDemos.R;
 import com.example.i.AndroidDemos.base.BaseFragment;
 

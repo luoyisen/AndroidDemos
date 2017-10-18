@@ -2,7 +2,7 @@ package com.example.i.AndroidDemos.util;
 
 import android.content.Context;
 
-/**
+/***
  * Created by I on 2017/9/5.
  */
 

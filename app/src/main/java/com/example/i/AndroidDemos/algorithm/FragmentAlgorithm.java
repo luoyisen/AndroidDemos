@@ -12,6 +12,7 @@ import com.example.i.AndroidDemos.adapter.BaseRVAdapter;
 import com.example.i.AndroidDemos.base.BaseFragmentWithRV;
 import com.example.i.AndroidDemos.noteandtools.note.NoteDialogWithConfig;
 
+import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -20,15 +21,14 @@ import java.util.Random;
  */
 
 public class FragmentAlgorithm extends BaseFragmentWithRV {
-    int[] data;
-    Random random;
-    Handler handler;
-    StringBuilder stringBuilder;
-    int randomnumber;
-    boolean alreadyExpanded = false;
-    ArrayList<String> arrayList;
-    String[] stringList_SortAlgorithm = {
-            "基数排序"
+    private IncomingHandler handler;
+    private int[] data;
+    private Random random;
+    private int randomnumber;
+    private boolean alreadyExpanded = false;
+    private ArrayList<String> arrayList;
+    String s = "What is broken can be reforged";
+    private String[] stringList_SortAlgorithm = {"基数排序"
             , "桶排序"
             , "计数排序"
             , "归并排序"
@@ -40,65 +40,77 @@ public class FragmentAlgorithm extends BaseFragmentWithRV {
             , "冒泡排序"
     };
 
-    @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        data = new int[10];
-        random = new Random();
-        for (int i = 0; i < 10; i++) {
-            data[i] = random.nextInt(10000000);
+
+    static class IncomingHandler extends Handler {
+        private final WeakReference<FragmentAlgorithm> fragmentAlgorithmWeakReference;
+
+        IncomingHandler(FragmentAlgorithm fragmentAlgorithm) {
+            fragmentAlgorithmWeakReference = new WeakReference<>(fragmentAlgorithm);
         }
 
-        handler = new Handler() {
-            @Override
-            public void handleMessage(Message msg) {
+        @Override
+        public void handleMessage(Message msg) {
+            FragmentAlgorithm fragmentAlgorithm = fragmentAlgorithmWeakReference.get();
+            if (fragmentAlgorithm != null) {
                 switch (msg.what) {
                     case 0:
-                        stringBuilder = new StringBuilder();
-                        for (int i = 0; i < 10; i++) {
-                            stringBuilder.append((((int[]) msg.obj)[i] + "><"));//单线程用stringbuilder
+                        StringBuilder stringBuilder1 = new StringBuilder("");
+                        for (int i = 0; i < 200; i++) {
+                            stringBuilder1.append((((int[]) msg.obj)[i])).append("><");//单线程用stringbuilder
                         }
                         new NoteDialogWithConfig
                                 .Builder(MyApplication.getContext())
                                 .setTitle("一万个随机数排序用时:" + msg.getData().getInt("usedtime") + "ms")
-                                .setMessage(stringBuilder.toString())
+                                .setMessage(stringBuilder1.toString())
                                 .setCancelAble(true)
                                 .create()
                                 .show();
                         break;
                     case 1:
-                        stringBuilder = new StringBuilder();
-                        for (int i = 0; i < 10; i++) {
-                            stringBuilder.append((((int[]) msg.obj)[i] + "><"));//单线程用stringbuilder
+                        StringBuilder stringBuilder2 = new StringBuilder();
+                        for (int i = 0; i < 200; i++) {
+                            stringBuilder2.append((((int[]) msg.obj)[i])).append("><");//单线程用stringbuilder
                         }
                         new NoteDialogWithConfig.Builder(MyApplication.getContext())
                                 .setTitle("一万个随机数排序用时:" + msg.getData().getInt("usedtime") + "ms")
-                                .setMessage(stringBuilder.toString())
+                                .setMessage(stringBuilder2.toString())
                                 .setCancelAble(true)
                                 .create()
                                 .show();
                         break;
                     case 2:
-                        stringBuilder = new StringBuilder();
-                        for (int i = 0; i < 10; i++) {
-                            stringBuilder.append((((int[]) msg.obj)[i] + "><"));//单线程用stringbuilder
+                        StringBuilder stringBuilder3 = new StringBuilder();
+                        for (int i = 0; i < 200; i++) {
+                            stringBuilder3.append((((int[]) msg.obj)[i])).append("><");//单线程用stringbuilder
                         }
                         new NoteDialogWithConfig.Builder(MyApplication.getContext())
                                 .setTitle("一万个随机数排序用时:" + msg.getData().getInt("usedtime") + "ms")
-                                .setMessage(stringBuilder.toString())
+                                .setMessage(stringBuilder3.toString())
                                 .setCancelAble(true)
                                 .create()
                                 .show();
                         break;
                 }
             }
-        };
+        }
+    }
+
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        handler = new IncomingHandler(this);
+        data = new int[10000];
+        random = new Random();
+        for (int i = 0; i < 10000; i++) {
+            data[i] = random.nextInt(10000000);
+        }
+
         arrayList = new ArrayList<>();
         arrayList.add("********** 排序算法 **********");
         arrayList.add("********** 反转数字 **********");
         arrayList.add("********** 二分查找 **********");
         arrayList.add("********* 欧几里得算法 *********");
-        arrayList.add("********** 二分算法 **********");
+        arrayList.add("** 反转一个英文句子里的所有 word**");
         adapter = new BaseRVAdapter(arrayList, getActivity().getClass().getSimpleName());
         rv_base_fragment.setAdapter(adapter);
         adapter.setOnItemClickListener(new BaseRVAdapter.OnItemClickListener() {
@@ -178,8 +190,9 @@ public class FragmentAlgorithm extends BaseFragmentWithRV {
                         if (alreadyExpanded) {
                             Toast.makeText(getActivity(), "do it", Toast.LENGTH_SHORT).show();
                         } else
+                            Toast.makeText(getActivity(), "短剑重铸之日,骑士归来之时:" + "反转以后为"+AlgorithmString.reverseSentence(s), Toast.LENGTH_LONG).show();
 
-                            break;
+                        break;
                     case 5:
                         if (alreadyExpanded)
                             Toast.makeText(getActivity(), "do it", Toast.LENGTH_SHORT).show();

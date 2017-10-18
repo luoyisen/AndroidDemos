@@ -11,13 +11,14 @@ import android.widget.TextView;
 import com.example.i.AndroidDemos.R;
 
 
-/**
+/***
  * Created by I on 2017/8/21.
  */
 
 public class FragmentMain1 extends Fragment implements Observer {//观察者收到通知以后来做具体的事情，所以fragment实现了Observer接口
     TextView tv;
     Handler handler;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -43,12 +44,39 @@ public class FragmentMain1 extends Fragment implements Observer {//观察者收�
 
     @Override
     public void update(Observable observable, final Object data) {//观察者收到通知以后来做具体的事情，所以fragment实现了Observer接口
-//        handler.postDelayed(new Runnable() {
-//            @Override
-//            public void run() {
-                tv.setText(data.toString());//执行具体的方法
-//            }
-//        }, 2000);
+        tv.setText(data.toString());//执行具体的方法
+
     }
 
+//    @Override
+//    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+//        rx.Observable.create(new rx.Observable.OnSubscribe<String>() {
+//            @Override
+//            public void call(final Subscriber<? super String> subscriber) {
+//                tv.addTextChangedListener(new TextWatcher() {
+//                    @Override
+//                    public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+//
+//                    }
+//
+//                    @Override
+//                    public void onTextChanged(CharSequence s, int start, int before, int count) {
+//                        subscriber.onNext(s.toString());
+//                    }
+//
+//                    @Override
+//                    public void afterTextChanged(Editable s) {
+//
+//                    }
+//                });
+//            }
+//        })
+//                .debounce(1000, TimeUnit.MICROSECONDS)
+//                .observeOn(AndroidSchedulers.mainThread()).subscribe(new Action1<String>() {
+//            @Override
+//            public void call(String s) {
+//                tv1.setText(s);
+//            }
+//        });
+//    }
 }

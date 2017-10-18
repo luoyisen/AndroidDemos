@@ -3,7 +3,7 @@ package com.example.i.AndroidDemos.callbackdemo;
 import android.content.Context;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
-import android.view.View;
+import android.widget.Button;
 
 /***
  * Created by I on 2017/9/9.
@@ -25,16 +25,11 @@ public class MyButton extends android.support.v7.widget.AppCompatButton {
     }
 
     public void setOnMyClickListener(OnMyClickListener onMyClickListener) {
-//        if (!isClickable()) {
-//            setClickable(true);
-//        }
-//        getListenerInfo().mOnClickListener = l;
         this.onMyClickListener = onMyClickListener;
     }
 
-
     public interface OnMyClickListener {
-        void onMyClick(View view);
+        public void onMyClick(Button button);
     }
 
     public void doWork() {

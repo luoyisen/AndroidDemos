@@ -5,7 +5,7 @@
     android:background="@color/colorPrimary">
 
     <ImageView
-        android:layout_marginLeft="@dimen/magrin_all"
+        android:layout_marginLeft="@dimen/dimen_15"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_centerVertical="true"

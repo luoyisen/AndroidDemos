@@ -17,7 +17,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-/**
+/***
  * Created by I on 2017/9/3.
  */
 
@@ -33,16 +33,16 @@ public class FragmentReposFromUser extends BaseFragmentWithLV {
                 .addConverterFactory(GsonConverterFactory.create());
         Retrofit retrofit = builder.build();
         GithubApi githubApi = retrofit.create(GithubApi.class);
-        Call<List<GithubRepo>> call = githubApi.getRepoFromUser("luoyisen");
-        call.enqueue(new Callback<List<GithubRepo>>() {
+        Call<List<GithubRepository>> call = githubApi.getReposFromUser("luoyisen");
+        call.enqueue(new Callback<List<GithubRepository>>() {
             @Override
-            public void onResponse(Call<List<GithubRepo>> call, Response<List<GithubRepo>> response) {
-                List<GithubRepo> repos = response.body();
-                listView.setAdapter(new BaseLVAdapter(getContext(), repos));
+            public void onResponse(Call<List<GithubRepository>> call, Response<List<GithubRepository>> response) {
+                List<GithubRepository> repos = response.body();
+                listView.setAdapter(new BaseLVAdapter(getActivity(), repos));
             }
 
             @Override
-            public void onFailure(Call<List<GithubRepo>> call, Throwable t) {
+            public void onFailure(Call<List<GithubRepository>> call, Throwable t) {
                 Toast.makeText(getActivity(), "获取仓库失败 :(", Toast.LENGTH_SHORT).show();
             }
         });

@@ -8,21 +8,21 @@
         android:id="@+id/textreponames"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/magrin_all"
-        android:layout_marginTop="@dimen/margin_5dp"
+        android:layout_marginLeft="@dimen/dimen_15"
+        android:layout_marginTop="@dimen/dimen_5dp"
         android:hint="reponames"
         android:textSize="@dimen/textreponame" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/magrin_all">
+        android:layout_marginLeft="@dimen/dimen_15">
 
         <TextView
             android:id="@+id/textreposize"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/margin_5dp"
+            android:layout_marginBottom="@dimen/dimen_5dp"
             android:layout_weight="1"
             android:hint="repocreatetime"
             android:textSize="@dimen/textrepocreatetime" />
@@ -31,7 +31,7 @@
             android:id="@+id/textrepocreatetime"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/margin_5dp"
+            android:layout_marginBottom="@dimen/dimen_5dp"
             android:layout_weight="1"
             android:hint="repocreatetime"
             android:textSize="@dimen/textrepocreatetime" />
@@ -40,7 +40,7 @@
             android:id="@+id/textrepoupdatetime"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/margin_5dp"
+            android:layout_marginBottom="@dimen/dimen_5dp"
             android:layout_weight="1"
             android:hint="repocreatetime"
             android:textSize="@dimen/textrepocreatetime" />
