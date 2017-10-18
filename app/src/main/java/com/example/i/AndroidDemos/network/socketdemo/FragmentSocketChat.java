@@ -1,6 +1,7 @@
 package com.example.i.AndroidDemos.network.socketdemo;
 
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -14,9 +15,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.example.i.AndroidDemos.main.MainActivity;
 import com.example.i.AndroidDemos.R;
 import com.example.i.AndroidDemos.base.BaseFragment;
+import com.example.i.AndroidDemos.main.MainActivity;
+import com.example.i.AndroidDemos.network.ActivityNet;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -24,6 +26,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
+import java.lang.ref.WeakReference;
 import java.net.Socket;
 import java.text.SimpleDateFormat;
 import java.util.Locale;
@@ -35,12 +38,14 @@ import java.util.Locale;
 public class FragmentSocketChat extends BaseFragment {
     private static final String TAG = "DEBUG-WCL: " + MainActivity.class.getSimpleName();
 
-    private TextView mTvContent; // 显示聊天内容
+    // TODO: 2017/10/18   修复
+    private static TextView mTvContent; // 显示聊天内容
     private EditText mEtMessage; // 输入发送数据
-    private Button mBSend; // 发送数据
+    private static Button mBSend; // 发送数据
 
     private PrintWriter mPrintWriter; // 向服务端发送消息
     private Socket mClientSocket; // 客户端的Socket
+    private WeakHandler weakHandler;
 
     private static final int MESSAGE_RECEIVE_NEW_MSG = 0;
     private static final int MESSAGE_SOCKET_CONNECTED = 1;
@@ -50,29 +55,54 @@ public class FragmentSocketChat extends BaseFragment {
         return R.layout.activity_socketdemo;
     }
 
-    // 处理
-    private Handler mHandler = new Handler() {
+    private static class WeakHandler extends Handler {
+        private WeakReference reference;
+
+        WeakHandler(Context context) {
+            reference = new WeakReference<>(context);
+        }
 
         @Override
         public void handleMessage(Message msg) {
-            switch (msg.what) {
-                case MESSAGE_RECEIVE_NEW_MSG:
-                    mTvContent.setText(
-                            String.valueOf(mTvContent.getText().toString() + msg.obj));
-                    break;
-                case MESSAGE_SOCKET_CONNECTED:
-                    mBSend.setEnabled(true);
-                    break;
-                default:
-                    break;
+            ActivityNet activityNet = (ActivityNet) reference.get();
+            if (activityNet != null) {
+                switch (msg.what) {
+                    case MESSAGE_RECEIVE_NEW_MSG:
+                        mTvContent.setText(
+                                String.valueOf(mTvContent.getText().toString() + msg.obj));
+                        break;
+                    case MESSAGE_SOCKET_CONNECTED:
+                        mBSend.setEnabled(true);
+                        break;
+                    default:
+                        break;
+                }
             }
         }
-    };
+    }
+
+//    private Handler mHandler = new Handler() {
+//
+//        @Override
+//        public void handleMessage(Message msg) {
+//            switch (msg.what) {
+//                case MESSAGE_RECEIVE_NEW_MSG:
+//                    mTvContent.setText(
+//                            String.valueOf(mTvContent.getText().toString() + msg.obj));
+//                    break;
+//                case MESSAGE_SOCKET_CONNECTED:
+//                    mBSend.setEnabled(true);
+//                    break;
+//                default:
+//                    break;
+//            }
+//        }
+//    };
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        weakHandler = new WeakHandler(getActivity());
         Intent intent = new Intent(getActivity(), ServerService.class);
         getActivity().startService(intent);
 
@@ -126,7 +156,7 @@ public class FragmentSocketChat extends BaseFragment {
                 mClientSocket = socket;
                 mPrintWriter = new PrintWriter(new BufferedWriter(
                         new OutputStreamWriter(socket.getOutputStream())), true);
-                mHandler.sendEmptyMessage(MESSAGE_SOCKET_CONNECTED);
+                weakHandler.sendEmptyMessage(MESSAGE_SOCKET_CONNECTED);
                 Log.e(TAG, "服务器连接成功");
             } catch (IOException e) {
                 SystemClock.sleep(1000);
@@ -143,7 +173,7 @@ public class FragmentSocketChat extends BaseFragment {
                 if (msg != null) {
                     String time = new SimpleDateFormat("HH:mm:ss", Locale.ENGLISH).format(System.currentTimeMillis());
                     String showedMsg = "server " + time + ":" + msg + "\n";
-                    mHandler.obtainMessage(MESSAGE_RECEIVE_NEW_MSG, showedMsg)
+                    weakHandler.obtainMessage(MESSAGE_RECEIVE_NEW_MSG, showedMsg)
                             .sendToTarget();
                 }
             }
