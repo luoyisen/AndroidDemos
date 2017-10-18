@@ -17,7 +17,7 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.Random;
 
-/**
+/***
  * Created by I on 2017/8/26.
  */
 
@@ -26,11 +26,12 @@ public class ServerService extends Service {
 
     private boolean mIsServiceDestroyed = false;
     private String[] mDefinedMessages = new String[]{
-            "断剑重铸之日，骑士归来之时，我是个锐雯迷，哈哈",
-            "请问你叫什么名字?",
-            "塞班是个好地方, 非常适合度假.",
-            "要记得关注我哦, 共同学习共同进步.",
-            "啊呀呀, 心情不好的时候要编程, 心情好的时候也要编程"
+            "what is broken can be reforged",
+            "Trust Nothing but your Strength!",
+            "Time for a true display of skill",
+            "I decide what tide to bring",
+            "Your will,my hands.",
+            "always trust your spirit"
     };
 
     public static final int PORT = 8644;
