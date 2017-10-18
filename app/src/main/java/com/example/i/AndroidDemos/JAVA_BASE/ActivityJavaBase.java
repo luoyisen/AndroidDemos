@@ -6,12 +6,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
 import com.example.i.AndroidDemos.R;
+import com.example.i.AndroidDemos.android_architecture.JAVA_DESIGNPATTERN.EasySingleton;
 
 /***
  * Created by I on 2017/10/17.
  */
 
 public class ActivityJavaBase extends AppCompatActivity {
+//    http://www.jianshu.com/p/20abba522545
     /**
      * 静态的类
      */
@@ -94,6 +96,51 @@ public class ActivityJavaBase extends AppCompatActivity {
          * 这时synchronized (lock)就相当于synchronized (className.class)；相反，将lock作为局部变量（放在方法内）
          * 该synchronized 将失效，因为每个访问该方法的都能获得一个lock对象。
          */
+
+        /*
+         * volatile的使用场景，通过关键字sychronize可以防止多个线程进入同一段代码，在某些特定场景中，volatile相当于一个
+         * 轻量级的sychronize，因为不会引起线程的上下文切换，一旦一个共享变量（类的成员变量、类的静态成员变量）
+         * 被volatile修饰之后，那么就具备了两层语义：
+         * (1).保证了不同线程对这个变量进行操作时的可见性，即一个线程修改了某个变量的值，这新值对其他线程来说是立即可见的。
+         * volatile关键字会强制将修改的值立即写入主存，使线程的工作内存中缓存变量行无效。
+         * (2).禁止进行指令重排序。
+         * 在java虚拟机的内存模型中，有主内存和工作内存的概念，每个线程对应一个工作内存，并共享主内存的数据。
+         * 对于普通变量：读操作会优先读取工作内存的数据，如果工作内存中不存在，则从主内存中拷贝一份数据到工作内存中；
+         * 写操作只会修改工作内存的副本数据，这种情况下，其它线程就无法读取变量的最新值。
+         * 对于volatile变量，读操作时JMM会把工作内存中对应的值设为无效，要求线程从主内存中读取数据；
+         * 写操作时JMM会把工作内存中对应的数据刷新到主内存中，这种情况下，其它线程就可以读取变量的最新值。
+         * volatile关键字在双重锁的单例模式中
+         */
+//        public class Singleton {
+//
+//            private volatile static Singleton instance;
+//
+//            private Singleton() {
+//            }
+//
+//            public static Singleton getSingleton() {
+//                if (instance == null) {
+//                    synchronized (Singleton.class) {
+//                        if (instance == null) {
+//                            instance = new Singleton();
+//                        }
+//                    }
+//                }
+//                return instance;
+//            }
+//        }
+//        为什么要判断2次不为空?这是因为如果没有volatile关键字,问题可能会出在singleton = new Singleton();这句,用伪代码表示
+//
+//        (1). inst = allocat()；   // 分配内存
+//        (2). sSingleton = inst；  // 赋值
+//        (3). constructor(inst);； // 真正执行构造函数
+//        而正确的执行顺序则是:
+//        (1). mem= allocate();     //分配内存
+//        (2). callConstructor(mem);//调用构造函数
+//        (3). Instance=mem;        //把内存指针赋值给instance。
+//        可能会由于虚拟机的优化等导致赋值操作先执行,而构造函数还没完成,导致其他线程访问得到singleton变量不为null,但初始化还未完成,导致程序崩溃。
+
+        EasySingleton.INSTANCE.showAge();
     }
 
 
