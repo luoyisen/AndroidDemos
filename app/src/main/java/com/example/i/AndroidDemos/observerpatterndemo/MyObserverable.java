@@ -7,10 +7,10 @@ package com.example.i.AndroidDemos.observerpatterndemo;
 
 public class MyObserverable extends Observable {
 
-    public static MyObserverable observerable;
+    private static MyObserverable observerable;
 
     // 单例:在所有内存中，只存在一个此对象
-    public static MyObserverable getObserverable() {
+    static MyObserverable getObserverable() {
         if (observerable == null) {
             observerable = new MyObserverable();
         }

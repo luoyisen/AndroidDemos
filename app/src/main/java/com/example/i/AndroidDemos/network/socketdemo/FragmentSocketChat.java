@@ -1,7 +1,6 @@
 package com.example.i.AndroidDemos.network.socketdemo;
 
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -18,7 +17,6 @@ import android.widget.TextView;
 import com.example.i.AndroidDemos.R;
 import com.example.i.AndroidDemos.base.BaseFragment;
 import com.example.i.AndroidDemos.main.MainActivity;
-import com.example.i.AndroidDemos.network.ActivityNet;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -34,14 +32,13 @@ import java.util.Locale;
 /***
  * Created by I on 2017/8/26.
  */
-
+//关键词：弱引用，内存泄漏
 public class FragmentSocketChat extends BaseFragment {
     private static final String TAG = "DEBUG-WCL: " + MainActivity.class.getSimpleName();
 
-    // TODO: 2017/10/18   修复
-    private static TextView mTvContent; // 显示聊天内容
+    private TextView mTvContent; // 显示聊天内容
     private EditText mEtMessage; // 输入发送数据
-    private static Button mBSend; // 发送数据
+    private Button mBSend; // 发送数据
 
     private PrintWriter mPrintWriter; // 向服务端发送消息
     private Socket mClientSocket; // 客户端的Socket
@@ -56,23 +53,23 @@ public class FragmentSocketChat extends BaseFragment {
     }
 
     private static class WeakHandler extends Handler {
-        private WeakReference reference;
+        private final WeakReference<FragmentSocketChat> fragmentSocketChatWeakReference;
 
-        WeakHandler(Context context) {
-            reference = new WeakReference<>(context);
+        WeakHandler(FragmentSocketChat fragmentSocketChat) {
+            fragmentSocketChatWeakReference = new WeakReference<>(fragmentSocketChat);
         }
 
         @Override
         public void handleMessage(Message msg) {
-            ActivityNet activityNet = (ActivityNet) reference.get();
-            if (activityNet != null) {
+            FragmentSocketChat fragmentSocketChat = fragmentSocketChatWeakReference.get();
+            if (fragmentSocketChat != null) {
                 switch (msg.what) {
                     case MESSAGE_RECEIVE_NEW_MSG:
-                        mTvContent.setText(
-                                String.valueOf(mTvContent.getText().toString() + msg.obj));
+                        fragmentSocketChat.mTvContent.setText(
+                                String.valueOf(fragmentSocketChat.mTvContent.getText().toString() + msg.obj));
                         break;
                     case MESSAGE_SOCKET_CONNECTED:
-                        mBSend.setEnabled(true);
+                        fragmentSocketChat.mBSend.setEnabled(true);
                         break;
                     default:
                         break;
@@ -81,28 +78,10 @@ public class FragmentSocketChat extends BaseFragment {
         }
     }
 
-//    private Handler mHandler = new Handler() {
-//
-//        @Override
-//        public void handleMessage(Message msg) {
-//            switch (msg.what) {
-//                case MESSAGE_RECEIVE_NEW_MSG:
-//                    mTvContent.setText(
-//                            String.valueOf(mTvContent.getText().toString() + msg.obj));
-//                    break;
-//                case MESSAGE_SOCKET_CONNECTED:
-//                    mBSend.setEnabled(true);
-//                    break;
-//                default:
-//                    break;
-//            }
-//        }
-//    };
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        weakHandler = new WeakHandler(getActivity());
+        weakHandler = new WeakHandler(this);
         Intent intent = new Intent(getActivity(), ServerService.class);
         getActivity().startService(intent);
 
