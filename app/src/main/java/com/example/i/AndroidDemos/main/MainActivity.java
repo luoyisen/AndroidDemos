@@ -2,6 +2,7 @@ package com.example.i.AndroidDemos.main;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
@@ -72,11 +73,11 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
             getSupportActionBar().setElevation(10.0f);
         }
         //这里的SearchView通过自定义style来控制搜索框中的搜索图标不显示
-        searchview_main = (SearchView) findViewById(R.id.serchview_main);
+        searchview_main = findViewById(R.id.serchview_main);
         //SearchView的三种显示模式
-        //searchview_main.setIconifiedByDefault(false);//这种模式下不能隐藏搜索框中的图标
-        //searchview_main.setIconified(false);
-        searchview_main.onActionViewExpanded();//后两种会自动打开软键盘，如果需要设置SearchView默认为不打开状态，则不能使用该模式，否则就算用该模式并设置取消SearchView焦点的方法，会导致软键盘弹出来并退出来一次。
+        searchview_main.setIconifiedByDefault(false);
+//        searchview_main.setIconified(false);
+//        searchview_main.onActionViewExpanded();//后两种会自动打开软键盘，如果需要设置SearchView默认为不打开状态，则不能使用该模式，否则就算用该模式并设置取消SearchView焦点的方法，会导致软键盘弹出来并退出来一次。
         searchview_main.setQueryHint("search repos from github");
         //设置搜索框背景和大小
         LinearLayout ll_searchview = (LinearLayout) findViewById(R.id.search_edit_frame);
@@ -230,5 +231,25 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     @Override
     public void onDismissLogin() {
 
+    }
+
+    @Override
+    protected void onResume() {//防止进入其它activity之前因为mainactivity中的searchview处于获取焦点状态而导致返回以后总是弹出软键盘
+        super.onResume();
+        searchview_main.setFocusable(false);
+        searchview_main.setFocusableInTouchMode(false);
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        if (newConfig.keyboardHidden == Configuration.KEYBOARDHIDDEN_YES)
+            searchview_main.clearFocus();
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        //当该Activity下的子View不会处理点击事件的时候，Activity的onTouchEvent()方法才会执行
+        return super.onTouchEvent(event);
     }
 }

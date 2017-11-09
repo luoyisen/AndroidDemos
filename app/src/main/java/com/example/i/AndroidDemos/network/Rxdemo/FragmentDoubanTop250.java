@@ -16,7 +16,7 @@ public class FragmentDoubanTop250 extends Fragment {
 //                    case 0:
 //
 //                        break;
-//                    case 1:
+//                    case 3dpager1:
 //                        break;
 //                }
 //            }

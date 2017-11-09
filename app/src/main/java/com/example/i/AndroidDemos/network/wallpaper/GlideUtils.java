@@ -10,7 +10,7 @@ import com.bumptech.glide.load.resource.drawable.GlideDrawable;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.SimpleTarget;
 
-/**
+/***
  * Created by I on 2017/8/30.
  */
 

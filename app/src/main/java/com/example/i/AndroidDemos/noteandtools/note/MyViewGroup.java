@@ -55,12 +55,12 @@ public class MyViewGroup extends LinearLayout {
     }
 
 //    /**
-//     * 1、决定该ViewGroup的LayoutParams
+//     * 3dpager1、决定该ViewGroup的LayoutParams
 //     * 对于我们这个例子，我们只需要ViewGroup能够支持margin即可，那么我们直接使用系统的MarginLayoutParams
 //     * <p>
 //     * 重写父类的该方法，返回MarginLayoutParams的实例，这样就为我们的ViewGroup指定了其LayoutParams为MarginLayoutParams。
 //     * <p>
-//     * 遍历所有的childView，根据childView的宽和高以及margin，然后分别将0，1，2，3位置的childView依次设置到左上、右上、左下、右下的位置。
+//     * 遍历所有的childView，根据childView的宽和高以及margin，然后分别将0，3dpager1，2，3位置的childView依次设置到左上、右上、左下、右下的位置。
 //     */
 //    @Override
 //    public LayoutParams generateLayoutParams(AttributeSet attrs) {
@@ -122,7 +122,7 @@ public class MyViewGroup extends LinearLayout {
 //            cParams = (MarginLayoutParams) childView.getLayoutParams();
 //
 //            // 上面两个childview
-//            if (i == 0 || i == 1) {// 上面的宽度
+//            if (i == 0 || i == 3dpager1) {// 上面的宽度
 //                tWidth += cWidth + cParams.leftMargin + cParams.rightMargin;
 //            }
 //            if (i == 2 || i == 3) {// 下面的宽度
@@ -131,7 +131,7 @@ public class MyViewGroup extends LinearLayout {
 //            if (i == 0 || i == 2) {//左边的高度
 //                lHeight += cHeight + cParams.topMargin + cParams.bottomMargin;
 //            }
-//            if (i == 1 || i == 3) {//右边的高度
+//            if (i == 3dpager1 || i == 3) {//右边的高度
 //                rHeight += cHeight + cParams.topMargin + cParams.bottomMargin;
 //            }
 //        }
@@ -171,7 +171,7 @@ public class MyViewGroup extends LinearLayout {
 //                    cl = childParams.leftMargin;
 //                    ct = childParams.topMargin;
 //                    break;
-//                case 1:
+//                case 3dpager1:
 ////                    cl = getMeasuredWidth() - childWidth - childParams.rightMargin;
 //                    // getMeasuredWidth()也是可以的,得到的是在ViewGroup里的宽
 //                    cl = getWidth() - childWidth - childParams.rightMargin;

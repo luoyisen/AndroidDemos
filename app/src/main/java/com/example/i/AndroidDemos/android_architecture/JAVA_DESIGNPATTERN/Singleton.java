@@ -40,17 +40,17 @@ public class Singleton {
 
     /*
      * 双重检验锁(DCL),并不完美
-     * （1）.使用DCL能确保只生成单例，他的问题在于可能让其他线程看到这个单例的未构建完全的样子
+     * （3dpager1）.使用DCL能确保只生成单例，他的问题在于可能让其他线程看到这个单例的未构建完全的样子
      * （2）.DCL背后的理论是完美的，他失败的原因不是jvm的bug，而是java的内存模型导致的，关键原因在于：
      *  new操作不是原子的，而java内存模型允许指令重排。
      *
      *  为什么要判断2次不为空?这是因为如果没有volatile关键字,问题可能会出在singleton = new Singleton();
      *  这句,用伪代码表示
-     *  (1). inst = allocat()；   // 分配内存
+     *  (3dpager1). inst = allocat()；   // 分配内存
      *  (2). sSingleton = inst；  // 赋值
      *  (3). constructor(inst);； // 真正执行构造函数
      *  而正确的执行顺序则是:
-     *  (1). mem= allocate();     //分配内存
+     *  (3dpager1). mem= allocate();     //分配内存
      *  (2). callConstructor(mem);//调用构造函数
      *  (3). Instance=mem;        //把内存指针赋值给instance。
      *  可能会由于虚拟机的优化等导致赋值操作先执行,而构造函数还没完成,导致其他线程访问得到singleton变量不为null,但初始化还未完成,导致程序崩溃。

@@ -110,7 +110,7 @@ public class DialogShowCustomizedView extends Dialog {
             handler = new Handler() {
                 @Override
                 public void handleMessage(Message msg) {
-                    if(msg.what == 0x124){
+                    if (msg.what == 0x124) {
                         progressBarWithNumber.incrementProgressBy(1);
                     }
                 }
@@ -165,6 +165,9 @@ public class DialogShowCustomizedView extends Dialog {
                     case 7:
                         layout.findViewById(R.id.id7).setVisibility(View.VISIBLE);
                         break;
+                    case 8:
+                        layout.findViewById(R.id.id8).setVisibility(View.VISIBLE);
+                        break;
                 }
                 if (cancelable) {
                     dialog.setCanceledOnTouchOutside(true);
@@ -191,7 +194,6 @@ public class DialogShowCustomizedView extends Dialog {
         }
 
     }
-
 
 
 }

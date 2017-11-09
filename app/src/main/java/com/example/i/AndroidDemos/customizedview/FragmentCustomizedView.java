@@ -49,6 +49,7 @@ public class FragmentCustomizedView extends BaseFragmentWithRV {
         arrayList.add("Material进度条");
         arrayList.add("带数字的进度条");
         arrayList.add("倒计时");
+        arrayList.add("3DViewpager");
 
         adapter = new BaseRVAdapter(arrayList, getActivity().getClass().getSimpleName());
         rv_base_fragment.setAdapter(adapter);
@@ -116,6 +117,14 @@ public class FragmentCustomizedView extends BaseFragmentWithRV {
                         new DialogShowCustomizedView.Builder(getActivity())
                                 .setTitle("数字倒计时")
                                 .setSpecifiedView(7)
+                                .setCancelAble(false)
+                                .create()
+                                .show();
+                        break;
+                        case 8:
+                        new DialogShowCustomizedView.Builder(getActivity())
+                                .setTitle("3DViewpager")
+                                .setSpecifiedView(8)
                                 .setCancelAble(false)
                                 .create()
                                 .show();

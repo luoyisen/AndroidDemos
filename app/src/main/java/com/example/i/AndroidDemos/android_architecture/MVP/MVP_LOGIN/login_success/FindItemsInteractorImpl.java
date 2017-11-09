@@ -6,7 +6,7 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * Created by I on 2017/9/1.
+ * Created by I on 2017/9/3dpager1.
  */
 
 public class FindItemsInteractorImpl implements FindItemsInteractor {
@@ -21,7 +21,7 @@ public class FindItemsInteractorImpl implements FindItemsInteractor {
 
     private List<String> createArrayList() {
         return Arrays.asList(
-                "Item 1",
+                "Item 3dpager1",
                 "Item 2",
                 "Item 3",
                 "Item 4",

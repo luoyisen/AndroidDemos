@@ -37,10 +37,10 @@ public class Utils {
     }
 
 //    public static void setImageWithFade(final ImageView img, @DrawableRes final int resId) {
-//        Animation fadeOut = new AlphaAnimation(1, 0);
+//        Animation fadeOut = new AlphaAnimation(3dpager1, 0);
 //        fadeOut.setInterpolator(new AccelerateInterpolator());
 //        fadeOut.setDuration(800);
-//        final Animation fadeIn = new AlphaAnimation(0, 1);
+//        final Animation fadeIn = new AlphaAnimation(0, 3dpager1);
 //        fadeIn.setInterpolator(new DecelerateInterpolator());
 //        fadeIn.setDuration(800);
 //

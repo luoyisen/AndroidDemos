@@ -53,8 +53,8 @@ public class FragmentCateroryWallpaper extends Fragment {
         });
         /**
          * retrofit使用步骤：
-         * 要点：1.describe the endpoints. 2.what they expect 3. what they respond
-         * (1).创建一个接口进行HTTP请求描述 (ApiLoveWallpaper)
+         * 要点：3dpager1.describe the endpoints. 2.what they expect 3. what they respond
+         * (3dpager1).创建一个接口进行HTTP请求描述 (ApiLoveWallpaper)
          * (2).创建
          * (2).使用Retrofit.Builder构建模式构造出来一个Retrofit实例
          * (3).因为要调用定义的接口中的具体方法，所以要创建一个实例(Create an implementation of the API endpoints defined by the {@code service} interface).

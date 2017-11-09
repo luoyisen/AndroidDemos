@@ -6,7 +6,7 @@ import com.example.i.AndroidDemos.R;
 import com.example.i.AndroidDemos.base.BaseActivityWithLL;
 
 /***
- * Created by I on 2017/9/1.
+ * Created by I on 2017/9/3dpager1.
  */
 
 public class ActivityArchitecture extends BaseActivityWithLL {

@@ -20,7 +20,7 @@ import static com.example.i.AndroidDemos.MyApplication.IS_LOGIN_SUCCESS;
 import static com.example.i.AndroidDemos.MyApplication.LOGIN_STATE;
 
 /***
- * Created by I on 2017/9/1.
+ * Created by I on 2017/9/3dpager1.
  */
 
 public class FragmentArchitecture extends BaseFragmentWithRV {

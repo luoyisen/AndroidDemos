@@ -3,10 +3,9 @@ package com.example.i.AndroidDemos.JAVA_BASE;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
+import android.widget.Toast;
 
 import com.example.i.AndroidDemos.R;
-import com.example.i.AndroidDemos.android_architecture.JAVA_DESIGNPATTERN.EasySingleton;
 
 /***
  * Created by I on 2017/10/17.
@@ -24,6 +23,11 @@ public class ActivityJavaBase extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_java_base);
+
+        /*
+         * 自动装箱与拆箱
+         */
+        AutoboxingTest.test();
         /*
          * synchronized用来修饰非静态方法，而非静态方法又是类对象所有，所以在不同对象的writeSth()方法互不干扰
          */
@@ -78,7 +82,7 @@ public class ActivityJavaBase extends AppCompatActivity {
          * synchronized(this)
          * synchronized(this)类似于前面的synchronized修饰非静态方法，锁都在当前对象，只限制当前对象对该代码块的同步。
          */
-        writeSomething();
+//        writeSomething();
 
         /*
          * synchronized（className.class）
@@ -101,7 +105,7 @@ public class ActivityJavaBase extends AppCompatActivity {
          * volatile的使用场景，通过关键字sychronize可以防止多个线程进入同一段代码，在某些特定场景中，volatile相当于一个
          * 轻量级的sychronize，因为不会引起线程的上下文切换，一旦一个共享变量（类的成员变量、类的静态成员变量）
          * 被volatile修饰之后，那么就具备了两层语义：
-         * (1).保证了不同线程对这个变量进行操作时的可见性，即一个线程修改了某个变量的值，这新值对其他线程来说是立即可见的。
+         * (3dpager1).保证了不同线程对这个变量进行操作时的可见性，即一个线程修改了某个变量的值，这新值对其他线程来说是立即可见的。
          * volatile关键字会强制将修改的值立即写入主存，使线程的工作内存中缓存变量行无效。
          * (2).禁止进行指令重排序。
          * 在java虚拟机的内存模型中，有主内存和工作内存的概念，每个线程对应一个工作内存，并共享主内存的数据。
@@ -131,42 +135,42 @@ public class ActivityJavaBase extends AppCompatActivity {
 //        }
 //        为什么要判断2次不为空?这是因为如果没有volatile关键字,问题可能会出在singleton = new Singleton();这句,用伪代码表示
 //
-//        (1). inst = allocat()；   // 分配内存
+//        (3dpager1). inst = allocat()；   // 分配内存
 //        (2). sSingleton = inst；  // 赋值
 //        (3). constructor(inst);； // 真正执行构造函数
 //        而正确的执行顺序则是:
-//        (1). mem= allocate();     //分配内存
+//        (3dpager1). mem= allocate();     //分配内存
 //        (2). callConstructor(mem);//调用构造函数
 //        (3). Instance=mem;        //把内存指针赋值给instance。
 //        可能会由于虚拟机的优化等导致赋值操作先执行,而构造函数还没完成,导致其他线程访问得到singleton变量不为null,但初始化还未完成,导致程序崩溃。
 
-        EasySingleton.INSTANCE.showAge();
-    }
-
-
-    public synchronized void writeSomething() {
-        //其他代码
-        synchronized (this) {
-            for (int i = 0; i < 10; i++) {
-                Log.i("synchronized", i + " ");
-            }
-        }
-        //其他代码
-    }
-
-
-    class Test {
-        public synchronized void writeSomething() {
-            //其他代码
-            synchronized (Test.class) {
-                for (int i = 0; i < 10; i++) {
-                    System.out.print(i + " ");
-                }
-                System.out.println();
-            }
-            //其他代码
-        }
-    }
+//        EasySingleton.INSTANCE.showAge();
+//    }
+//
+//
+//    public synchronized void writeSomething() {
+//        //其他代码
+//        synchronized (this) {
+//            for (int i = 0; i < 10; i++) {
+//                Log.i("synchronized", i + " ");
+//            }
+//        }
+//        //其他代码
+//    }
+//
+//
+//    class Test {
+//        public synchronized void writeSomething() {
+//            //其他代码
+//            synchronized (Test.class) {
+//                for (int i = 0; i < 10; i++) {
+//                    System.out.print(i + " ");
+//                }
+//                System.out.println();
+//            }
+//            //其他代码
+//        }
+//    }
 
 
 //    class Test1 {
@@ -183,5 +187,10 @@ public class ActivityJavaBase extends AppCompatActivity {
 //            //其他代码
 //        }
 //    }
+        Object a = new Object();
+        Object b = new Object();
+        Toast.makeText(this, (a == b) + "", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, (a.equals(b)) + "", Toast.LENGTH_SHORT).show();
+    }
 
 }

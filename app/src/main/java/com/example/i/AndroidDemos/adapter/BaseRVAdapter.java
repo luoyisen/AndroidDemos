@@ -69,7 +69,7 @@ public class BaseRVAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
             ((viewHolder1) holder).textView.setText(mData.get(position));
             /**
              * 这里的item里面如果有button，如果要为整个itemView设置点击事件，就要：
-             * 1.将button设置为不可点击，否则事件不会传递到itemview，或者：
+             * 3dpager1.将button设置为不可点击，否则事件不会传递到itemview，或者：
              * 2.自定义button，重写ontouchevent()方法，使得其返回值为false，表示button不处理事件，由button的上级viewgroup来处理，或者：
              * 3.自定义relativelayout，重写dispatchtouchevent()方法，时期返回值为false，表示不再分发事件
              * 如果要同时为button和item设置点击事件，就不用

@@ -83,10 +83,16 @@
 
     <com.example.i.AndroidDemos.customizedview.customizedview.NumberProgressBar
         android:id="@+id/id7"
-        android:visibility="gone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true" />
+        android:layout_centerInParent="true"
+        android:visibility="gone" />
 
+    <com.example.i.AndroidDemos.customizedview.customizedview.ViewPagerWith3d.Viewpager3D
+        android:id="@+id/id8"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_centerInParent="true"
+        android:visibility="gone"/>
 
 </RelativeLayout>

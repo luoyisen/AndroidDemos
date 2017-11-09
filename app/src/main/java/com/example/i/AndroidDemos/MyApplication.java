@@ -17,7 +17,7 @@ import timber.log.Timber;
 
 public class MyApplication extends Application {
     private static MyApplication instance;
-    public static Context context;//全局的context (1)
+    public static Context context;//全局的context (3dpager1)
 
     public static final String LOGIN_STATE = "LOGIN_STATE";
     public static final String IS_LOGIN_SUCCESS = "IS_LOGIN_SUCCESS";

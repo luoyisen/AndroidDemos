@@ -22,7 +22,7 @@ import static com.example.i.AndroidDemos.MyApplication.LOGIN_STATE;
 
 /***
  *
- * Created by I on 2017/9/1.
+ * Created by I on 2017/9/3dpager1.
  */
 
 public class Activity_LoginSuccess extends BaseActivity implements MainView, AdapterView.OnItemClickListener, View.OnClickListener {

@@ -21,9 +21,6 @@ import com.example.i.AndroidDemos.R;
 public class DialogShowCodeView extends Dialog {
     private double density;
 
-    public DialogShowCodeView(@NonNull Context context) {
-        super(context);
-    }
 
     public DialogShowCodeView(@NonNull Context context, int themeResId) {
         super(context, themeResId);

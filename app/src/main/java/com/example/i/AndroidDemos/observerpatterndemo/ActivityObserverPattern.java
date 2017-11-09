@@ -109,7 +109,7 @@ public class ActivityObserverPattern extends AppCompatActivity {
 //                    msg.what = 0;
 //                    myHandler.sendMessage(msg);
 //                }
-//            }, 1, 1000);
+//            }, 3dpager1, 1000);
 
             runnable = new Runnable() {
                 @Override

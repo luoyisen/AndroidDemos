@@ -93,7 +93,7 @@ public class ServerService extends Service {
         PrintWriter out = new PrintWriter(new BufferedWriter(
                 new OutputStreamWriter(client.getOutputStream())), true);
 
-        out.println("欢迎来到德莱联盟");
+        out.println("I decide what tide to bring");
         while (!mIsServiceDestroyed) {
             String str = in.readLine();
             if (str == null) {

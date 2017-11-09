@@ -23,42 +23,62 @@
         android:theme="@style/AppTheme">
         <activity
             android:name="com.example.i.AndroidDemos.main.MainActivity"
-            android:windowSoftInputMode="adjustPan|stateAlwaysHidden">
+            android:windowSoftInputMode="adjustPan"
+            android:screenOrientation="portrait"
+            android:configChanges="keyboardHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.example.i.AndroidDemos.callbackdemo.CallBackActivity" />
-        <activity android:name="com.example.i.AndroidDemos.noteandtools.note.ActivityEventDispatch" />
-        <activity android:name="com.example.i.AndroidDemos.Interreactcomponent.ActivityComponentIntereact" />
-        <activity android:name="com.example.i.AndroidDemos.Interreactcomponent.FragmentToActivity.UserInfoActivity" />
-        <activity android:name=".base.BaseActivityWithLL" />
+        <activity android:name="com.example.i.AndroidDemos.callbackdemo.CallBackActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name="com.example.i.AndroidDemos.noteandtools.note.ActivityEventDispatch"
+            android:screenOrientation="portrait"/>
+        <activity android:name="com.example.i.AndroidDemos.Interreactcomponent.ActivityComponentIntereact"
+            android:screenOrientation="portrait"/>
+        <activity android:name="com.example.i.AndroidDemos.Interreactcomponent.FragmentToActivity.UserInfoActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".base.BaseActivityWithLL"
+            android:screenOrientation="portrait"/>
         ---------------------------------数据结构----------------------------------
-        <activity android:name=".datastructure.ActivityDataStructure" />
+        <activity android:name=".datastructure.ActivityDataStructure"
+            android:screenOrientation="portrait"/>
 
         ---------------------------------网络----------------------------------
-        <activity android:name="com.example.i.AndroidDemos.network.ActivityNet" />
-        <activity android:name=".network.wallpaper.CategoryActivity" />
-        <activity android:name=".network.wallpaper.GalleryActivity" />
+        <activity android:name="com.example.i.AndroidDemos.network.ActivityNet"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".network.wallpaper.CategoryActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".network.wallpaper.GalleryActivity"
+            android:screenOrientation="portrait"/>
 
-        <service android:name="com.example.i.AndroidDemos.network.socketdemo.ServerService" />
+        <service android:name="com.example.i.AndroidDemos.network.socketdemo.ServerService"
+            android:screenOrientation="portrait"/>
         ---------------------------------工具和笔记----------------------------------
-        <activity android:name=".noteandtools.ActivityNoteAndTools" />
+        <activity android:name=".noteandtools.ActivityNoteAndTools"
+            android:screenOrientation="portrait"/>
         ---------------------------------自定义View----------------------------------
-        <activity android:name=".customizedview.ActivityCustomizedView" />
+        <activity android:name=".customizedview.ActivityCustomizedView"
+            android:screenOrientation="portrait"/>
         ---------------------------------Android_architecture------------------------
-        <activity android:name=".android_architecture.ActivityArchitecture" />
-        <activity android:name=".android_architecture.MVP.MVP_LOGIN.login_success.Activity_LoginSuccess" />
+        <activity android:name=".android_architecture.ActivityArchitecture"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".android_architecture.MVP.MVP_LOGIN.login_success.Activity_LoginSuccess"
+            android:screenOrientation="portrait"/>
         ---------------------------------algorithm------------------------
-        <activity android:name=".algorithm.ActivityAlgorithm" />
-        <activity android:name=".base.ActivityWithWebView" />
+        <activity android:name=".algorithm.ActivityAlgorithm"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".base.ActivityWithWebView"
+            android:screenOrientation="portrait"/>
         ---------------------------------open gl----------------------------------
-        <activity android:name=".opengl.ActivityOpenGl" />
-        <activity android:name=".observerpatterndemo.ActivityObserverPattern" />
-        <activity android:name=".frame.ActivityFrame" />
-        <activity android:name=".JAVA_BASE.ActivityJavaBase" />
+        <activity android:name=".opengl.ActivityOpenGl"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".observerpatterndemo.ActivityObserverPattern"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".JAVA_BASE.ActivityJavaBase"
+            android:screenOrientation="portrait"/>
 
     </application>
 

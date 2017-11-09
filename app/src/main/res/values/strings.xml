@@ -22,7 +22,7 @@
     <string name="setting">设置</string>
     <string name="login">登陆</string>
     <string name="sendinfomation">发送通知</string>
-    <string name="dataStructure">数据结构</string>
+    <string name="dataStructure">DataSturcure</string>
     <string name="opengl">openGL</string>
     <string name="frame">框架</string>
     <string name="showMDtext">这是一个显示文本文件的dialog</string>

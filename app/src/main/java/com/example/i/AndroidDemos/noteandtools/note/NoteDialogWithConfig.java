@@ -36,7 +36,7 @@ public final class NoteDialogWithConfig extends Dialog {
         window.addFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);//配合上个语句使用 // TODO: 2017/9/10  bug:下拉系统栏才会生效
         layoutParams.height = (int) dipToPx(400);
         layoutParams.width = (int) dipToPx(300);
-//        layoutParams.alpha = 1.0f;//Toast的透明度
+//        layoutParams.alpha = 3dpager1.0f;//Toast的透明度
 //        layoutParams.dimAmount = 0.6f;//Toast的背景的透明度
         layoutParams.type = WindowManager.LayoutParams.TYPE_TOAST;//允许即使该Dialog依赖的Activity退出也能弹出该Dialog，即该Dialog变成全局的Dialog
         window.setAttributes(layoutParams);

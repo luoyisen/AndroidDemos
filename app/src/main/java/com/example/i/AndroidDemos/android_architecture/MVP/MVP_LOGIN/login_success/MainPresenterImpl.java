@@ -3,7 +3,7 @@ package com.example.i.AndroidDemos.android_architecture.MVP.MVP_LOGIN.login_succ
 import java.util.List;
 
 /**
- * Created by I on 2017/9/1.
+ * Created by I on 2017/9/3dpager1.
  */
 
 public class MainPresenterImpl implements MainPresenter, FindItemsInteractor.OnFinishedListener {

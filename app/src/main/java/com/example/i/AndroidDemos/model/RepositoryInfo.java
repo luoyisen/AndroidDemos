@@ -80,9 +80,9 @@ public class RepositoryInfo extends DataBean {
      * has_pages : false
      * forks_count : 14
      * mirror_url : null
-     * open_issues_count : 1
+     * open_issues_count : 3dpager1
      * forks : 14
-     * open_issues : 1
+     * open_issues : 3dpager1
      * watchers : 94
      * default_branch : master
      * network_count : 14
