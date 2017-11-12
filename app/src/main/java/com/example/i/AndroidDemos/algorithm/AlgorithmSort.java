@@ -4,9 +4,9 @@ package com.example.i.AndroidDemos.algorithm;
  * Created by I on 2017/9/7.
  */
 
-class AlgorithmSort {
+public class AlgorithmSort {
     /***********************************冒泡排序************************************/
-    static int[] bubbleSort(int[] data) {
+   public static int[] bubbleSort(int[] data) {
         if (data == null || data.length == 0) {
             return null;
         }
@@ -23,7 +23,7 @@ class AlgorithmSort {
         return data;
     }
 
-    static int[] bubbleMySort(int[] data) {
+    public static int[] bubbleMySort(int[] data) {
         int temp;
         for (int i = 1; i < data.length; i++) {
             for (int m = 0; m < data.length - i; m++) {
@@ -38,7 +38,7 @@ class AlgorithmSort {
     }
 
     /***********************************选择排序************************************/
-    static int[] selectSort(int[] data) {
+   public static int[] selectSort(int[] data) {
         if (data == null || data.length == 0) {
             return null;
         }
@@ -61,7 +61,7 @@ class AlgorithmSort {
     }
 
     /***********************************快速排序************************************/
-    static int[] quickSort(int[] arr, int low, int high) {
+    public static int[] quickSort(int[] arr, int low, int high) {
         if (arr == null || arr.length == 0)
             return null;
 

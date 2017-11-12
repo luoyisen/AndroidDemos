@@ -68,8 +68,6 @@
         <activity android:name=".android_architecture.MVP.MVP_LOGIN.login_success.Activity_LoginSuccess"
             android:screenOrientation="portrait"/>
         ---------------------------------algorithm------------------------
-        <activity android:name=".algorithm.ActivityAlgorithm"
-            android:screenOrientation="portrait"/>
         <activity android:name=".base.ActivityWithWebView"
             android:screenOrientation="portrait"/>
         ---------------------------------open gl----------------------------------
@@ -79,6 +77,8 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".JAVA_BASE.ActivityJavaBase"
             android:screenOrientation="portrait"/>
+        <activity android:name=".ActivityShowRoundedImage" />
+        <activity android:name=".algorithm.TreeViewMethod2.ui.ActivityAlgorithm2" />
 
     </application>
 

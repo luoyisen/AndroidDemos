@@ -49,7 +49,7 @@ public class FragmentNoteAndTools extends BaseFragmentWithRV {
                                 NoteDialogWithConfig.Builder(getActivity());
                         customBuilder.setTitle("Android Studio KeyMap")
                                 .setMessage("类的层级关系:CTRL + H\n" +
-                                        "删除整行代码:CTRL + X\n" + "最近更改的代码:CTRL + E\n" + "查找文件:CTRL + SHIFT + F\n" + "查找文件:CTRL + SHIFT + N\n" + "a\n" + "adf\n" + "adf\n" + "adf\n" + "adf\n" + "adf\n" + "adf\n" + "adf\n" + "adf\n" + "adf\n" + "adf\n" + "adf\n" + "adf\n" + "adf")
+                                        "删除整行代码:CTRL + X\n" + "最近更改的代码:CTRL + E\n" + "查找文件:CTRL + SHIFT + F\n" + "查找文件:CTRL + SHIFT + N\n" + "JAVA->Kotlin:CTRL + ALT + SHIFT + K\n" + "adf\n" + "adf\n" + "adf\n" + "adf\n" + "adf\n" + "adf\n" + "adf\n" + "adf\n" + "adf\n" + "adf\n" + "adf\n" + "adf\n" + "adf")
                                 .setNegativeButton("Cancel",
                                         new DialogInterface.OnClickListener() {
                                             public void onClick(DialogInterface dialog, int which) {

@@ -37,6 +37,7 @@ import java.util.TimerTask;
 
 public class DialogShowCustomizedView extends Dialog {
     private double density;
+    private static Timer timer;
     private ViewChangeText viewChangeText;
     private ProgressBarWithNumber progressBarWithNumber;
     private ViewProgressBarAutoSwitch viewProgressBarAutoSwitch;
@@ -44,16 +45,21 @@ public class DialogShowCustomizedView extends Dialog {
     //在代码中用的就是这个构造函数
     public DialogShowCustomizedView(@NonNull Context context) {
         super(context);
+        timer = new Timer();
     }
 
     //该构造函数可以控制Dialog主题
     public DialogShowCustomizedView(@NonNull Context context, @StyleRes int themeResId) {
         super(context, themeResId);
+        timer = new Timer();
+
     }
 
     //该构造函数可以设置点击dialog外部是否可以取消掉Dialog
     public DialogShowCustomizedView(@NonNull Context context, boolean cancelable, @Nullable OnCancelListener cancelListener) {
         super(context, cancelable, cancelListener);
+        timer = new Timer();
+
     }
 
     @Override
@@ -80,7 +86,6 @@ public class DialogShowCustomizedView extends Dialog {
         private String title;
         private boolean cancelable;
         private int viewId;
-        private Timer timer;
         private Handler handler;
 
         public Builder(Context context) {
@@ -152,14 +157,13 @@ public class DialogShowCustomizedView extends Dialog {
                         layout.findViewById(R.id.id6).setVisibility(View.VISIBLE);
                         progressBarWithNumber = (ProgressBarWithNumber) layout.findViewById(R.id.id6);
                         progressBarWithNumber.setOnProgressBarListener(this);
-                        timer = new Timer();
                         timer.schedule(new TimerTask() {
                             @Override
                             public void run() {
                                 handler.sendEmptyMessage(0x124);
                             }
-                        }, 1000, 100);
-                        progressBarWithNumber.incrementProgressBy(2);
+                        }, 0, 50);
+                        progressBarWithNumber.incrementProgressBy(1);
 
                         break;
                     case 7:
@@ -192,8 +196,12 @@ public class DialogShowCustomizedView extends Dialog {
                 progressBarWithNumber.setProgress(0);
             }
         }
-
     }
 
-
+    @Override
+    public void onDetachedFromWindow() {
+        super.onDetachedFromWindow();
+        Toast.makeText(MyApplication.getContext(), "detaached", Toast.LENGTH_SHORT).show();
+        timer.cancel();
+    }
 }

@@ -6,7 +6,6 @@ package com.example.i.AndroidDemos.algorithm;
 
 class AlgorithmString {
 
-
     private static char[] putIntoArray(String word) {
         char[] chars = new char[word.length()];
         for (int i = 0; i < chars.length; i++) {

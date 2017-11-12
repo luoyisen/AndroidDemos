@@ -44,12 +44,12 @@ public class FragmentCustomizedView extends BaseFragmentWithRV {
         arrayList.add("随机生成一个四位数");
         arrayList.add("扇形进度盘");
         arrayList.add("时钟");
-        arrayList.add("时钟2");
+        arrayList.add("圆角图片(ViewPager)");
         arrayList.add("旋转的专辑封面");
         arrayList.add("Material进度条");
         arrayList.add("带数字的进度条");
         arrayList.add("倒计时");
-        arrayList.add("3DViewpager");
+        arrayList.add("3DViewpager(ViewPager)");
 
         adapter = new BaseRVAdapter(arrayList, getActivity().getClass().getSimpleName());
         rv_base_fragment.setAdapter(adapter);
@@ -83,7 +83,7 @@ public class FragmentCustomizedView extends BaseFragmentWithRV {
                         break;
                     case 3:
                         new DialogShowCustomizedView.Builder(getActivity())
-                                .setTitle("根据系统时间显示在表盘上")
+                                .setTitle("不同方式实现图片的圆角显示")
                                 .setSpecifiedView(3)
                                 .setCancelAble(false)
                                 .create()
@@ -121,7 +121,7 @@ public class FragmentCustomizedView extends BaseFragmentWithRV {
                                 .create()
                                 .show();
                         break;
-                        case 8:
+                    case 8:
                         new DialogShowCustomizedView.Builder(getActivity())
                                 .setTitle("3DViewpager")
                                 .setSpecifiedView(8)

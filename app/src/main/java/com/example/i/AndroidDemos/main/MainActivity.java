@@ -20,7 +20,7 @@ import android.widget.Toast;
 import com.example.i.AndroidDemos.Interreactcomponent.ActivityComponentIntereact;
 import com.example.i.AndroidDemos.JAVA_BASE.ActivityJavaBase;
 import com.example.i.AndroidDemos.R;
-import com.example.i.AndroidDemos.algorithm.ActivityAlgorithm;
+import com.example.i.AndroidDemos.algorithm.TreeViewMethod2.ui.ActivityAlgorithm2;
 import com.example.i.AndroidDemos.android_architecture.ActivityArchitecture;
 import com.example.i.AndroidDemos.callbackdemo.CallBackActivity;
 import com.example.i.AndroidDemos.customizedview.ActivityCustomizedView;
@@ -116,7 +116,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                         startActivity(new Intent(MainActivity.this, ActivityArchitecture.class));
                         break;
                     case R.id.algorithm:
-                        startActivity(new Intent(MainActivity.this, ActivityAlgorithm.class));
+                        startActivity(new Intent(MainActivity.this, ActivityAlgorithm2.class));
                         break;
                     case R.id.dataStructure:
                         startActivity(new Intent(MainActivity.this, ActivityDataStructure.class));

@@ -6,5 +6,4 @@ package com.example.i.AndroidDemos.customizedview.customizedview.ProgressBarWith
 
 public interface OnProgressBarListener {
     void onProgressChange(int current, int max);
-
 }

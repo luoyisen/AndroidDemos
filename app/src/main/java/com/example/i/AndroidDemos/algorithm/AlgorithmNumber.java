@@ -35,6 +35,7 @@ class AlgorithmNumber {
             return mid;
         }
     }
+
     //==============================二分查找(非递归实现)==============================
     public static int binarySearch2(int[] a, int fromIndex, int toIndex, int value) {
         int low = fromIndex;
@@ -50,4 +51,14 @@ class AlgorithmNumber {
         }
         return -1;
     }
+
+    //==============================找出两个已经排好序的数组之间的重复值==============================
+    public static int[] findSameBetweenTwoSortedArray(int[] x, int[] y) {
+        int a = x.length, b = y.length;
+        if (x[0] > y[b - 1] || y[0] > x[a - 1]) return null;
+        if (x[0] == y[b - 1]) return new int[]{x[0]};
+        if (x[a - 1] == y[0]) return new int[]{x[a - 1]};
+        return null;
+    }
+
 }

@@ -25,14 +25,13 @@ import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Func1;
 import rx.schedulers.Schedulers;
 
-/**
+/***
  * Created by I on 2017/8/27.
  */
 
 public class FragmentApps extends Fragment implements SwipeRefreshLayout.OnRefreshListener {
     private List<AppInfo> appInfoList;
     private AppListAdapter mAppListAdapter;
-    private RecyclerView recyclerView;
     private SwipeRefreshLayout swipeRefreshLayout;
     public RecyclerView.LayoutManager mLayoutManager;
 
@@ -48,8 +47,8 @@ public class FragmentApps extends Fragment implements SwipeRefreshLayout.OnRefre
         super.onViewCreated(view, savedInstanceState);
         appInfoList = new ArrayList<>();
         mAppListAdapter = new AppListAdapter(appInfoList);
-        recyclerView = (RecyclerView) view.findViewById(R.id.rv_basefragment);
-        swipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.pull_down_refresh);
+        RecyclerView recyclerView = view.findViewById(R.id.rv_basefragment);
+        swipeRefreshLayout = view.findViewById(R.id.pull_down_refresh);
 
         mLayoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(mLayoutManager);//必须设置
@@ -122,6 +121,7 @@ public class FragmentApps extends Fragment implements SwipeRefreshLayout.OnRefre
                         appInfoList.add(appInfo);
                     }
                 });
+
     }
 
     private List<ApplicationInfo> getApplicationInfoList(PackageManager packageManager) {
