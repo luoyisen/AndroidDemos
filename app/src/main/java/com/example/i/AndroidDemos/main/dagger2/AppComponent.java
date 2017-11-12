@@ -16,7 +16,6 @@ import dagger.Component;
 @Singleton
 @Component(modules = {NetModule.class, ContextModule.class})
 public interface AppComponent {
-
     Context CONTEXT();
 
 //    ExploreDataSource exploreDataSource();
@@ -29,4 +28,3 @@ public interface AppComponent {
 
 //    ArsenalDataSource arsenalDataSource();
 }
-

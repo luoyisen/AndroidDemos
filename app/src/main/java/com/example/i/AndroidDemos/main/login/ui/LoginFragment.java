@@ -7,6 +7,7 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.design.widget.TextInputEditText;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.DialogFragment;
@@ -17,9 +18,7 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.example.i.AndroidDemos.MyApplication;
 import com.example.i.AndroidDemos.R;
 import com.example.i.AndroidDemos.main.dagger2.ComponentHolder;
 import com.example.i.AndroidDemos.main.login.loginPresenter.LoginContract;
@@ -27,6 +26,10 @@ import com.example.i.AndroidDemos.util.Note;
 import com.example.i.AndroidDemos.util.Utils;
 
 import javax.inject.Inject;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /***
  * Created by I on 2017/9/24.
@@ -36,39 +39,43 @@ public class LoginFragment extends DialogFragment implements LoginContract.View 
     @Inject
     LoginContract.Presenter presenter;
     @Inject
-    Context mCtx;
-    private TextInputEditText editUsername;
-    private TextInputLayout textWrapperUsername;
-    private TextInputEditText editPassword;
-    private TextInputLayout textWrapperPsw;
-    private ProgressBar progressBar;
-    private TextView tvLogin;
+    Context context;
+    @BindView(R.id.edit_username)
+    TextInputEditText editUsername;
+    @BindView(R.id.text_wrapper_username)
+    TextInputLayout textWrapperUsername;
+    @BindView(R.id.edit_password)
+    TextInputEditText editPassword;
+    @BindView(R.id.text_wrapper_psw)
+    TextInputLayout textWrapperPsw;
+    @BindView(R.id.progressBar)
+    ProgressBar progressBar;
+    @BindView(R.id.tv_login)
+    TextView tvLogin;
+    @BindView(R.id.tv_cancel)
+    TextView tvCancel;
     private View mRootView;
     private boolean dismissable;
-    private TextView tvCancel;
 
     private LoginCallback callback;
 
     @Override
     public void initData(Bundle savedInstanceState) {
         initDagger();
-//        String loginUserName = presenter.getLoginUserName();
-//        if (!TextUtils.isEmpty(loginUserName))
-//            editUsername.setText(loginUserName);
+        String loginUserName = presenter.getLoginUserName();
+        if (!TextUtils.isEmpty(loginUserName))
+            editUsername.setText(loginUserName);
     }
 
     private void initDagger() {
         ComponentHolder.getLoginComponent().inject(this);
-//        presenter.attachView(this);
-        if (presenter == null) {
-            Toast.makeText(MyApplication.getContext(), "为空", Toast.LENGTH_SHORT).show();
-        }
+        presenter.attachView(this);
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
-//        presenter.detachView();
+        presenter.detachView();
         Utils.leakWatch(this);
     }
 
@@ -79,27 +86,18 @@ public class LoginFragment extends DialogFragment implements LoginContract.View 
 
     @Override
     public void initView() {
-        editUsername = (TextInputEditText) mRootView.findViewById(R.id.edit_username);
-        textWrapperUsername = (TextInputLayout) mRootView.findViewById(R.id.text_wrapper_username);
-        editPassword = (TextInputEditText) mRootView.findViewById(R.id.edit_password);
-        textWrapperPsw = (TextInputLayout) mRootView.findViewById(R.id.text_wrapper_psw);
-        progressBar = (ProgressBar) mRootView.findViewById(R.id.progressBar);
-        tvLogin = (TextView) mRootView.findViewById(R.id.tv_login);
-        tvLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                submit();
-            }
-        });
-        tvCancel = (TextView) mRootView.findViewById(R.id.tv_cancel);
-        tvCancel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (dismissable)
-                    dismiss();
-                else getDialog().hide();
-            }
-        });
+    }
+
+    @OnClick(R.id.tv_login)
+    void login() {
+        submit();
+    }
+
+    @OnClick(R.id.tv_cancel)
+    void cancelLogin() {
+        if (dismissable)
+            dismiss();
+        else getDialog().hide();
     }
 
     @Override
@@ -140,31 +138,37 @@ public class LoginFragment extends DialogFragment implements LoginContract.View 
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
+
         if (mRootView == null) {
             mRootView = inflater.inflate(R.layout.frag_dialog_login, container, false);
             initView();
-            initData(null);
         }
         return mRootView;
     }
 
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        ButterKnife.bind(this, view);
+        initData(null);
+    }
+
     private void submit() {
-        // validate
         String username = editUsername.getText().toString().trim();
         textWrapperUsername.setError(null);
         if (TextUtils.isEmpty(username)) {
-            textWrapperUsername.setError(MyApplication.getContext().getString(R.string.error_null_username));// TODO: 2017/9/24
+            textWrapperUsername.setError(context.getString(R.string.error_null_username));
             return;
         }
 
         String password = editPassword.getText().toString().trim();
         textWrapperPsw.setError(null);
         if (TextUtils.isEmpty(password)) {
-            textWrapperPsw.setError(MyApplication.getContext().getString(R.string.error_null_password));// TODO: 2017/9/24
+            textWrapperPsw.setError(context.getString(R.string.error_null_password));
             return;
         }
-//        presenter.login(username, password);
+        presenter.login(username, password);
     }
 
     @NonNull

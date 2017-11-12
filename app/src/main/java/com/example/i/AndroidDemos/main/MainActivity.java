@@ -54,7 +54,6 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     static {
         System.loadLibrary("native-lib");
     }
-
     public native String stringFromJNI();
 
     @Override
