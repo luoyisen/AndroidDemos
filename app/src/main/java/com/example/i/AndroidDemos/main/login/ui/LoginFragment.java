@@ -138,7 +138,7 @@ public class LoginFragment extends DialogFragment implements LoginContract.View 
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         if (mRootView == null) {
             mRootView = inflater.inflate(R.layout.frag_dialog_login, container, false);

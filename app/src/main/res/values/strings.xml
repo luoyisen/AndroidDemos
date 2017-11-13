@@ -1,4 +1,11 @@
 <resources>
+
+    <string-array name="titles">
+        <item>@string/trending</item>
+        <item>@string/searchresult</item>
+        <item>@string/userinfo</item>
+        <item>@string/settings</item>
+    </string-array>
     <string name="app_name">AndroidDemos</string>
     <string name="user_name">用户名</string>
     <string name="password">密码</string>
@@ -505,4 +512,8 @@
     <string name="ic_whatshot">&#xe1ae;</string>
     <string name="ic_wifi_tethering">&#xe1af;</string>
     <string name="ic_work">&#xe1b0;</string>
+    <string name="trending">趋势</string>
+    <string name="searchresult">搜索</string>
+    <string name="userinfo">我的</string>
+    <string name="settings">设置</string>
 </resources>

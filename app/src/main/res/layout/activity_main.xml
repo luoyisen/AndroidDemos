@@ -61,55 +61,72 @@
 
         </android.support.v7.widget.Toolbar>
 
-        <ImageView
-            android:id="@+id/chinawall"
-            android:layout_width="300dp"
-            android:layout_height="300dp"
-            android:layout_centerInParent="true"
-            android:src="@mipmap/empty_view" />
+        <com.example.i.AndroidDemos.customizedview.customizedview.CanBeBannedViewPager
+            android:id="@+id/pager_main"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/linermain"
+            android:layout_below="@+id/toolabr_main"
+            app:isScroll="false" />
 
-        <TextView
-            android:id="@+id/text_nodata"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/chinawall"
-            android:layout_centerHorizontal="true"
-            android:text="@string/nodata"
-            android:textSize="20dp" />
+        <LinearLayout
+            android:id="@+id/linermain"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_40dp"
+            android:layout_alignParentBottom="true">
 
-        <com.getbase.floatingactionbutton.FloatingActionsMenu
-            android:id="@+id/fab"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp"
-            app:fab_addButtonColorNormal="@color/colorPrimary"
-            app:fab_addButtonColorPressed="@color/colorPrimary"
-            app:fab_labelStyle="@style/menu_labels_style"
-            app:layout_behavior="@string/quick_return_bottom_behavior">
+            <include layout="@layout/main_radiogroup" />
+        </LinearLayout>
 
-            <com.getbase.floatingactionbutton.FloatingActionButton
-                android:id="@+id/fab_language"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_dns_black_24dp"
-                app:fab_colorNormal="@color/colorPrimary"
-                app:fab_colorPressed="@color/colorPrimary"
-                app:fab_size="mini"
-                app:fab_title="@string/language" />
+        <!--<ImageView-->
+        <!--android:id="@+id/chinawall"-->
+        <!--android:layout_width="300dp"-->
+        <!--android:layout_height="300dp"-->
+        <!--android:layout_centerInParent="true"-->
+        <!--android:src="@mipmap/empty_view" />-->
 
-            <com.getbase.floatingactionbutton.FloatingActionButton
-                android:id="@+id/fab_sort"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:fab_colorNormal="@color/colorPrimary"
-                app:fab_colorPressed="@color/colorPrimary"
-                app:fab_icon="@drawable/ic_sort_black_48dp"
-                app:fab_size="mini"
-                app:fab_title="@string/sort_by" />
-        </com.getbase.floatingactionbutton.FloatingActionsMenu>
+        <!--<TextView-->
+        <!--android:id="@+id/text_nodata"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_below="@+id/chinawall"-->
+        <!--android:layout_centerHorizontal="true"-->
+        <!--android:text="@string/nodata"-->
+        <!--android:textSize="20dp" />-->
+
+        <!--<com.getbase.floatingactionbutton.FloatingActionsMenu-->
+        <!--android:id="@+id/fab"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_alignParentBottom="true"-->
+        <!--android:layout_alignParentEnd="true"-->
+        <!--android:layout_marginEnd="16dp"-->
+        <!--android:layout_marginBottom="16dp"-->
+        <!--app:fab_addButtonColorNormal="@color/colorPrimary"-->
+        <!--app:fab_addButtonColorPressed="@color/colorPrimary"-->
+        <!--app:fab_labelStyle="@style/menu_labels_style"-->
+        <!--app:layout_behavior="@string/quick_return_bottom_behavior">-->
+
+        <!--<com.getbase.floatingactionbutton.FloatingActionButton-->
+        <!--android:id="@+id/fab_language"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:src="@drawable/ic_dns_black_24dp"-->
+        <!--app:fab_colorNormal="@color/colorPrimary"-->
+        <!--app:fab_colorPressed="@color/colorPrimary"-->
+        <!--app:fab_size="mini"-->
+        <!--app:fab_title="@string/language" />-->
+
+        <!--<com.getbase.floatingactionbutton.FloatingActionButton-->
+        <!--android:id="@+id/fab_sort"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--app:fab_colorNormal="@color/colorPrimary"-->
+        <!--app:fab_colorPressed="@color/colorPrimary"-->
+        <!--app:fab_icon="@drawable/ic_sort_black_48dp"-->
+        <!--app:fab_size="mini"-->
+        <!--app:fab_title="@string/sort_by" />-->
+        <!--</com.getbase.floatingactionbutton.FloatingActionsMenu>-->
 
     </RelativeLayout>
 
@@ -135,16 +152,6 @@
             android:layout_height="@dimen/dimen_40dp"
             android:layout_alignParentBottom="true">
 
-            <TextView
-                android:id="@+id/settings"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="@string/setting"
-                android:textColor="@color/colorwhite"
-                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/login"

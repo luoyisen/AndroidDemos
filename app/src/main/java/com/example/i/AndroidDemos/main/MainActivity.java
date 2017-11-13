@@ -6,6 +6,7 @@ import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.Fragment;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.SearchView;
@@ -14,17 +15,21 @@ import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.i.AndroidDemos.Interreactcomponent.ActivityComponentIntereact;
 import com.example.i.AndroidDemos.JAVA_BASE.ActivityJavaBase;
 import com.example.i.AndroidDemos.R;
+import com.example.i.AndroidDemos.adapter.MainPagerAdapter;
 import com.example.i.AndroidDemos.algorithm.TreeViewMethod2.ui.ActivityAlgorithm2;
 import com.example.i.AndroidDemos.android_architecture.ActivityArchitecture;
 import com.example.i.AndroidDemos.callbackdemo.CallBackActivity;
 import com.example.i.AndroidDemos.customizedview.ActivityCustomizedView;
+import com.example.i.AndroidDemos.customizedview.customizedview.CanBeBannedViewPager;
 import com.example.i.AndroidDemos.datastructure.ActivityDataStructure;
+import com.example.i.AndroidDemos.datastructure.fragments.FragmentHashSet;
 import com.example.i.AndroidDemos.main.base.BaseView;
 import com.example.i.AndroidDemos.main.login.ui.LoginFragment;
 import com.example.i.AndroidDemos.network.ActivityNet;
@@ -33,8 +38,12 @@ import com.example.i.AndroidDemos.observerpatterndemo.ActivityObserverPattern;
 import com.example.i.AndroidDemos.opengl.ActivityOpenGl;
 import com.example.i.AndroidDemos.util.DisplayMetricsConvert;
 
+import java.util.List;
+
 import butterknife.BindView;
+import butterknife.BindViews;
 import butterknife.ButterKnife;
+import butterknife.OnCheckedChanged;
 import butterknife.OnClick;
 
 /***
@@ -42,11 +51,18 @@ import butterknife.OnClick;
  */
 
 public class MainActivity extends AppCompatActivity implements SearchView.OnQueryTextListener, LoginFragment.LoginCallback, BaseView {
-    @BindView(R.id.text_nodata)
-    TextView text_nodata;
+    @BindView(R.id.login)
+    TextView text_login;
+    @BindView(R.id.pager_main)
+    CanBeBannedViewPager pager_main;
+    @BindViews({R.id.main_trending, R.id.main_searchresult, R.id.main_userinfo, R.id.main_settings})
+    List<RadioButton> radioButtonlist;
+    //    @BindView(R.id.text_nodata)
+//    TextView text_nodata;
     private LoginFragment loginFragment;
     public static DrawerLayout drawerLayout;
     private SearchView searchview_main;
+    String[] titles;
     private long firstclicktime = 0;
     float x1 = 0;
     float x2 = 0;
@@ -54,6 +70,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     static {
         System.loadLibrary("native-lib");
     }
+
     public native String stringFromJNI();
 
     @Override
@@ -61,7 +78,35 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-        text_nodata.setText(stringFromJNI());
+//        text_nodata.setText(stringFromJNI());
+        titles = getResources().getStringArray(R.array.titles);
+        Fragment[] fragments = new Fragment[4];
+        fragments[0] = new FragmentHashSet();
+        fragments[1] = new FragmentHashSet();
+        fragments[2] = new FragmentHashSet();
+        fragments[3] = new FragmentHashSet();
+
+        MainPagerAdapter adapter = new MainPagerAdapter(getSupportFragmentManager(), titles, fragments);
+        pager_main.setAdapter(adapter);
+        pager_main.setOffscreenPageLimit(adapter.getCount() - 1);// TODO: 2017/9/30 to un
+        pager_main.setPageMargin(getResources().getDimensionPixelSize(R.dimen.dimen_5dp));
+//        pager_main.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+//            @Override
+//            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+//
+//            }
+//
+//            @Override
+//            public void onPageSelected(int position) {
+//                radioButtonlist.get(position).setChecked(true);
+//
+//            }
+//
+//            @Override
+//            public void onPageScrollStateChanged(int state) {
+//            }
+//        });
+        radioButtonlist.get(0).setChecked(true);
         drawerLayout = (DrawerLayout) findViewById(R.id.drawerlayoutmain);
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolabr_main);
@@ -79,7 +124,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
 //        searchview_main.onActionViewExpanded();//后两种会自动打开软键盘，如果需要设置SearchView默认为不打开状态，则不能使用该模式，否则就算用该模式并设置取消SearchView焦点的方法，会导致软键盘弹出来并退出来一次。
         searchview_main.setQueryHint("search repos from github");
         //设置搜索框背景和大小
-        LinearLayout ll_searchview = (LinearLayout) findViewById(R.id.search_edit_frame);
+        LinearLayout ll_searchview = findViewById(R.id.search_edit_frame);
         ll_searchview.setBackground(getResources().getDrawable(R.drawable.shape_searchview));
         ll_searchview.setLayoutParams(new LinearLayout.LayoutParams(DisplayMetricsConvert.pxToDp(getApplicationContext(), 260), DisplayMetricsConvert.pxToDp(getApplicationContext(), 32)));
         //用来设置输入完成以后是否显示跳转按钮
@@ -87,7 +132,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         //ImageView closeViewIcon = (ImageView)searchview_main.findViewById(R.id.search_close_btn);
         //closeViewIcon.setImageDrawable(ContextCompat.getDrawable(this,R.drawable.ic_location_searching_black_24dp));
         //用来设置searchView展开和不展开状态下的图标和
-        LinearLayout search_bar = (LinearLayout) findViewById(R.id.search_bar);
+        LinearLayout search_bar = findViewById(R.id.search_bar);
         search_bar.setGravity(Gravity.CENTER);
 
 
@@ -129,11 +174,23 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                     case R.id.frame:
                         startActivity(new Intent(MainActivity.this, ActivityJavaBase.class));
                         break;
+                    case R.id.login:
+                        break;
+
                 }
                 drawerLayout.closeDrawer(Gravity.START);
                 return true;
             }
         });
+    }
+    @OnCheckedChanged({R.id.main_settings, R.id.main_userinfo, R.id.main_searchresult, R.id.main_trending})
+    public void onRadioButtonChecked(RadioButton button, boolean isChecked) {
+        if (isChecked)
+            onItemChecked(radioButtonlist.indexOf(button));
+    }
+
+    private void onItemChecked(int position) {
+        pager_main.setCurrentItem(position);
     }
 
     @OnClick(R.id.login)
@@ -146,7 +203,6 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
             loginFragment.show(getSupportFragmentManager(), "loginfragment");
         else loginFragment.getDialog().show();
     }
-
 
     @Override
     public boolean onQueryTextSubmit(String query) {
@@ -221,15 +277,20 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         return null;
     }
 
-    //登陆
+    //登陆成功以后回调
     @Override
     public void onSuccessToLogin() {
-
+//        text_login.setText("已登陆");
+//        text_login.setTextColor(Color.parseColor("#ff00ff00"));
+        loginFragment.setDismissable(true);
+        loginFragment.dismiss();// TODO: 2017/11/13  和下方的语句的区别
+        loginFragment.getDialog().dismiss();
+        startActivity(new Intent(this, ActivityAlgorithm2.class));
     }
 
     @Override
     public void onDismissLogin() {
-
+        loginFragment = null;
     }
 
     @Override

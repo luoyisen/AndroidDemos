@@ -1,6 +1,5 @@
 package com.example.i.AndroidDemos;
 
-import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
 
@@ -22,43 +21,33 @@ import timber.log.Timber;
 
 public class MyApplication extends Application {
     private static MyApplication instance;
-    public static Context context;//全局的context (3dpager1)
+    private RefWatcher refWatcher;
 
+    public static Context context;//全局的context (3dpager1)
     public static final String LOGIN_STATE = "LOGIN_STATE";
     public static final String IS_LOGIN_SUCCESS = "IS_LOGIN_SUCCESS";
+
     public static final String IS_DRAWER_OPEN = "IS_DRAWER_OPEN";
-
     private GithubService githubService;
-    private Picasso picasso;
 
-    private RefWatcher refWatcher;
+    private Picasso picasso;
 
     public static Context getContext() {
         return context;////全局的context (2)
-    }
-
-    public static MyApplication getMyApplication(Activity activity) {
-        return (MyApplication) activity.getApplication();
     }
 
     public static MyApplication getInstance() {
         return instance;
     }
 
-    public RefWatcher getRefWatcher() {
-        return refWatcher;
-    }
 
     @Override
     public void onCreate() {
         super.onCreate();
         initComponents();
+        instance = this;
         context = getApplicationContext();////全局的context (3)
         Timber.plant(new Timber.DebugTree());
-
-        if (LeakCanary.isInAnalyzerProcess(this)) {
-            return;
-        }
         refWatcher = LeakCanary.install(this);
     }
 
@@ -73,5 +62,9 @@ public class MyApplication extends Application {
 //        ComponentHolder.setNewsComponent(DaggerNewsComponent.builder().appComponent(appComponent).build());
 //        ComponentHolder.setRepoPageComponent(DaggerRepoPageComponent.builder().appComponent(appComponent).build());
 //        ComponentHolder.setSearchComponent(DaggerSearchComponent.builder().appComponent(appComponent).build());
+    }
+
+    public RefWatcher getRefWatcher() {
+        return refWatcher;
     }
 }
