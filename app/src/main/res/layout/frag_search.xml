@@ -52,7 +52,7 @@
             android:id="@+id/fab_language"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_dns_black_24dp"
+            android:src="@drawable/ic_search_black_24dp"
             app:fab_colorNormal="@color/colorwhite"
             app:fab_colorPressed="@color/colorwhite"
             app:fab_size="mini"
@@ -64,7 +64,7 @@
             android:layout_height="wrap_content"
             app:fab_colorNormal="@color/colorwhite"
             app:fab_colorPressed="@color/colorwhite"
-            app:fab_icon="@drawable/ic_sort_black_48dp"
+            app:fab_icon="@drawable/ic_search_black_24dp"
             app:fab_size="mini"
             app:fab_title="@string/sort_by" />
     </com.getbase.floatingactionbutton.FloatingActionsMenu>

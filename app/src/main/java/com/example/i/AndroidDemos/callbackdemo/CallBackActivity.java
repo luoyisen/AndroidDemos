@@ -35,7 +35,6 @@ public class CallBackActivity extends AppCompatActivity {
         myButton.setOnMyClickListener(new MyButton.OnMyClickListener() {
             @Override
             public void onMyClick(Button button) {
-                Toast.makeText(CallBackActivity.this, "button回调", Toast.LENGTH_SHORT).show();
             }
         });
         myButton.doWork();//模拟点击事件
@@ -55,9 +54,7 @@ public class CallBackActivity extends AppCompatActivity {
                     @Override
                     public void onResult(boolean a, boolean b, boolean c, boolean d) {
                         if (a && !b && !c && !d) {
-                            Toast.makeText(CallBackActivity.this, "答对了", Toast.LENGTH_SHORT).show();
                         } else {
-                            Toast.makeText(CallBackActivity.this, "答错了", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });

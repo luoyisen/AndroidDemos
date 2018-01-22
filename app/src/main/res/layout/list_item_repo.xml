@@ -82,7 +82,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="5dp"
             android:layout_marginStart="5dp"
-            android:drawableEnd="@drawable/fork"
+            android:drawableEnd="@drawable/ic_search_black_24dp"
             android:fontFamily="sans-serif-medium"
             android:gravity="center_vertical|end"
             tools:text="64" />
@@ -98,7 +98,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="5dp"
             android:layout_marginStart="5dp"
-            android:drawableEnd="@drawable/ic_error_red_900_24dp"
+            android:drawableEnd="@drawable/ic_search_black_24dp"
             android:fontFamily="sans-serif-medium"
             android:gravity="center_vertical|end"
             tools:text="21" />

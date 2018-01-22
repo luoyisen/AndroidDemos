@@ -196,8 +196,6 @@ public class MyViewGroup extends LinearLayout {
 
     @Override
     public boolean dispatchTouchEvent(MotionEvent ev) {
-        Log.e("事件传递机制", "container dispatchTouchEvent");
-        Toast.makeText(MyApplication.getContext(), "container---dispatchTouchEvent", Toast.LENGTH_SHORT).show();
 
         int i = getDispatchMode();
         if (i == 0) {
@@ -212,8 +210,6 @@ public class MyViewGroup extends LinearLayout {
 
     @Override
     public boolean onInterceptTouchEvent(MotionEvent ev) {
-        Log.e("事件传递机制", "container onInterceptTouchEvent");
-        Toast.makeText(MyApplication.getContext(), "container---onInterceptTouchEvent", Toast.LENGTH_SHORT).show();
 
         int i = getInterceptMode();
         if (i == 0) {
@@ -245,18 +241,10 @@ public class MyViewGroup extends LinearLayout {
     public void processEvent(MotionEvent event) {
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
-                Log.e("事件传递机制", "container ACTION_DOWN");
-                Toast.makeText(MyApplication.getContext(), "container---ACTION_DOWN事件", Toast.LENGTH_SHORT).show();
                 break;
             case MotionEvent.ACTION_MOVE:
-                Log.e("事件传递机制", "container ACTION_MOVE");
-
-                Toast.makeText(MyApplication.getContext(), "container---ACTION_MOVE事件", Toast.LENGTH_SHORT).show();
                 break;
             case MotionEvent.ACTION_UP:
-                Log.e("事件传递机制", "container ACTION_UP");
-
-                Toast.makeText(MyApplication.getContext(), "container---ACTION_UP事件", Toast.LENGTH_SHORT).show();
                 break;
         }
     }

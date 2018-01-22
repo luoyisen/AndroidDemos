@@ -5,6 +5,7 @@ import com.example.i.AndroidDemos.main.base.BasePresenter;
 import com.example.i.AndroidDemos.main.dao.UserDataSource;
 import com.example.i.AndroidDemos.util.RxJavaUtils;
 import com.example.i.AndroidDemos.util.Utils;
+import com.orhanobut.logger.Logger;
 
 import rx.functions.Action1;
 
@@ -28,6 +29,7 @@ public class LoginPresenter extends BasePresenter<LoginContract.View> implements
                 .subscribe(new DefaultSubscriber<Boolean>() {
                     @Override
                     public void onNext(Boolean success) {
+                        Logger.e(success + "");
                         if (success)
                             getView().showOnSuccess();
                         else getView().showOnError(Utils.getString(R.string.error_login));

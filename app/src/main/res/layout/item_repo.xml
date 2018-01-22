@@ -96,7 +96,7 @@
                 android:layout_height="@dimen/icSize"
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="10dp"
-                android:background="@drawable/fork" />
+                android:background="@drawable/list" />
 
             <TextView
                 android:id="@+id/tv_fork_count"
@@ -115,7 +115,7 @@
                 android:layout_height="@dimen/icSize"
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="10dp"
-                android:background="@drawable/ic_error_red_900_24dp" />
+                android:background="@drawable/ic_search_black_24dp" />
 
             <TextView
                 android:id="@+id/tv_watch_count"

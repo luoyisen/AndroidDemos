@@ -1,11 +1,16 @@
 package com.example.i.AndroidDemos.util;
 
+import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.i.AndroidDemos.MyApplication;
+import com.example.i.AndroidDemos.R;
 
 /***
  * Created by I on 2017/9/24.
@@ -19,7 +24,13 @@ public class Note {
         if (mToast == null)
             mToast = Toast.makeText(MyApplication.getContext(), null, Toast.LENGTH_SHORT);
         mToast.setText(msg);
-        mToast.setDuration(Toast.LENGTH_SHORT);
+        View view = ((LayoutInflater) MyApplication.getInstance().getSystemService(Context.LAYOUT_INFLATER_SERVICE)).inflate(R.layout.note, null);
+        TextView textView = view.findViewById(R.id.note_text);
+        Drawable drawable =
+                ToastyUtils.getDrawable(MyApplication.getInstance(), R.drawable.note_background);
+        ToastyUtils.setBackground(view, drawable);
+        textView.setText(msg);
+        mToast.setView(view);
         mToast.show();
     }
 

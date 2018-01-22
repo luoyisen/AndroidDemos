@@ -31,10 +31,6 @@ public class LazyFragment extends Fragment implements BaseView{
 
     }
 
-    @Override
-    public int getLayoutId() {
-        return 0;
-    }
 
     @Override
     public void initView() {

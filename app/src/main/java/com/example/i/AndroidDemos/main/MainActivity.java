@@ -1,6 +1,5 @@
 package com.example.i.AndroidDemos.main;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
@@ -16,11 +15,11 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.i.AndroidDemos.Interreactcomponent.ActivityComponentIntereact;
 import com.example.i.AndroidDemos.JAVA_BASE.ActivityJavaBase;
+import com.example.i.AndroidDemos.MyApplication;
 import com.example.i.AndroidDemos.R;
 import com.example.i.AndroidDemos.adapter.MainPagerAdapter;
 import com.example.i.AndroidDemos.algorithm.TreeViewMethod2.ui.ActivityAlgorithm2;
@@ -30,13 +29,13 @@ import com.example.i.AndroidDemos.customizedview.ActivityCustomizedView;
 import com.example.i.AndroidDemos.customizedview.customizedview.CanBeBannedViewPager;
 import com.example.i.AndroidDemos.datastructure.ActivityDataStructure;
 import com.example.i.AndroidDemos.datastructure.fragments.FragmentHashSet;
-import com.example.i.AndroidDemos.main.base.BaseView;
 import com.example.i.AndroidDemos.main.login.ui.LoginFragment;
 import com.example.i.AndroidDemos.network.ActivityNet;
 import com.example.i.AndroidDemos.noteandtools.ActivityNoteAndTools;
 import com.example.i.AndroidDemos.observerpatterndemo.ActivityObserverPattern;
 import com.example.i.AndroidDemos.opengl.ActivityOpenGl;
 import com.example.i.AndroidDemos.util.DisplayMetricsConvert;
+import com.example.i.AndroidDemos.util.Note;
 
 import java.util.List;
 
@@ -44,21 +43,16 @@ import butterknife.BindView;
 import butterknife.BindViews;
 import butterknife.ButterKnife;
 import butterknife.OnCheckedChanged;
-import butterknife.OnClick;
 
 /***
  * Created by I on 2017/9/24.
  */
 
-public class MainActivity extends AppCompatActivity implements SearchView.OnQueryTextListener, LoginFragment.LoginCallback, BaseView {
-    @BindView(R.id.login)
-    TextView text_login;
+public class MainActivity extends AppCompatActivity implements SearchView.OnQueryTextListener, LoginFragment.LoginCallback {
     @BindView(R.id.pager_main)
     CanBeBannedViewPager pager_main;
     @BindViews({R.id.main_trending, R.id.main_searchresult, R.id.main_userinfo, R.id.main_settings})
     List<RadioButton> radioButtonlist;
-    //    @BindView(R.id.text_nodata)
-//    TextView text_nodata;
     private LoginFragment loginFragment;
     public static DrawerLayout drawerLayout;
     private SearchView searchview_main;
@@ -67,18 +61,37 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     float x1 = 0;
     float x2 = 0;
 
-    static {
-        System.loadLibrary("native-lib");
-    }
-
-    public native String stringFromJNI();
+//    static {
+//        System.loadLibrary("native-lib");
+//    }
+//
+//    public native String stringFromJNI();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-//        text_nodata.setText(stringFromJNI());
+        loginFragment = new LoginFragment();
+        loginFragment.setCallback(this);
+//        final Handler handler = new Handler(new Handler.Callback() {
+//            @Override
+//            public boolean handleMessage(Message msg) {
+        if (!AccountPrefs.isLogin(MyApplication.getContext()))
+            showLoginFragment();
+//                return true;
+//            }
+//        });
+//
+//        new Timer().schedule(new TimerTask() {
+//            @Override
+//            public void run() {
+//                handler.sendEmptyMessage(0);
+//            }
+//        }, 5000);
+
+        Note.show(AccountPrefs.getLoginUserName(this));
+        //        text_nodata.setText(stringFromJNI());
         titles = getResources().getStringArray(R.array.titles);
         Fragment[] fragments = new Fragment[4];
         fragments[0] = new FragmentHashSet();
@@ -174,8 +187,6 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                     case R.id.frame:
                         startActivity(new Intent(MainActivity.this, ActivityJavaBase.class));
                         break;
-                    case R.id.login:
-                        break;
 
                 }
                 drawerLayout.closeDrawer(Gravity.START);
@@ -183,22 +194,22 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
             }
         });
     }
+
     @OnCheckedChanged({R.id.main_settings, R.id.main_userinfo, R.id.main_searchresult, R.id.main_trending})
     public void onRadioButtonChecked(RadioButton button, boolean isChecked) {
         if (isChecked)
             onItemChecked(radioButtonlist.indexOf(button));
     }
 
+
     private void onItemChecked(int position) {
         pager_main.setCurrentItem(position);
     }
 
-    @OnClick(R.id.login)
-    void login() {
-        if (loginFragment == null) {
+
+    public void showLoginFragment() {
+        if (loginFragment == null)
             loginFragment = new LoginFragment();
-            loginFragment.setCallback(this);
-        }
         if (loginFragment.getDialog() == null)
             loginFragment.show(getSupportFragmentManager(), "loginfragment");
         else loginFragment.getDialog().show();
@@ -206,13 +217,11 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
 
     @Override
     public boolean onQueryTextSubmit(String query) {
-        Toast.makeText(this, "提交成功", Toast.LENGTH_SHORT).show();
         return false;
     }
 
     @Override
     public boolean onQueryTextChange(String newText) {
-        Toast.makeText(this, "提交成功", Toast.LENGTH_SHORT).show();
         return false;
     }
 
@@ -241,51 +250,13 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         }
     }
 
-    //baseView
-    @Override
-    public void showOnError(String s) {
-
-    }
-
-    @Override
-    public void showOnLoading() {
-
-    }
-
-    @Override
-    public void showOnSuccess() {
-
-    }
-
-    @Override
-    public void initData(Bundle savedInstanceState) {
-
-    }
-
-    @Override
-    public int getLayoutId() {
-        return 0;
-    }
-
-    @Override
-    public void initView() {
-
-    }
-
-    @Override
-    public Context getViewContext() {
-        return null;
-    }
-
     //登陆成功以后回调
     @Override
     public void onSuccessToLogin() {
-//        text_login.setText("已登陆");
-//        text_login.setTextColor(Color.parseColor("#ff00ff00"));
         loginFragment.setDismissable(true);
         loginFragment.dismiss();// TODO: 2017/11/13  和下方的语句的区别
-        loginFragment.getDialog().dismiss();
-        startActivity(new Intent(this, ActivityAlgorithm2.class));
+//        loginFragment.getDialog().dismiss();
+
     }
 
     @Override

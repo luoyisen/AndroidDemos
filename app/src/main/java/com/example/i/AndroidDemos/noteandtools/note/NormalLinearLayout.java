@@ -27,16 +27,12 @@ public class NormalLinearLayout extends LinearLayout {
 
     @Override
     public boolean dispatchTouchEvent(MotionEvent ev) {
-        Log.e("事件传递机制","container dispatchTouchEvent ");
 
-        Toast.makeText(getContext(), "container dispatchTouchEvent", Toast.LENGTH_SHORT).show();
         return super.dispatchTouchEvent(ev);
     }
 
     @Override
     public boolean onInterceptTouchEvent(MotionEvent ev) {
-        Log.e("事件传递机制","container onInterceptTouchEvent ");
-        Toast.makeText(getContext(), "container onInterceptTouchEvent", Toast.LENGTH_SHORT).show();
 
         return super.onInterceptTouchEvent(ev);
     }
@@ -45,19 +41,13 @@ public class NormalLinearLayout extends LinearLayout {
     public boolean onTouchEvent(MotionEvent event) {
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
-                Log.e("事件传递机制","container ACTION_DOWN ");
 
-                Toast.makeText(getContext(), "container ACTION_DOWN", Toast.LENGTH_SHORT).show();
                 break;
             case MotionEvent.ACTION_MOVE:
-                Log.e("事件传递机制","container ACTION_MOVE ");
 
-                Toast.makeText(getContext(), "container ACTION_MOVE", Toast.LENGTH_SHORT).show();
                 break;
             case MotionEvent.ACTION_UP:
-                Log.e("事件传递机制","container ACTION_UP ");
 
-                Toast.makeText(getContext(), "container ACTION_UP", Toast.LENGTH_SHORT).show();
                 break;
         }
         return super.onTouchEvent(event);

@@ -1,10 +1,8 @@
 package com.example.i.AndroidDemos.main.login.loginPresenter;
 
-import android.widget.Toast;
-
-import com.example.i.AndroidDemos.MyApplication;
 import com.example.i.AndroidDemos.R;
 import com.example.i.AndroidDemos.util.Utils;
+import com.orhanobut.logger.Logger;
 
 import java.io.IOException;
 import java.net.SocketTimeoutException;
@@ -19,7 +17,7 @@ import rx.Subscriber;
 public abstract class DefaultSubscriber<T> extends Subscriber<T> {
     @Override
     public void onCompleted() {
-//        LogUtils.d("RxCompleted");
+        Logger.d("RxCompleted");
     }
 
     @Override
@@ -30,11 +28,15 @@ public abstract class DefaultSubscriber<T> extends Subscriber<T> {
         } else if (e instanceof HttpException) {
             onError(Utils.getString(R.string.error_network));
             HttpException httpException = (HttpException) e;
+            Logger.e(String.valueOf(httpException.code()));
+            Logger.e(httpException.message());
             if (httpException.response() != null && httpException.response().errorBody() != null) {
                 try {
+                    Logger.e(httpException.response().message());
                     String bodyStr = httpException.response().errorBody().string();
+                    Logger.e(bodyStr);
                 } catch (IOException e1) {
-                    Toast.makeText(MyApplication.getContext(), e1.getMessage(), Toast.LENGTH_SHORT).show();
+                    Logger.e(e1.getMessage());
                 }
             }
         } else {
@@ -43,8 +45,7 @@ public abstract class DefaultSubscriber<T> extends Subscriber<T> {
     }
 
     protected void onError(String errorStr) {
-        Toast.makeText(MyApplication.getContext(), errorStr, Toast.LENGTH_SHORT).show();
+        Logger.e(errorStr);
     }
 
 }
-

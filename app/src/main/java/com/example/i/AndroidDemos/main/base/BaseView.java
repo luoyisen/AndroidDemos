@@ -16,8 +16,6 @@ public interface BaseView {
 
     void initData(Bundle savedInstanceState);
 
-    int getLayoutId();
-
     void initView();
 
     Context getViewContext();

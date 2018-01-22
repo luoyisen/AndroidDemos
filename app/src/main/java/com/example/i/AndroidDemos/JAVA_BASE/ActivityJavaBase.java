@@ -189,8 +189,6 @@ public class ActivityJavaBase extends AppCompatActivity {
 //    }
         Object a = new Object();
         Object b = new Object();
-        Toast.makeText(this, (a == b) + "", Toast.LENGTH_SHORT).show();
-        Toast.makeText(this, (a.equals(b)) + "", Toast.LENGTH_SHORT).show();
     }
 
 }

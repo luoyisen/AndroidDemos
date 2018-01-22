@@ -25,7 +25,7 @@
             android:layout_height="30dp"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
-            android:src="@drawable/ic_more_white_48dp"
+            android:src="@drawable/list"
             android:layout_marginEnd="5dp"
             android:clickable="true"/>
     </RelativeLayout>

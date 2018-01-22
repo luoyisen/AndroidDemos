@@ -41,13 +41,12 @@ public class FragmentHashMap extends Fragment {
 //        textView.setPadding();
         Map<String, String> map = new HashMap<>();
         map.put("3dpager1", "3dpager1");
-        Toast.makeText(getActivity(), map.get("3dpager1"), Toast.LENGTH_SHORT).show();
     }
 
     @OnClick(R.id.about)
     public void clickabout() {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        builder.setIcon(R.drawable.fork)
+        builder.setIcon(R.drawable.leak_canary_icon)
                 .setTitle("HashMap")
                 .setMessage("HashMap是一个")
                 .create()

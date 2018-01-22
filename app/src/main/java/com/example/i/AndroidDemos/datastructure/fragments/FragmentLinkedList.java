@@ -33,8 +33,6 @@ public class FragmentLinkedList extends BaseFragment {
         stringLinkedList.add("d");
         stringLinkedList.add("e");
         //获取链表的第一个和最后一个元素
-        Toast.makeText(getActivity(), stringLinkedList.getFirst(), Toast.LENGTH_SHORT).show();
-        Toast.makeText(getActivity(), stringLinkedList.getLast(), Toast.LENGTH_SHORT).show();
         //获取链表元素
         for (String s : stringLinkedList) {
             Log.e("linkedlist", s);

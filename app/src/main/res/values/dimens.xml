@@ -8,6 +8,7 @@
     <dimen name="dimen_15dp">15dp</dimen>
     <dimen name="dimen_20dp">20dp</dimen>
     <dimen name="dimen_40dp">40dp</dimen>
+    <dimen name="dimen_60dp">60dp</dimen>
     <dimen name="textsize_20dp">20dp</dimen>
     <dimen name="dimen_100dp">100dp</dimen>
     <dimen name="width">200dp</dimen>

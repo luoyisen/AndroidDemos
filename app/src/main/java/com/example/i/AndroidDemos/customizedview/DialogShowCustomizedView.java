@@ -1,11 +1,9 @@
 package com.example.i.AndroidDemos.customizedview;
 
-import android.app.Dialog;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Build;
-import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.annotation.NonNull;
@@ -13,14 +11,13 @@ import android.support.annotation.Nullable;
 import android.support.annotation.StyleRes;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.i.AndroidDemos.MyApplication;
 import com.example.i.AndroidDemos.R;
+import com.example.i.AndroidDemos.base.BaseDialog;
 import com.example.i.AndroidDemos.customizedview.customizedview.AlbumUtils;
 import com.example.i.AndroidDemos.customizedview.customizedview.CicleRotateAlbumView;
 import com.example.i.AndroidDemos.customizedview.customizedview.ProgressBarWithNumber.OnProgressBarListener;
@@ -35,8 +32,7 @@ import java.util.TimerTask;
  * Created by I on 2017/8/30.
  */
 
-public class DialogShowCustomizedView extends Dialog {
-    private double density;
+public class DialogShowCustomizedView extends BaseDialog {
     private static Timer timer;
     private ViewChangeText viewChangeText;
     private ProgressBarWithNumber progressBarWithNumber;
@@ -59,26 +55,7 @@ public class DialogShowCustomizedView extends Dialog {
     public DialogShowCustomizedView(@NonNull Context context, boolean cancelable, @Nullable OnCancelListener cancelListener) {
         super(context, cancelable, cancelListener);
         timer = new Timer();
-
     }
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        Window window = getWindow();
-        WindowManager.LayoutParams layoutParams = window.getAttributes();
-        layoutParams.height = (int) dipToPx(400);
-        layoutParams.width = (int) dipToPx(300);
-        window.setAttributes(layoutParams);
-        //window.setDimAmount(0.7f);设置Dialog的透明度
-        window.addFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
-    }
-
-    private double dipToPx(int i) {
-        density = getContext().getResources().getDisplayMetrics().density;
-        return i * density + 0.5 * density;
-    }
-
 
     public static class Builder implements OnProgressBarListener {
         private ProgressBarWithNumber progressBarWithNumber;
@@ -192,7 +169,6 @@ public class DialogShowCustomizedView extends Dialog {
         @Override
         public void onProgressChange(int current, int max) {
             if (current == max) {
-                Toast.makeText(MyApplication.getContext(), "完工了", Toast.LENGTH_SHORT).show();
                 progressBarWithNumber.setProgress(0);
             }
         }
@@ -201,7 +177,6 @@ public class DialogShowCustomizedView extends Dialog {
     @Override
     public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        Toast.makeText(MyApplication.getContext(), "detaached", Toast.LENGTH_SHORT).show();
         timer.cancel();
     }
 }

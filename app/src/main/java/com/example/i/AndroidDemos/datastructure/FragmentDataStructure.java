@@ -50,7 +50,7 @@ public class FragmentDataStructure extends BaseFragmentWithRV {
                 switch (position) {
                     case 0:
                         AlertDialog.Builder builder0 = new AlertDialog.Builder(getActivity());
-                        builder0.setIcon(R.drawable.fork)
+                        builder0.setIcon(R.drawable.leak_canary_icon)
                                 .setTitle("Set")
                                 .setMessage("Set是一个接口\n" +
                                         "在Alertdialog中如果不设置settitle，那么seticon不会生效")
@@ -76,7 +76,7 @@ public class FragmentDataStructure extends BaseFragmentWithRV {
                         break;
                     case 6:
                         AlertDialog.Builder builder6 = new AlertDialog.Builder(getActivity());
-                        builder6.setIcon(R.drawable.fork)
+                        builder6.setIcon(R.drawable.leak_canary_icon)
                                 .setTitle("Map")
                                 .setMessage("Map跟Set一样，也是一个接口")
                                 .create()

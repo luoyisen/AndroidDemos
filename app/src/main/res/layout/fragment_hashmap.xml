@@ -9,7 +9,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/dimen_5dp"
         android:layout_marginTop="@dimen/dimen_5dp"
-        android:drawableStart="@drawable/ic_help_black_24dp"
+        android:drawableStart="@drawable/ic_search_black_24dp"
         android:fontFamily="cursive"
         android:text="Summary"
         android:textSize="24sp"

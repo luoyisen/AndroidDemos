@@ -6,7 +6,7 @@
     <TextView
         android:id="@+id/tv_name"
         android:layout_marginStart="20dp"
-        android:drawableStart="@drawable/ic_attachment_black_24dp"
+        android:drawableStart="@drawable/ic_search_black_24dp"
         android:drawablePadding="10dp"
         android:gravity="center_vertical"
         tools:text="@string/app_name"

@@ -9,6 +9,8 @@ import com.example.i.AndroidDemos.main.dagger2.ContextModule;
 import com.example.i.AndroidDemos.main.dagger2.DaggerAppComponent;
 import com.example.i.AndroidDemos.main.dagger2.DaggerLoginComponent;
 import com.example.i.AndroidDemos.service.GithubService;
+import com.orhanobut.logger.AndroidLogAdapter;
+import com.orhanobut.logger.Logger;
 import com.squareup.leakcanary.LeakCanary;
 import com.squareup.leakcanary.RefWatcher;
 import com.squareup.picasso.Picasso;
@@ -45,6 +47,7 @@ public class MyApplication extends Application {
     public void onCreate() {
         super.onCreate();
         initComponents();
+        Logger.addLogAdapter(new AndroidLogAdapter());
         instance = this;
         context = getApplicationContext();////全局的context (3)
         Timber.plant(new Timber.DebugTree());
