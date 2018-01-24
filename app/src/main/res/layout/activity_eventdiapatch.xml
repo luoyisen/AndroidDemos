@@ -9,18 +9,18 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <com.example.i.AndroidDemos.noteandtools.note.MyViewGroup
+        <com.example.i.AndroidDemos.view.radiogroup.MyViewGroup
             android:id="@+id/myviewgroup"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@android:color/white">
 
-            <com.example.i.AndroidDemos.noteandtools.note.MyButton
+            <com.example.i.AndroidDemos.view.widget.MyButton
                 android:id="@+id/mybutton"
                 android:layout_width="160dp"
                 android:layout_height="100dp"
                 android:text="点击最下方的两行radiogroup来改变button" />
-        </com.example.i.AndroidDemos.noteandtools.note.MyViewGroup>
+        </com.example.i.AndroidDemos.view.radiogroup.MyViewGroup>
 
         <RadioGroup
             android:id="@+id/radiogroup_0"
@@ -152,17 +152,17 @@
                 android:text="touch_true" />
         </RadioGroup>
 
-        <com.example.i.AndroidDemos.noteandtools.note.NormalLinearLayout
+        <com.example.i.AndroidDemos.view.radiogroup.NormalLinearLayout
             android:id="@+id/normal_container"
             android:layout_width="170dp"
             android:layout_height="110dp"
             android:layout_marginTop="10dp">
 
-            <com.example.i.AndroidDemos.noteandtools.note.NormalButton
+            <com.example.i.AndroidDemos.view.widget.NormalButton
                 android:id="@+id/normal_button"
                 android:layout_width="160dp"
                 android:layout_height="100dp"
                 android:text="normal button" />
-        </com.example.i.AndroidDemos.noteandtools.note.NormalLinearLayout>
+        </com.example.i.AndroidDemos.view.radiogroup.NormalLinearLayout>
     </LinearLayout>
 </ScrollView>

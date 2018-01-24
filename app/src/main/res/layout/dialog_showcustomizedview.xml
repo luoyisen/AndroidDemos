@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:gravity="center" />
 
-    <com.example.i.AndroidDemos.customizedview.customizedview.ViewChangeText
+    <com.example.i.AndroidDemos.view.widget.ViewChangeText
         android:id="@+id/id0"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -23,14 +23,14 @@
         custom:textColor="@color/colorwhite"
         custom:textSize="100sp" />
 
-    <com.example.i.AndroidDemos.customizedview.customizedview.ViewProgressBarAutoSwitch
+    <com.example.i.AndroidDemos.view.widget.ViewProgressBarAutoSwitch
         android:id="@+id/id1"
         android:layout_width="250dp"
         android:layout_height="250dp"
         android:layout_centerInParent="true"
         android:visibility="gone" />
 
-    <com.example.i.AndroidDemos.customizedview.customizedview.ClockView
+    <com.example.i.AndroidDemos.view.widget.ClockView
         android:id="@+id/id2"
         android:layout_width="250dp"
         android:layout_height="250dp"
@@ -45,7 +45,7 @@
         custom:quarter_mark_color="@android:color/black"
         custom:second_color="@android:color/holo_green_light" />
 
-    <com.example.i.AndroidDemos.customizedview.customizedview.ClockViews
+    <com.example.i.AndroidDemos.view.widget.ClockViews
         android:id="@+id/id3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -60,35 +60,35 @@
         custom:quarter_mark_color="@android:color/black"
         custom:second_color="@android:color/holo_green_light" />
 
-    <com.example.i.AndroidDemos.customizedview.customizedview.CicleRotateAlbumView
+    <com.example.i.AndroidDemos.view.widget.CicleRotateAlbumView
         android:id="@+id/id4"
         android:layout_width="250dp"
         android:layout_height="250dp"
         android:layout_centerInParent="true"
         android:visibility="gone" />
 
-    <com.example.i.AndroidDemos.customizedview.customizedview.MaterialProgressbar
+    <com.example.i.AndroidDemos.view.widget.MaterialProgressbar
         android:id="@+id/id5"
         android:layout_width="250dp"
         android:layout_height="250dp"
         android:layout_centerInParent="true"
         android:visibility="gone" />
 
-    <com.example.i.AndroidDemos.customizedview.customizedview.ProgressBarWithNumber.ProgressBarWithNumber
+    <com.example.i.AndroidDemos.view.widget.customizedview.ProgressBarWithNumber.ProgressBarWithNumber
         android:id="@+id/id6"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:visibility="gone" />
 
-    <com.example.i.AndroidDemos.customizedview.customizedview.NumberProgressBar
+    <com.example.i.AndroidDemos.view.widget.NumberProgressBar
         android:id="@+id/id7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:visibility="gone" />
 
-    <com.example.i.AndroidDemos.customizedview.customizedview.ViewPagerWith3d.Viewpager3D
+    <com.example.i.AndroidDemos.view.widget.customizedview.ViewPagerWith3d.Viewpager3D
         android:id="@+id/id8"
         android:layout_width="match_parent"
         android:layout_height="250dp"

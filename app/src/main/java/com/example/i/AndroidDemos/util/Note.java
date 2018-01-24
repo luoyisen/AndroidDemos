@@ -23,7 +23,6 @@ public class Note {
     public static void show(String msg) {
         if (mToast == null)
             mToast = Toast.makeText(MyApplication.getContext(), null, Toast.LENGTH_SHORT);
-        mToast.setText(msg);
         View view = ((LayoutInflater) MyApplication.getInstance().getSystemService(Context.LAYOUT_INFLATER_SERVICE)).inflate(R.layout.note, null);
         TextView textView = view.findViewById(R.id.note_text);
         Drawable drawable =

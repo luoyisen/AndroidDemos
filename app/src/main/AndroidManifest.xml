@@ -22,7 +22,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name="com.example.i.AndroidDemos.main.MainActivity"
+            android:name="com.example.i.AndroidDemos.ui.activity.MainActivity"
             android:windowSoftInputMode="adjustPan"
             android:screenOrientation="portrait"
             android:configChanges="keyboardHidden">
@@ -32,53 +32,53 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.example.i.AndroidDemos.callbackdemo.CallBackActivity"
+        <activity android:name="com.example.i.AndroidDemos.ui.activity.CallBackActivity"
             android:screenOrientation="portrait"/>
-        <activity android:name="com.example.i.AndroidDemos.noteandtools.note.ActivityEventDispatch"
+        <activity android:name="com.example.i.AndroidDemos.ui.activity.ActivityEventDispatch"
             android:screenOrientation="portrait"/>
-        <activity android:name="com.example.i.AndroidDemos.Interreactcomponent.ActivityComponentIntereact"
+        <activity android:name="com.example.i.AndroidDemos.ui.activity.ActivityComponentIntereact"
             android:screenOrientation="portrait"/>
-        <activity android:name="com.example.i.AndroidDemos.Interreactcomponent.FragmentToActivity.UserInfoActivity"
+        <activity android:name="com.example.i.AndroidDemos.ui.activity.UserInfoActivity"
             android:screenOrientation="portrait"/>
         <activity android:name=".base.BaseActivityWithLL"
             android:screenOrientation="portrait"/>
         ---------------------------------数据结构----------------------------------
-        <activity android:name=".datastructure.ActivityDataStructure"
+        <activity android:name=".ui.activity.ActivityDataStructure"
             android:screenOrientation="portrait"/>
 
         ---------------------------------网络----------------------------------
-        <activity android:name="com.example.i.AndroidDemos.network.ActivityNet"
+        <activity android:name="com.example.i.AndroidDemos.ui.activity.ActivityNet"
             android:screenOrientation="portrait"/>
-        <activity android:name=".network.wallpaper.CategoryActivity"
+        <activity android:name=".ui.activity.CategoryActivity"
             android:screenOrientation="portrait"/>
-        <activity android:name=".network.wallpaper.GalleryActivity"
+        <activity android:name=".ui.activity.GalleryActivity"
             android:screenOrientation="portrait"/>
 
-        <service android:name="com.example.i.AndroidDemos.network.socketdemo.ServerService"
+        <service android:name="com.example.i.AndroidDemos.service.ServerService"
             android:screenOrientation="portrait"/>
         ---------------------------------工具和笔记----------------------------------
-        <activity android:name=".noteandtools.ActivityNoteAndTools"
+        <activity android:name=".ui.activity.ActivityNoteAndTools"
             android:screenOrientation="portrait"/>
         ---------------------------------自定义View----------------------------------
-        <activity android:name=".customizedview.ActivityCustomizedView"
+        <activity android:name=".view.widget.ActivityCustomizedView"
             android:screenOrientation="portrait"/>
         ---------------------------------Android_architecture------------------------
-        <activity android:name=".android_architecture.ActivityArchitecture"
+        <activity android:name=".ui.activity.ActivityArchitecture"
             android:screenOrientation="portrait"/>
-        <activity android:name=".android_architecture.MVP.MVP_LOGIN.login_success.Activity_LoginSuccess"
+        <activity android:name=".ui.activity.Activity_LoginSuccess"
             android:screenOrientation="portrait"/>
         ---------------------------------algorithm------------------------
-        <activity android:name=".base.ActivityWithWebView"
+        <activity android:name=".ui.activity.ActivityWithWebView"
             android:screenOrientation="portrait"/>
         ---------------------------------open gl----------------------------------
-        <activity android:name=".opengl.ActivityOpenGl"
+        <activity android:name=".ui.activity.ActivityOpenGl"
             android:screenOrientation="portrait"/>
-        <activity android:name=".observerpatterndemo.ActivityObserverPattern"
+        <activity android:name=".ui.activity.ActivityObserverPattern"
             android:screenOrientation="portrait"/>
-        <activity android:name=".JAVA_BASE.ActivityJavaBase"
+        <activity android:name=".ui.activity.ActivityJavaBase"
             android:screenOrientation="portrait"/>
         <activity android:name=".ActivityShowRoundedImage" />
-        <activity android:name=".algorithm.TreeViewMethod2.ui.ActivityAlgorithm2" />
+        <activity android:name=".ui.activity.ActivityAlgorithm2" />
 
     </application>
 

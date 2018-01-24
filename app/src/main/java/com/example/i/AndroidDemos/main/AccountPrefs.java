@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.text.TextUtils;
 
-import com.example.i.AndroidDemos.main.dao.UserInfo;
+import com.example.i.AndroidDemos.bean.UserInfo;
 import com.google.gson.Gson;
 
 /***

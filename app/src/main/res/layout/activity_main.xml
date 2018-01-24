@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.i.AndroidDemos.main.MainActivity">
+    tools:context="com.example.i.AndroidDemos.ui.activity.MainActivity">
 
     <RelativeLayout
         android:id="@+id/emptycontainer"
@@ -61,7 +61,7 @@
 
         </android.support.v7.widget.Toolbar>
 
-        <com.example.i.AndroidDemos.customizedview.customizedview.CanBeBannedViewPager
+        <com.example.i.AndroidDemos.view.widget.CanBeBannedViewPager
             android:id="@+id/pager_main"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

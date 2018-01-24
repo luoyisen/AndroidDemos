@@ -9,8 +9,8 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
-import com.example.i.AndroidDemos.Interreactcomponent.FragmentToActivity.MyListener;
-import com.example.i.AndroidDemos.Interreactcomponent.InterreactDecoration;
+import com.example.i.AndroidDemos.base.listener.MyListener;
+import com.example.i.AndroidDemos.view.InterreactDecoration;
 import com.example.i.AndroidDemos.R;
 import com.example.i.AndroidDemos.adapter.BaseRVAdapter;
 

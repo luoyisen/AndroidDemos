@@ -8,7 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.i.AndroidDemos.Interreactcomponent.FragmentToActivity.MyListener;
+import com.example.i.AndroidDemos.base.listener.MyListener;
 
 /***
  * Created by I on 2017/8/24.

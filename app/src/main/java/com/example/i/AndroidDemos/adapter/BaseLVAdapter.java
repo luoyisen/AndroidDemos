@@ -8,7 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.example.i.AndroidDemos.R;
-import com.example.i.AndroidDemos.network.github_user_repository.GithubRepository;
+import com.example.i.AndroidDemos.bean.GithubRepository;
 
 import java.util.List;
 

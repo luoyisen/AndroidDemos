@@ -3,11 +3,11 @@ package com.example.i.AndroidDemos;
 import android.app.Application;
 import android.content.Context;
 
-import com.example.i.AndroidDemos.main.dagger2.AppComponent;
-import com.example.i.AndroidDemos.main.dagger2.ComponentHolder;
-import com.example.i.AndroidDemos.main.dagger2.ContextModule;
-import com.example.i.AndroidDemos.main.dagger2.DaggerAppComponent;
-import com.example.i.AndroidDemos.main.dagger2.DaggerLoginComponent;
+import com.example.i.AndroidDemos.dagger2.ComponentHolder;
+import com.example.i.AndroidDemos.dagger2.component.AppComponent;
+import com.example.i.AndroidDemos.dagger2.component.DaggerAppComponent;
+import com.example.i.AndroidDemos.dagger2.component.DaggerLoginComponent;
+import com.example.i.AndroidDemos.dagger2.module.ContextModule;
 import com.example.i.AndroidDemos.service.GithubService;
 import com.orhanobut.logger.AndroidLogAdapter;
 import com.orhanobut.logger.Logger;

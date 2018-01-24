@@ -19,7 +19,7 @@
             android:gravity="center"
             android:textColor="@android:color/white" />
 
-        <com.example.i.AndroidDemos.Interreactcomponent.IImageView
+        <com.example.i.AndroidDemos.view.widget.IImageView
             android:id="@+id/show_keytech"
             android:layout_width="30dp"
             android:layout_height="30dp"

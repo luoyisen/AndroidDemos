@@ -1,6 +1,6 @@
 package com.example.i.AndroidDemos.util;
 
-import com.example.i.AndroidDemos.main.base.BaseView;
+import com.example.i.AndroidDemos.base.BaseView;
 
 import okhttp3.ResponseBody;
 import retrofit2.Response;
