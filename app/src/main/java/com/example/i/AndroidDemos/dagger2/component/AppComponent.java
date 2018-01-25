@@ -3,7 +3,7 @@ package com.example.i.AndroidDemos.dagger2.component;
 import android.content.Context;
 
 
-import com.example.i.AndroidDemos.bean.UserDataSource;
+import com.example.i.AndroidDemos.constant.bean.UserDataSource;
 import com.example.i.AndroidDemos.dagger2.module.ContextModule;
 import com.example.i.AndroidDemos.dagger2.module.NetModule;
 

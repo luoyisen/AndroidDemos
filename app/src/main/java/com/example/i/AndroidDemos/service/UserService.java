@@ -1,8 +1,8 @@
 package com.example.i.AndroidDemos.service;
 
-import com.example.i.AndroidDemos.bean.UserEntity;
-import com.example.i.AndroidDemos.bean.UserInfo;
-import com.example.i.AndroidDemos.bean.Authorization;
+import com.example.i.AndroidDemos.constant.bean.UserEntity;
+import com.example.i.AndroidDemos.constant.bean.UserInfo;
+import com.example.i.AndroidDemos.constant.bean.Authorization;
 import com.example.i.AndroidDemos.main.login.CreateAuthorization;
 
 import java.util.List;

@@ -8,7 +8,7 @@ import android.widget.Toast;
 import com.example.i.AndroidDemos.adapter.BaseLVAdapter;
 import com.example.i.AndroidDemos.base.BaseFragmentWithLV;
 import com.example.i.AndroidDemos.service.GithubApi;
-import com.example.i.AndroidDemos.bean.GithubRepository;
+import com.example.i.AndroidDemos.constant.bean.GithubRepository;
 
 import java.util.ArrayList;
 import java.util.List;

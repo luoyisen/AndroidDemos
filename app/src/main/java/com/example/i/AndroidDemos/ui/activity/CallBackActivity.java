@@ -8,9 +8,9 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.i.AndroidDemos.R;
-import com.example.i.AndroidDemos.bean.Customer;
+import com.example.i.AndroidDemos.constant.bean.Customer;
 import com.example.i.AndroidDemos.view.MyButton;
-import com.example.i.AndroidDemos.bean.SalesMan;
+import com.example.i.AndroidDemos.constant.bean.SalesMan;
 import com.example.i.AndroidDemos.view.widget.ChoiceAlertDialog;
 import com.example.i.AndroidDemos.base.listener.ResultListener;
 

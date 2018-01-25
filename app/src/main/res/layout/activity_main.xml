@@ -61,13 +61,23 @@
 
         </android.support.v7.widget.Toolbar>
 
-        <com.example.i.AndroidDemos.view.widget.CanBeBannedViewPager
-            android:id="@+id/pager_main"
+        <com.example.i.AndroidDemos.view.widget.viewgroup.TagGroup
+            android:id="@+id/taggrouop"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_above="@+id/linermain"
             android:layout_below="@+id/toolabr_main"
-            app:isScroll="false" />
+            app:atg_borderStrokeWidth="5dp"
+            app:atg_checkedBackgroundColor="#ff0000"
+            app:atg_pressedBackgroundColor="@color/black"/>
+
+        <!--<com.example.i.AndroidDemos.view.widget.CanBeBannedViewPager-->
+        <!--android:id="@+id/pager_main"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_above="@+id/linermain"-->
+        <!--android:layout_below="@+id/toolabr_main"-->
+        <!--app:isScroll="false" />-->
 
         <LinearLayout
             android:id="@+id/linermain"

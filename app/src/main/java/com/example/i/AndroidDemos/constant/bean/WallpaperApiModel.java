@@ -1,4 +1,4 @@
-package com.example.i.AndroidDemos.bean;
+package com.example.i.AndroidDemos.constant.bean;
 
 import java.util.List;
 

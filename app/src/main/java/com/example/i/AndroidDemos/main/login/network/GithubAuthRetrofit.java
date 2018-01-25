@@ -2,7 +2,7 @@ package com.example.i.AndroidDemos.main.login.network;
 
 import android.util.Base64;
 
-import com.example.i.AndroidDemos.Constant;
+import com.example.i.AndroidDemos.constant.Constant;
 import com.example.i.AndroidDemos.util.StringUtils;
 
 import java.io.IOException;

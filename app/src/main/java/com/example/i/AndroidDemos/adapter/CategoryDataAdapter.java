@@ -11,7 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.i.AndroidDemos.R;
-import com.example.i.AndroidDemos.bean.CategoryGridModel;
+import com.example.i.AndroidDemos.constant.bean.CategoryGridModel;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;

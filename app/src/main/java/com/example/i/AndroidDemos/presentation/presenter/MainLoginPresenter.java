@@ -2,7 +2,7 @@ package com.example.i.AndroidDemos.presentation.presenter;
 
 import com.example.i.AndroidDemos.R;
 import com.example.i.AndroidDemos.base.BasePresenter;
-import com.example.i.AndroidDemos.bean.UserDataSource;
+import com.example.i.AndroidDemos.constant.bean.UserDataSource;
 import com.example.i.AndroidDemos.main.login.loginPresenter.DefaultSubscriber;
 import com.example.i.AndroidDemos.presentation.contract.MainLoginContract;
 import com.example.i.AndroidDemos.util.RxJavaUtils;

@@ -12,8 +12,8 @@ import android.widget.Toast;
 
 import com.example.i.AndroidDemos.R;
 import com.example.i.AndroidDemos.adapter.CategoryListAdapter;
-import com.example.i.AndroidDemos.bean.CategoryModel;
-import com.example.i.AndroidDemos.bean.WallpaperApiModel;
+import com.example.i.AndroidDemos.constant.bean.CategoryModel;
+import com.example.i.AndroidDemos.constant.bean.WallpaperApiModel;
 import com.example.i.AndroidDemos.service.ApiLoveWallpaper;
 import com.example.i.AndroidDemos.ui.activity.CategoryActivity;
 

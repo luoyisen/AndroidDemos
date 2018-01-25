@@ -1,4 +1,6 @@
-package com.example.i.AndroidDemos;
+package com.example.i.AndroidDemos.constant;
+
+import android.graphics.Color;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -17,6 +19,15 @@ public class Constant {
     public static final String CLIENT_ID = "82248be95d9d71c099b5";
     public static final String CLIENT_SECRET = "dd5afb626caf53f932a6b432c625c27b4214065e";
 
+    public static final int[] tagColors = new int[]{
+            Color.parseColor("#90C5F0"),
+            Color.parseColor("#91CED5"),
+            Color.parseColor("#F88F55"),
+            Color.parseColor("#C0AFD0"),
+            Color.parseColor("#E78F8F"),
+            Color.parseColor("#67CCB7"),
+            Color.parseColor("#F6BC7E")
+    };
     // scopes
     public static final String[] SCOPES = {"user", "repo"};
 

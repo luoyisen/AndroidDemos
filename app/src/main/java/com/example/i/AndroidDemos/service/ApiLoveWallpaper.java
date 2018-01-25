@@ -1,6 +1,6 @@
 package com.example.i.AndroidDemos.service;
 
-import com.example.i.AndroidDemos.bean.WallpaperApiModel;
+import com.example.i.AndroidDemos.constant.bean.WallpaperApiModel;
 
 import retrofit2.Call;
 import retrofit2.http.GET;

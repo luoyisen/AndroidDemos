@@ -1,4 +1,4 @@
-package com.example.i.AndroidDemos.bean;
+package com.example.i.AndroidDemos.constant.bean;
 
 import com.example.i.AndroidDemos.R;
 import com.google.gson.annotations.SerializedName;

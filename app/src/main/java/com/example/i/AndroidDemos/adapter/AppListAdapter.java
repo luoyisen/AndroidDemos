@@ -10,7 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.i.AndroidDemos.R;
-import com.example.i.AndroidDemos.bean.AppInfo;
+import com.example.i.AndroidDemos.constant.bean.AppInfo;
 
 import java.util.List;
 

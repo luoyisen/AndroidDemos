@@ -5,8 +5,6 @@ import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
-import android.support.v4.app.Fragment;
-import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.SearchView;
@@ -17,16 +15,14 @@ import android.view.MotionEvent;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 
-import com.example.i.AndroidDemos.main.AccountPrefs;
 import com.example.i.AndroidDemos.MyApplication;
 import com.example.i.AndroidDemos.R;
-import com.example.i.AndroidDemos.adapter.MainPagerAdapter;
+import com.example.i.AndroidDemos.main.AccountPrefs;
 import com.example.i.AndroidDemos.ui.dialogfragment.DialogFragmentLogin;
-import com.example.i.AndroidDemos.view.widget.ActivityCustomizedView;
-import com.example.i.AndroidDemos.view.widget.CanBeBannedViewPager;
-import com.example.i.AndroidDemos.ui.fragment.FragmentHashSet;
 import com.example.i.AndroidDemos.util.DisplayMetricsConvert;
 import com.example.i.AndroidDemos.util.Note;
+import com.example.i.AndroidDemos.view.widget.ActivityCustomizedView;
+import com.example.i.AndroidDemos.view.widget.viewgroup.TagGroup;
 
 import java.util.List;
 
@@ -40,10 +36,12 @@ import butterknife.OnCheckedChanged;
  */
 
 public class MainActivity extends AppCompatActivity implements SearchView.OnQueryTextListener, DialogFragmentLogin.LoginCallback {
-    @BindView(R.id.pager_main)
-    CanBeBannedViewPager pager_main;
+//    @BindView(R.id.pager_main)
+//    CanBeBannedViewPager pager_main;
     @BindViews({R.id.main_trending, R.id.main_searchresult, R.id.main_userinfo, R.id.main_settings})
     List<RadioButton> radioButtonlist;
+    @BindView(R.id.taggrouop)
+    TagGroup tagGroup;
     private DialogFragmentLogin dialogFragmentLogin;
     public static DrawerLayout drawerLayout;
     private SearchView searchview_main;
@@ -63,6 +61,15 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+        tagGroup.setTags(
+                "fasf","fasdf","fsadf",
+                "fasf","fasdf","wfweoigfajdsogjowiefjasdkjf;owaeifjasdifowe",
+                "fasf","sejfoiwfjasjsafjas","fsadf",
+                "sjfasfjio收到i圣诞放假我i额发生飞洒都i附件为偶分啊师傅教我欸放假啊","fasdf","fsadf",
+                "fasf","fasdf","fsadf",
+                "fasf","fasdf","fsadf",
+                "fasf","fasdf","fsadf"
+        );
         dialogFragmentLogin = new DialogFragmentLogin();
         dialogFragmentLogin.setCallback(this);
 //        final Handler handler = new Handler(new Handler.Callback() {
@@ -81,35 +88,34 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
 //            }
 //        }, 5000);
 
-        Note.show(AccountPrefs.getLoginUserName(this));
         //        text_nodata.setText(stringFromJNI());
-        titles = getResources().getStringArray(R.array.titles);
-        Fragment[] fragments = new Fragment[4];
-        fragments[0] = new FragmentHashSet();
-        fragments[1] = new FragmentHashSet();
-        fragments[2] = new FragmentHashSet();
-        fragments[3] = new FragmentHashSet();
+//        titles = getResources().getStringArray(R.array.titles);
+//        Fragment[] fragments = new Fragment[4];
+//        fragments[0] = new FragmentHashSet();
+//        fragments[1] = new FragmentHashSet();
+//        fragments[2] = new FragmentHashSet();
+//        fragments[3] = new FragmentHashSet();
 
-        MainPagerAdapter adapter = new MainPagerAdapter(getSupportFragmentManager(), titles, fragments);
-        pager_main.setAdapter(adapter);
-        pager_main.setOffscreenPageLimit(adapter.getCount() - 1);// TODO: 2017/9/30 to un
-        pager_main.setPageMargin(getResources().getDimensionPixelSize(R.dimen.dimen_5dp));
-        pager_main.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
-            }
-
-            @Override
-            public void onPageSelected(int position) {
-                radioButtonlist.get(position).setChecked(true);
-
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int state) {
-            }
-        });
+//        MainPagerAdapter adapter = new MainPagerAdapter(getSupportFragmentManager(), titles, fragments);
+//        pager_main.setAdapter(adapter);
+//        pager_main.setOffscreenPageLimit(adapter.getCount() - 1);// TODO: 2017/9/30 to un
+//        pager_main.setPageMargin(getResources().getDimensionPixelSize(R.dimen.dimen_5dp));
+//        pager_main.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+//            @Override
+//            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+//
+//            }
+//
+//            @Override
+//            public void onPageSelected(int position) {
+//                radioButtonlist.get(position).setChecked(true);
+//
+//            }
+//
+//            @Override
+//            public void onPageScrollStateChanged(int state) {
+//            }
+//        });
         radioButtonlist.get(0).setChecked(true);
         drawerLayout = (DrawerLayout) findViewById(R.id.drawerlayoutmain);
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
@@ -194,7 +200,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
 
 
     private void onItemChecked(int position) {
-        pager_main.setCurrentItem(position);
+//        pager_main.setCurrentItem(position);
     }
 
 

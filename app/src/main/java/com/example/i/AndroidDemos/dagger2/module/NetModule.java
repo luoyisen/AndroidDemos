@@ -2,7 +2,7 @@ package com.example.i.AndroidDemos.dagger2.module;
 
 import android.content.Context;
 
-import com.example.i.AndroidDemos.bean.UserDataSource;
+import com.example.i.AndroidDemos.constant.bean.UserDataSource;
 import com.example.i.AndroidDemos.main.login.network.GithubAuthRetrofit;
 import com.example.i.AndroidDemos.main.login.network.GithubCommonRetrofit;
 import com.example.i.AndroidDemos.main.login.network.GithubOkHttpClient;

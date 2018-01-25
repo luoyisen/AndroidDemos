@@ -1,4 +1,4 @@
-package com.example.i.AndroidDemos.bean;
+package com.example.i.AndroidDemos.constant.bean;
 
 /***
  * Created by I on 2017/8/22.

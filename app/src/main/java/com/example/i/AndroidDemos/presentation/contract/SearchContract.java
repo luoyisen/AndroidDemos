@@ -2,7 +2,7 @@ package com.example.i.AndroidDemos.presentation.contract;
 
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.example.i.AndroidDemos.base.BaseView;
-import com.example.i.AndroidDemos.bean.RepositoryInfo;
+import com.example.i.AndroidDemos.constant.bean.RepositoryInfo;
 import com.example.i.AndroidDemos.presentation.presenter.IRepoListPresenter;
 import com.example.i.AndroidDemos.presentation.presenter.IUserListPresenter;
 import com.example.i.AndroidDemos.presentation.presenter.MvpPresenter;

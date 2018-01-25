@@ -1,10 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
     <TextClock
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:textAllCaps="true" />
 
-</android.support.constraint.ConstraintLayout>
+    <com.example.i.AndroidDemos.view.widget.viewgroup.TagGroup
+        style="@style/TagGroup"
+        android:id="@+id/taggrouop"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:atg_borderStrokeWidth="5dp"
+        app:atg_checkedBackgroundColor="#ff0000"
+        app:atg_pressedBackgroundColor="@color/black"/>
+
+</LinearLayout>

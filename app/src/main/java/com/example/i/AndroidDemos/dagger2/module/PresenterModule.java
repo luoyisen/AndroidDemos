@@ -1,6 +1,6 @@
 package com.example.i.AndroidDemos.dagger2.module;
 
-import com.example.i.AndroidDemos.bean.UserDataSource;
+import com.example.i.AndroidDemos.constant.bean.UserDataSource;
 import com.example.i.AndroidDemos.presentation.contract.MainLoginContract;
 import com.example.i.AndroidDemos.presentation.presenter.MainLoginPresenter;
 

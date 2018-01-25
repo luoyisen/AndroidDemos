@@ -15,7 +15,7 @@ import android.view.ViewGroup;
 import com.example.i.AndroidDemos.view.InterreactDecoration;
 import com.example.i.AndroidDemos.R;
 import com.example.i.AndroidDemos.adapter.AppListAdapter;
-import com.example.i.AndroidDemos.bean.AppInfo;
+import com.example.i.AndroidDemos.constant.bean.AppInfo;
 
 import java.util.ArrayList;
 import java.util.List;

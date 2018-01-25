@@ -1,7 +1,7 @@
 package com.example.i.AndroidDemos.service;
 
 
-import com.example.i.AndroidDemos.bean.GithubRepository;
+import com.example.i.AndroidDemos.constant.bean.GithubRepository;
 
 import java.util.List;
 

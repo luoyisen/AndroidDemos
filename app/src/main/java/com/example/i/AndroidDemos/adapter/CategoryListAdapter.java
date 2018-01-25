@@ -11,7 +11,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.example.i.AndroidDemos.R;
-import com.example.i.AndroidDemos.bean.CategoryModel;
+import com.example.i.AndroidDemos.constant.bean.CategoryModel;
 
 import java.util.List;
 

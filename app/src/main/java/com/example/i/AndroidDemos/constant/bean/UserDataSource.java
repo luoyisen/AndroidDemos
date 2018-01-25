@@ -1,8 +1,8 @@
-package com.example.i.AndroidDemos.bean;
+package com.example.i.AndroidDemos.constant.bean;
 
 import android.content.Context;
 
-import com.example.i.AndroidDemos.Constant;
+import com.example.i.AndroidDemos.constant.Constant;
 import com.example.i.AndroidDemos.R;
 import com.example.i.AndroidDemos.main.AccountPrefs;
 import com.example.i.AndroidDemos.main.login.CreateAuthorization;

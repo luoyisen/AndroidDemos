@@ -1,6 +1,6 @@
 package com.example.i.AndroidDemos.presentation.presenter;
 
-import com.example.i.AndroidDemos.bean.RepositoryInfo;
+import com.example.i.AndroidDemos.constant.bean.RepositoryInfo;
 import com.tellh.nolistadapter.adapter.RecyclerViewAdapter;
 
 /***

@@ -1,4 +1,4 @@
-package com.example.i.AndroidDemos.bean;
+package com.example.i.AndroidDemos.constant.bean;
 
 import android.os.Parcel;
 import android.os.Parcelable;
