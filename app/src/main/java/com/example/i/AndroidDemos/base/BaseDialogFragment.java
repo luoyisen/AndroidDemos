@@ -38,7 +38,7 @@ public abstract class BaseDialogFragment extends DialogFragment {
         final Window window = getDialog().getWindow();
         WindowManager.LayoutParams layoutParams = window.getAttributes();
         layoutParams.width = (int) (getActivity().getResources().getDisplayMetrics().widthPixels * 0.875);
-        layoutParams.height = layoutParams.width * 3 / 4;
+//        layoutParams.height = layoutParams.width * 3 / 4;
         window.setAttributes(layoutParams);
 //        window.setDimAmount(1.0f);
         super.onStart();
