@@ -9,6 +9,8 @@ import com.example.i.AndroidDemos.dagger2.component.DaggerAppComponent;
 import com.example.i.AndroidDemos.dagger2.component.DaggerLoginComponent;
 import com.example.i.AndroidDemos.dagger2.module.ContextModule;
 import com.example.i.AndroidDemos.service.GithubService;
+import com.example.i.AndroidDemos.util.SharedPreferencesUtil;
+import com.example.i.AndroidDemos.util.TypefaceHelper;
 import com.orhanobut.logger.AndroidLogAdapter;
 import com.orhanobut.logger.Logger;
 import com.squareup.leakcanary.LeakCanary;
@@ -50,8 +52,10 @@ public class MyApplication extends Application {
         Logger.addLogAdapter(new AndroidLogAdapter());
         instance = this;
         context = getApplicationContext();////全局的context (3)
+        TypefaceHelper.generateTypeface(this);
         Timber.plant(new Timber.DebugTree());
         refWatcher = LeakCanary.install(this);
+        SharedPreferencesUtil.initSP(getApplicationContext(), getPackageName() + "_prefes", MODE_PRIVATE);
     }
 
     protected void initComponents() {

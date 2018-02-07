@@ -79,6 +79,8 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".ActivityShowRoundedImage" />
         <activity android:name=".ui.activity.ActivityAlgorithm2" />
+        <activity android:name=".ui.activity.ActivityUtilDemo" />
+        <activity android:name=".ui.activity.ActivitySearchHistoryDemo" />
 
     </application>
 

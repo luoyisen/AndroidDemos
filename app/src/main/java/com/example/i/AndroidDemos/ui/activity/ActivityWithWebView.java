@@ -30,4 +30,9 @@ public class ActivityWithWebView extends
         webview.loadUrl("http://www.jianshu.com/p/2b634a7c49ec");
     }
 
+    @Override
+    protected void initView() {
+
+    }
+
 }

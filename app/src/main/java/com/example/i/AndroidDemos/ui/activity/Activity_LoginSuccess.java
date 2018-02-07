@@ -51,6 +51,11 @@ public class Activity_LoginSuccess extends BaseActivity implements MainView, Ada
     }
 
     @Override
+    protected void initView() {
+
+    }
+
+    @Override
     public void onResume() {
         super.onResume();
         presenter.onResume();

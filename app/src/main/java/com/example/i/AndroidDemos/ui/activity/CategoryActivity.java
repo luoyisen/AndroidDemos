@@ -37,21 +37,11 @@ public class CategoryActivity extends BaseActivity {
 
     private CategoryDataAdapter mCategoryDataAdapter;
     private List<CategoryGridModel> mList = new ArrayList<>();
-    private ArrayList<String>mListBigUrl = new ArrayList<>();
+    private ArrayList<String> mListBigUrl = new ArrayList<>();
+
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        initView();
-    }
-
-    @Override
-    public int setLayoutResourceId() {
-        return R.layout.activity_category;
-    }
-
-    private void initView() {
-
+    protected void initView() {
         mGridView = (GridView) findViewById(R.id.mGridView);
         ll_load_more = (LinearLayout) findViewById(R.id.ll_load_more);
 
@@ -94,6 +84,12 @@ public class CategoryActivity extends BaseActivity {
             }
         });
     }
+
+    @Override
+    public int setLayoutResourceId() {
+        return R.layout.activity_category;
+    }
+
 
     //加载数据
     private void loadData() {

@@ -36,7 +36,7 @@ import butterknife.OnCheckedChanged;
  */
 
 public class MainActivity extends AppCompatActivity implements SearchView.OnQueryTextListener, DialogFragmentLogin.LoginCallback {
-//    @BindView(R.id.pager_main)
+    //    @BindView(R.id.pager_main)
 //    CanBeBannedViewPager pager_main;
     @BindViews({R.id.main_trending, R.id.main_searchresult, R.id.main_userinfo, R.id.main_settings})
     List<RadioButton> radioButtonlist;
@@ -62,13 +62,13 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
         tagGroup.setTags(
-                "fasf","fasdf","fsadf",
-                "fasf","fasdf","wfweoigfajdsogjowiefjasdkjf;owaeifjasdifowe",
-                "fasf","sejfoiwfjasjsafjas","fsadf",
-                "sjfasfjio收到i圣诞放假我i额发生飞洒都i附件为偶分啊师傅教我欸放假啊","fasdf","fsadf",
-                "fasf","fasdf","fsadf",
-                "fasf","fasdf","fsadf",
-                "fasf","fasdf","fsadf"
+                "fasf", "fasdf", "fsadf",
+                "fasf", "fasdf", "wfweoigfajdsogjowiefjasdkjf;owaeifjasdifowe",
+                "fasf", "sejfoiwfjasjsafjas", "fsadf",
+                "sjfasfjio收到i圣诞放假我i额发生飞洒都i附件为偶分啊师傅教我欸放假啊", "fasdf", "fsadf",
+                "fasf", "fasdf", "fsadf",
+                "fasf", "fasdf", "fsadf",
+                "fasf", "fasdf", "fsadf"
         );
         dialogFragmentLogin = new DialogFragmentLogin();
         dialogFragmentLogin.setCallback(this);
@@ -183,6 +183,9 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                         break;
                     case R.id.frame:
                         startActivity(new Intent(MainActivity.this, ActivityJavaBase.class));
+                        break;
+                    case R.id.utilDemo:
+                        startActivity(new Intent(MainActivity.this, ActivityUtilDemo.class));
                         break;
 
                 }

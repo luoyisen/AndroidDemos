@@ -11,6 +11,9 @@ import java.util.List;
  */
 
 public class Constant {
+    //searchhistoryActivity
+    public static final String SEARCH_HISTORY_KEY = "SEARCH_HISTORY_KEY";
+
     public static final String URL_GITHUB = "https://api.github.com/";
     public static final String URL_EXPLORE = "http://trending.codehub-app.com/";
     public static final String URL_GANK = "http://gank.io/api/data/all/";
@@ -37,6 +40,19 @@ public class Constant {
     public static final int PER_PAGE_NEWS = 15;
     public static final int PER_PAGE_GANK = 10;
     public static final int PER_PAGE_ARSENAL = 15;
+
+    public static List<String> mockStringList = Arrays.asList(
+            "Android",
+            "Github",
+            "StackOverFlow",
+            "AndroidWeekly",
+            "LeetCode",
+            "Youtube",
+            "GeekPark",
+            "JAVA编程思想",
+            "算法导论",
+            "网络是怎样连接的"
+    );
 
     public interface SortType {
         SortType getBestMatch();
@@ -146,128 +162,7 @@ public class Constant {
 
     }
 
-    public enum Language {
-        ALL("All", "+language:any language"),
-        JAVA("Java", "+language:java"),
-        CSS("CSS", "+language:css"),
-        HTML("HTML", "+language:html"),
-        JAVASCRIPT("Javascript", "+language:javascript"),
-        OBJECTIVE_C("Objective-C", "+language:objective-c"),
-        SWIFT("Swift", "+language:swift"),
-        SHELL("Shell", "+language:bash"),
-        C("C", "+language:c"),
-        CPP("C++", "+language:cpp"),
-        CSHARP("C#", "+language:csharp"),
-        Python("Python", "+language:python"),
-        Ruby("Ruby", "+language:Ruby"),
-        Go("Go", "+language:Go"),
-        PHP("PHP", "+language:PHP"),
-        ASP("ASP", "+language:aspx-vb"),
-        ANDROID("Android", " android+language:java"),
-        WEB("Web", "+language:css+language:html+language:javascript");
 
-        String value;
-        String display;
 
-        Language(String key, String val) {
-            value = val;
-            display = key;
-        }
-
-        public String val() {
-            return value;
-        }
-
-        @Override
-        public String toString() {
-            return val();
-        }
-
-        public static List<String> getDisplayStringList() {
-            List<String> list = new ArrayList<>(18);
-            for (Language lang : Language.values()) {
-                list.add(lang.display);
-            }
-            return list;
-        }
-    }
-
-    public enum LangTrending {
-        ALL("All", ""),
-        JAVA("Java", "java"),
-        CSS("CSS", "css"),
-        HTML("HTML", "html"),
-        JAVASCRIPT("Javascript", "javascript"),
-        OBJECTIVE_C("Objective-C", "objective-c"),
-        SWIFT("Swift", "swift"),
-        SHELL("Shell", "bash"),
-        C("C", "c"),
-        CPP("C++", "cpp"),
-        CSHARP("C#", "csharp"),
-        Python("Python", "python"),
-        Ruby("Ruby", "Ruby"),
-        Go("Go", "go"),
-        PHP("PHP", "PHP"),
-        ASP("ASP", "aspx-vb");
-        String value;
-        String display;
-
-        static String keyInMap = "language";
-
-        public static String key() {
-            return keyInMap;
-        }
-
-        LangTrending(String key, String val) {
-            value = val;
-            display = key;
-        }
-
-        @Override
-        public String toString() {
-            return value;
-        }
-
-        public static List<String> getDisplayStringList() {
-            List<String> list = new ArrayList<>(15);
-            for (LangTrending lang : LangTrending.values()) {
-                list.add(lang.display);
-            }
-            return list;
-        }
-    }
-
-    public enum Since {
-        TODAY("Daily", "daily"),
-        THIS_WEEK("Weekly", "weekly"),
-        THIS_MONTH("Monthly", "monthly");
-
-        private final String display;
-        String value;
-
-        static String keyInMap = "since";
-
-        Since(String key, String val) {
-            value = val;
-            display = key;
-        }
-
-        public static String key() {
-            return keyInMap;
-        }
-
-        @Override
-        public String toString() {
-            return value;
-        }
-
-        public static List<String> getDisplayStringList() {
-            List<String> list = new ArrayList<>(3);
-            for (Since since : Since.values()) {
-                list.add(since.display);
-            }
-            return list;
-        }
-    }
 
 }

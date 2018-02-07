@@ -37,6 +37,11 @@ public class BaseActivityWithLL extends BaseActivity implements MyListener {
     }
 
     @Override
+    protected void initView() {
+
+    }
+
+    @Override
     public void onBackPressed() {
         if (getSupportFragmentManager().findFragmentByTag("fragment_root").getUserVisibleHint()) {
             finish();

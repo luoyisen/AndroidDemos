@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/rela1"
+        android:layout_width="match_parent"
+        android:layout_height="44dp">
+
+        <android.support.v7.widget.SearchView
+            android:id="@+id/searchview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            app:iconifiedByDefault="false"
+            app:queryBackground="@null"
+            app:searchIcon="@null" />
+
+    </RelativeLayout>
+
+    <com.example.i.AndroidDemos.view.widget.viewgroup.TagGroup
+        android:id="@+id/taggrouop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:layout_below="@+id/rela1"
+        app:atg_borderStrokeWidth="5dp"
+        app:atg_pressedBackgroundColor="@color/black" />
+
+    <ListView
+        android:id="@+id/lvSearchHistory"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/taggrouop"
+        android:layout_marginTop="5dp"
+        android:divider="@null"
+        android:scrollbars="none" />
+
+</RelativeLayout>
