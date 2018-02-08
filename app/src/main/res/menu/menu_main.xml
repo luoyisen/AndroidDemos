@@ -3,9 +3,6 @@
     <item
         android:id="@+id/note"
         android:title="@string/笔记和工具" />
-    <item
-        android:id="@+id/huidiao"
-        android:title="@string/回调" />
 
     <item
         android:id="@+id/componentinterreact"

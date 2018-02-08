@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.example.i.AndroidDemos.view.widget.FontTextView
+        style="@style/commontextview"
+        android:layout_marginTop="@dimen/dimen_10dp"
+        android:text="随机生成一个四位数" />
+
+    <com.example.i.AndroidDemos.view.widget.FontTextView
+        android:id="@+id/builder"
+        style="@style/commontextview"
+        android:text="扇形进度盘" />
+
+    <com.example.i.AndroidDemos.view.widget.FontTextView
+        style="@style/commontextview"
+        android:text="时钟" />
+
+    <com.example.i.AndroidDemos.view.widget.FontTextView
+        style="@style/commontextview"
+        android:text="圆角图片" />
+
+    <com.example.i.AndroidDemos.view.widget.FontTextView
+        style="@style/commontextview"
+        android:text="旋转的专辑封面" />
+
+    <com.example.i.AndroidDemos.view.widget.FontTextView
+        style="@style/commontextview"
+        android:text="Material进度条" />
+
+    <com.example.i.AndroidDemos.view.widget.FontTextView
+        style="@style/commontextview"
+        android:text="带数字的进度条" />
+
+    <com.example.i.AndroidDemos.view.widget.FontTextView
+        style="@style/commontextview"
+        android:text="倒计时" />
+
+    <com.example.i.AndroidDemos.view.widget.FontTextView
+        style="@style/commontextview"
+        android:text="3DViewPager(ViewPager)" />
+
+</LinearLayout>

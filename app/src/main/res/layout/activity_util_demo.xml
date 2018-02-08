@@ -7,26 +7,25 @@
     <Button
         android:id="@+id/search_history"
         android:layout_width="wrap_content"
-        android:layout_height="40dp"
+        android:layout_height="30dp"
         android:layout_gravity="center"
+        android:layout_marginBottom="@dimen/dimen_10dp"
+        android:layout_marginTop="@dimen/dimen_10dp"
+        android:background="@drawable/shape_roundedcorner_white"
+        android:paddingEnd="@dimen/dimen_15"
+        android:paddingStart="@dimen/dimen_15"
         android:text="搜索历史" />
 
     <Button
+        android:id="@+id/imagecache"
         android:layout_width="wrap_content"
-        android:layout_height="40dp"
+        android:layout_height="30dp"
         android:layout_gravity="center"
-        android:text="搜索历史" />
+        android:layout_marginBottom="@dimen/dimen_10dp"
+        android:background="@drawable/shape_roundedcorner_white"
+        android:paddingEnd="@dimen/dimen_15"
+        android:paddingStart="@dimen/dimen_15"
+        android:text="图片缓存" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
-        android:layout_gravity="center"
-        android:text="搜索历史" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
-        android:layout_gravity="center"
-        android:text="搜索历史" />
 
 </LinearLayout>

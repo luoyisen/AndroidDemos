@@ -54,10 +54,11 @@ public class ActivitySearchHistoryDemo extends BaseActivity {
     protected void initView() {
         tagGroup.setTags(
                 "Android",
+                "Github",
                 "Java",
                 "Kotlin",
-                "Github",
                 "Stackoverflow",
+                "算法(第四版)",
                 "Java编程思想",
                 "算法导论",
                 "网络是怎样连接的"

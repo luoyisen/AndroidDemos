@@ -32,8 +32,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.example.i.AndroidDemos.ui.activity.CallBackActivity"
-            android:screenOrientation="portrait"/>
         <activity android:name="com.example.i.AndroidDemos.ui.activity.ActivityEventDispatch"
             android:screenOrientation="portrait"/>
         <activity android:name="com.example.i.AndroidDemos.ui.activity.ActivityComponentIntereact"
@@ -60,7 +58,7 @@
         <activity android:name=".ui.activity.ActivityNoteAndTools"
             android:screenOrientation="portrait"/>
         ---------------------------------自定义View----------------------------------
-        <activity android:name=".view.widget.ActivityCustomizedView"
+        <activity android:name=".ui.activity.ActivityCustomizedView"
             android:screenOrientation="portrait"/>
         ---------------------------------Android_architecture------------------------
         <activity android:name=".ui.activity.ActivityArchitecture"
@@ -81,6 +79,8 @@
         <activity android:name=".ui.activity.ActivityAlgorithm2" />
         <activity android:name=".ui.activity.ActivityUtilDemo" />
         <activity android:name=".ui.activity.ActivitySearchHistoryDemo" />
+        <activity android:name=".ui.activity.ActivityJavaDesignPattern" />
+        <activity android:name=".ui.activity.datastructure.ActivityHashMap" />
 
     </application>
 

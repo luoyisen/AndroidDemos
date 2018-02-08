@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.example.i.AndroidDemos.view.widget.FontTextView
+        android:id="@+id/set"
+        style="@style/commontextview"
+        android:layout_marginTop="@dimen/dimen_10dp"
+        android:text="Set" />
+
+    <com.example.i.AndroidDemos.view.widget.FontTextView
+        android:id="@+id/hashset"
+        style="@style/commontextview"
+        android:text="Hashset" />
+
+    <com.example.i.AndroidDemos.view.widget.FontTextView
+        android:id="@+id/list"
+        style="@style/commontextview"
+        android:text="List" />
+
+    <com.example.i.AndroidDemos.view.widget.FontTextView
+        android:id="@+id/arraylist"
+        style="@style/commontextview"
+        android:text="ArrayList" />
+
+    <com.example.i.AndroidDemos.view.widget.FontTextView
+        android:id="@+id/linkedlist"
+        style="@style/commontextview"
+        android:text="LinkedList" />
+
+    <com.example.i.AndroidDemos.view.widget.FontTextView
+        android:id="@+id/linkedarraylist"
+        style="@style/commontextview"
+        android:text="LinkedArrayList" />
+
+    <com.example.i.AndroidDemos.view.widget.FontTextView
+        android:id="@+id/map"
+        style="@style/commontextview"
+        android:text="Map" />
+
+    <com.example.i.AndroidDemos.view.widget.FontTextView
+        android:id="@+id/hashmap"
+        style="@style/commontextview"
+        android:text="HashMap" />
+
+    <com.example.i.AndroidDemos.view.widget.FontTextView
+        android:id="@+id/linkedhashmap"
+        style="@style/commontextview"
+        android:text="LinkedHashMap" />
+
+
+</LinearLayout>

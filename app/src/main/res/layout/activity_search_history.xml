@@ -14,6 +14,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
+            android:paddingLeft="@dimen/dimen_5dp"
             app:iconifiedByDefault="false"
             app:queryBackground="@null"
             app:searchIcon="@null" />
@@ -24,8 +25,8 @@
         android:id="@+id/taggrouop"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="15dp"
         android:layout_below="@+id/rela1"
+        android:layout_margin="15dp"
         app:atg_borderStrokeWidth="5dp"
         app:atg_pressedBackgroundColor="@color/black" />
 

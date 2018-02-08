@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:custom="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/drawerlayoutmain"
     android:layout_width="match_parent"
@@ -64,12 +63,19 @@
         <com.example.i.AndroidDemos.view.widget.viewgroup.TagGroup
             android:id="@+id/taggrouop"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_above="@+id/linermain"
+            android:layout_height="100dp"
             android:layout_below="@+id/toolabr_main"
             app:atg_borderStrokeWidth="5dp"
             app:atg_checkedBackgroundColor="#ff0000"
-            app:atg_pressedBackgroundColor="@color/black"/>
+            app:atg_pressedBackgroundColor="@color/black" />
+
+        <com.example.i.AndroidDemos.view.widget.AutoTypefaceTextView
+            android:id="@+id/dfafdaf"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/taggrouop"
+            android:layout_marginTop="50dp"
+            app:text_auto="eveything 一切 will 都会 be 好 ok 起来的!" />
 
         <!--<com.example.i.AndroidDemos.view.widget.CanBeBannedViewPager-->
         <!--android:id="@+id/pager_main"-->

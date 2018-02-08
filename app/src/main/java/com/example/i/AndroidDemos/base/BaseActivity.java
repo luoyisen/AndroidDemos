@@ -16,6 +16,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(setLayoutResourceId());
+        getWindow().setBackgroundDrawable(null);
         ButterKnife.bind(this);
         initView();
 

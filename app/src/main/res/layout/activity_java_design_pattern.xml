@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.example.i.AndroidDemos.view.widget.FontTextView
+        android:id="@+id/singleton"
+        style="@style/commontextview"
+        android:layout_marginTop="@dimen/dimen_10dp"
+        android:text="单例模式" />
+
+    <com.example.i.AndroidDemos.view.widget.FontTextView
+        android:id="@+id/builder"
+        style="@style/commontextview"
+        android:text="Builder模式" />
+
+    <com.example.i.AndroidDemos.view.widget.FontTextView
+        android:id="@+id/observer"
+        style="@style/commontextview"
+        android:text="观察者模式" />
+
+</LinearLayout>

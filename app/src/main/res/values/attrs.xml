@@ -33,28 +33,28 @@
         <attr name="draw_text" format="string" />
     </declare-styleable>
     <declare-styleable name="ProgressBarWithNumber">
-        <attr name="progress_current" format="integer"/>
-        <attr name="progress_max" format="integer"/>
+        <attr name="progress_current" format="integer" />
+        <attr name="progress_max" format="integer" />
 
-        <attr name="progress_unreached_color" format="color"/>
-        <attr name="progress_reached_color" format="color"/>
+        <attr name="progress_unreached_color" format="color" />
+        <attr name="progress_reached_color" format="color" />
 
-        <attr name="progress_reached_bar_height" format="dimension"/>
-        <attr name="progress_unreached_bar_height" format="dimension"/>
+        <attr name="progress_reached_bar_height" format="dimension" />
+        <attr name="progress_unreached_bar_height" format="dimension" />
 
-        <attr name="progress_text_size" format="dimension"/>
-        <attr name="progress_text_color" format="color"/>
+        <attr name="progress_text_size" format="dimension" />
+        <attr name="progress_text_color" format="color" />
 
-        <attr name="progress_text_offset" format="dimension"/>
+        <attr name="progress_text_offset" format="dimension" />
 
         <attr name="progress_text_visibility" format="enum">
-            <enum name="visible" value="0"/>
-            <enum name="invisible" value="1"/>
+            <enum name="visible" value="0" />
+            <enum name="invisible" value="1" />
         </attr>
     </declare-styleable>
 
     <declare-styleable name="Themes">
-        <attr name="numberProgressBarStyle" format="reference"/>
+        <attr name="numberProgressBarStyle" format="reference" />
         <attr name="tagGroupStyle" format="reference" />
 
     </declare-styleable>
@@ -88,4 +88,7 @@
         <attr name="atg_verticalPadding" format="dimension" />
     </declare-styleable>
 
+    <declare-styleable name="AutoTypefaceTextView">
+        <attr name="text_auto" format="string" />
+    </declare-styleable>
 </resources>

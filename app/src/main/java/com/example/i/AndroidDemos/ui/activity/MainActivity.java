@@ -21,7 +21,6 @@ import com.example.i.AndroidDemos.main.AccountPrefs;
 import com.example.i.AndroidDemos.ui.dialogfragment.DialogFragmentLogin;
 import com.example.i.AndroidDemos.util.DisplayMetricsConvert;
 import com.example.i.AndroidDemos.util.Note;
-import com.example.i.AndroidDemos.view.widget.ActivityCustomizedView;
 import com.example.i.AndroidDemos.view.widget.viewgroup.TagGroup;
 
 import java.util.List;
@@ -153,10 +152,6 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                     case R.id.note:
                         startActivity(new Intent(MainActivity.this, ActivityNoteAndTools.class));
                         break;
-                    case R.id.huidiao:
-                        startActivity(new Intent(MainActivity.this, CallBackActivity.class));
-                        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
-                        break;
                     case R.id.componentinterreact:
                         startActivity(new Intent(MainActivity.this, ActivityComponentIntereact.class));
                         break;
@@ -186,6 +181,9 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                         break;
                     case R.id.utilDemo:
                         startActivity(new Intent(MainActivity.this, ActivityUtilDemo.class));
+                        break;
+                    case R.id.javaDesignPattern:
+                        startActivity(new Intent(MainActivity.this, ActivityJavaDesignPattern.class));
                         break;
 
                 }

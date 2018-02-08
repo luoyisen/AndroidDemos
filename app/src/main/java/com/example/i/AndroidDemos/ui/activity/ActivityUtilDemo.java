@@ -24,11 +24,14 @@ public class ActivityUtilDemo extends BaseActivity {
         return R.layout.activity_util_demo;
     }
 
-    @OnClick({R.id.search_history})
+    @OnClick({R.id.search_history, R.id.imagecache})
     public void onButtonClick(View view) {
         switch (view.getId()) {
             case R.id.search_history:
-                startActivity(new Intent(this,ActivitySearchHistoryDemo.class));
+                startActivity(new Intent(this, ActivitySearchHistoryDemo.class));
+                break;
+            case R.id.imagecache:
+                startActivity(new Intent(this, ActivitySearchHistoryDemo.class));
                 break;
         }
     }
