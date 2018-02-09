@@ -20,7 +20,7 @@ import java.util.regex.Pattern;
 public class AutoTypefaceTextView extends AppCompatTextView {
     private TextPaint letterTextPaint;
     private TextPaint chineseTextPaint;
-    private int textsize = 70;
+    private int textsize = 150;
 
     private float letterBaseY;
     private float letterTranslate;
@@ -29,6 +29,10 @@ public class AutoTypefaceTextView extends AppCompatTextView {
     private String textToBeDrawn;
     private float calculatedLineWidth;
     private float calculatedCharWidth;
+
+    float calculatedWidth = 1.0f;
+    float calculatedHeight = 0.0f;
+    float textHeight;
 
     public AutoTypefaceTextView(Context context) {
         this(context, null);
@@ -47,17 +51,32 @@ public class AutoTypefaceTextView extends AppCompatTextView {
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
         init();
+
+        int widthMode = MeasureSpec.getMode(widthMeasureSpec);
+        int widthSize = MeasureSpec.getSize(widthMeasureSpec);
+        int heightMode = MeasureSpec.getMode(heightMeasureSpec);
+        int heightSize = MeasureSpec.getSize(heightMeasureSpec);
+
+        if (widthMode == MeasureSpec.AT_MOST && heightMode == MeasureSpec.AT_MOST) {
+            setMeasuredDimension((int) calculatedWidth, (int) calculatedHeight);
+            // 宽 / 高任意一个模式为AT_MOST（即wrap_content）时，都设置默认值
+        } else if (widthMode == MeasureSpec.AT_MOST) {
+            setMeasuredDimension((int) calculatedWidth, heightSize);
+        } else if (heightMode == MeasureSpec.AT_MOST) {
+            setMeasuredDimension(widthSize, (int) calculatedHeight);
+        } else {
+            setMeasuredDimension(widthSize, heightSize);
+        }
     }
 
-    private void init() {
+    @Override
+    protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         //绘制中文的TextPaint
         chineseTextPaint = new TextPaint();
         TypefaceHelper.applyChineseTypefaceForTextPaint(chineseTextPaint);
         chineseTextPaint.setAntiAlias(true);
         chineseTextPaint.setTextSize(textsize);
-
 
         //绘制字母的TextPaint
         letterTextPaint = new TextPaint();
@@ -67,9 +86,15 @@ public class AutoTypefaceTextView extends AppCompatTextView {
 
         Paint.FontMetrics fontMetrics = letterTextPaint.getFontMetrics();
         float i = fontMetrics.bottom - fontMetrics.top;
-        letterBaseY = (int) ((i / 2) - ((letterTextPaint.descent() + letterTextPaint.ascent()) / 2));
+        textHeight = i + 0;
+        letterBaseY = (int) ((textHeight / 2) - ((letterTextPaint.descent() + letterTextPaint.ascent()) / 2));
 
         chineseTranslate = chineseTextPaint.measureText("我");
+        calculatedHeight = textHeight;
+    }
+
+    private void init() {
+
 
     }
 
@@ -83,16 +108,27 @@ public class AutoTypefaceTextView extends AppCompatTextView {
                     String.valueOf(textToBeDrawn.charAt(i))).find()) {
                 canvas.drawText(s, 0, letterBaseY, chineseTextPaint);
                 canvas.translate(chineseTranslate, 0);
+                calculatedWidth += chineseTranslate;
                 calculatedLineWidth += chineseTranslate;
-                if(calculatedLineWidth > getMeasuredWidth()){
-
+                if (calculatedLineWidth > 600) {
+                    calculatedHeight += textHeight;
                 }
-
             } else {
                 canvas.drawText(s, 0, letterBaseY, letterTextPaint);
                 calculatedCharWidth = letterTextPaint.measureText(s);
                 canvas.translate(calculatedCharWidth, 0);
+                calculatedWidth += calculatedCharWidth;
                 calculatedLineWidth += calculatedCharWidth;
+
+                if (calculatedLineWidth > 600) {
+                    calculatedHeight += textHeight;
+                }
+            }
+
+            if (i == textToBeDrawn.length()) {
+                calculatedWidth = 10.0f;
+                calculatedHeight = 0.0f;
+                invalidate();
             }
         }
     }

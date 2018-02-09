@@ -69,13 +69,20 @@
             app:atg_checkedBackgroundColor="#ff0000"
             app:atg_pressedBackgroundColor="@color/black" />
 
-        <com.example.i.AndroidDemos.view.widget.AutoTypefaceTextView
-            android:id="@+id/dfafdaf"
-            android:layout_width="200dp"
-            android:layout_height="50dp"
-            android:layout_below="@+id/taggrouop"
-            android:layout_marginTop="50dp"
-            app:text_auto="eveything 一切 will 都会 be 好 ok 起来的!" />
+        <RelativeLayout
+            android:id="@+id/reladfasd"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/taggrouop">
+
+            <com.example.i.AndroidDemos.view.widget.AutoTypefaceTextView
+                android:id="@+id/dfafdaf"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                app:text_auto="eveything一切willbe都会ok好起来的!" />
+        </RelativeLayout>
+
 
         <!--<com.example.i.AndroidDemos.view.widget.CanBeBannedViewPager-->
         <!--android:id="@+id/pager_main"-->
