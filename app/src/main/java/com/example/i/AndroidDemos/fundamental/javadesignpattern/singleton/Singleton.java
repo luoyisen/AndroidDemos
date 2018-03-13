@@ -1,4 +1,4 @@
-package com.example.i.AndroidDemos.fundamental.javadesignpattern;
+package com.example.i.AndroidDemos.fundamental.javadesignpattern.singleton;
 
 import android.util.Log;
 

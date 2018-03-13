@@ -20,7 +20,7 @@ import java.util.regex.Pattern;
 public class AutoTypefaceTextView extends AppCompatTextView {
     private TextPaint letterTextPaint;
     private TextPaint chineseTextPaint;
-    private int textsize = 150;
+    private int textsize = 50;
 
     private float letterBaseY;
     private float letterTranslate;

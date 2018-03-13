@@ -185,6 +185,9 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                     case R.id.javaDesignPattern:
                         startActivity(new Intent(MainActivity.this, ActivityJavaDesignPattern.class));
                         break;
+                    case R.id.Tech:
+                        startActivity(new Intent(MainActivity.this, Activity_Tech.class));
+                        break;
 
                 }
                 drawerLayout.closeDrawer(Gravity.START);

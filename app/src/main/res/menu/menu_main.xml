@@ -37,4 +37,7 @@
     <item
         android:id="@+id/javaDesignPattern"
         android:title="@string/javadesignpattern" />
+    <item
+        android:id="@+id/Tech"
+        android:title="@string/Tech" />
 </menu>
